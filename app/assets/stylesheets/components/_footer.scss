@@ -1,0 +1,55 @@
+  .footer {
+
+    background-size: cover;
+    background-image: asset-url("footer.svg") ;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 200px;
+
+    margin-bottom: -46px
+  }
+
+.display{
+  display: flex;
+   justify-content: space-around;
+  align-items: center;
+
+
+}
+
+.contact-us{
+  display: inline-block;
+  list-style-type: none;
+
+}
+.icon {
+  color:white;
+}
+
+a{
+ color:white;
+}
+
+p{
+ color:white;
+   font-family: 'BernierDistressed';
+
+}
+
+.footer-social-icons {
+  margin-left: 10px;
+}
+
+.footer-social-list {
+  margin-bottom: 0px;
+}
+
+.logo {
+  margin: 0px;
+}
+
+.copy-rights {
+  margin: 0px;
+}

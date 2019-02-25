@@ -1,10 +1,23 @@
 // Import Google fonts
+@font-face {
+  font-family: 'BernierDistressed';
+  src: url('/assets/bernierdistressed-regular-webfont.ttf') ;
+}
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
 
+@font-face {
+  font-family: 'Acid';
+  src: url('/assets/acid.ttf') ;
+}
+@font-face {
+  font-family: 'Bell';
+  src: url('/assets/Bell-Centennial-Std-Address.ttf') ;
+}
 // Define fonts for body and headers
-$body-font: "Open Sans", "Helvetica", "sans-serif";
-$headers-font: "Raleway", "Helvetica", "sans-serif";
-
+$body-font: "Acid", "Helvetica", "sans-serif";
+$headers-font: "BernierDistressed", "Helvetica", "sans-serif";
+$navbar-font: "BernierDistressed";
+$text-font:"bell"
 // To use a font file (.woff) uncomment following lines
 // @font-face {
 //   font-family: "Font Name";
@@ -14,3 +27,4 @@ $headers-font: "Raleway", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
