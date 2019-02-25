@@ -9,10 +9,15 @@
   font-family: 'Acid';
   src: url('/assets/acid.ttf') ;
 }
+@font-face {
+  font-family: 'Bell';
+  src: url('/assets/Bell-Centennial-Std-Address.ttf') ;
+}
 // Define fonts for body and headers
 $body-font: "Acid", "Helvetica", "sans-serif";
 $headers-font: "BernierDistressed", "Helvetica", "sans-serif";
-
+$navbar-font: "BernierDistressed";
+$text-font:"bell"
 // To use a font file (.woff) uncomment following lines
 // @font-face {
 //   font-family: "Font Name";
@@ -22,6 +27,4 @@ $headers-font: "BernierDistressed", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
-
-
 

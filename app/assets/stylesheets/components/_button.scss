@@ -1,0 +1,31 @@
+.black-button-tumble {
+    padding: 4px 21px;
+    border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+    border: 3px solid black;
+    font-family:$navbar-font;
+    font-size: 20px;
+    border-color: #1D1D1B;
+    font-family: BERNIERDistressed;
+    color: #1D1D1B;
+    opacity: 0.9;
+    &:hover{
+      text-decoration: none;
+       color:rgba(0,0,0,0.7);
+    }
+ }
+
+.white-button-tumble {
+    padding: 4px 21px;
+    border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+    border: 3px solid black;
+    font-family:$navbar-font;
+    font-size: 20px;
+    border-color: white;
+    font-family: BERNIERDistressed;
+    color: white;
+    opacity: 0.9;
+    &:hover{
+      text-decoration: none;
+       color:rgba(225,225,225,0.2);
+    }
+ }
