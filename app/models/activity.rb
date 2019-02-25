@@ -1,4 +1,5 @@
 class Activity < ApplicationRecord
+  belongs_to :category
   has_many :bookings
   has_many :users, through: :bookings, source: :user
 
