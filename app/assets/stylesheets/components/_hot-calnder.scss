@@ -1,29 +1,56 @@
-
+.hot_and_ternding{
+      margin-top: 88px;
+}
 
 .calendar {
   h2{
 
     text-align: center;
-    font-size: 50px;
+    font-size: 44px;
     color: black;
     font-weight: 400;
-    top: 37%;
-    left: 16%;
+    top: 40%;
+    left: 20%;
     text-align:center;
     position: absolute;
     background-color:white;
-      border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+    border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
     text-decoration: none;
+    mix-blend-mode:overlay;
+    text-align:center;
+  }
+   .date-style{
 
-  overflow: hidden;
-  text-overflow: ellipsis;
+    text-align: center;
+    font-size: 32px;
+    color:white;
+    font-weight: 400;
+    top: 28%;
+    left: 15%;
+    text-align:center;
+    position: absolute;
+    text-decoration: none;
+    text-align:center;
+  }
+   .location-style{
 
+    text-align: center;
+    font-size: 67px;
+    color:white;
+    font-weight: 400;
+    top: 7%;
+    left: 14%;
+    text-align:center;
+    position: absolute;
+    text-decoration: none;
+    text-align:center;
   }
 }
 
 .calender-image{
   position:absolute;
-  width: 500px;
+  width: 528px;
+  height: 444px;
   .calender-hot{
   display: flex;
   justify-content: space-around !important;
@@ -34,7 +61,7 @@
 .container-calender {
     width: 70%;
     max-width: 1440px;
-    height: 500px;
+    height: 444px;
     margin-left: auto;
     margin-right: auto;
     position:relative;
@@ -52,6 +79,20 @@
 .centerd{
     position: absolute;
     top: 73%;
-    left: 20%;
+    left: 25%;
     transform: translate(-50%,-50%);
+}
+
+.calender-description p{
+    color: white;
+    font-family: 'BernierDistressed';
+    position: absolute;
+    font-size:27;
+    width: 40%;
+    text-align: justify;
+    text-justify: inter-word;
+     top: 37%;
+    left: 57%;
+    font-family: $text-font;
+    line-height: 1.6;
 }
