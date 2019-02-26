@@ -5,4 +5,4 @@ import { initMapbox } from '../plugins/init_mapbox';
 
 initMapbox();
 
-balapaCop("Bouncing Profile Card", "rgba(255,255,255,.5)");
+// balapaCop("Bouncing Profile Card", "rgba(255,255,255,.5)");
