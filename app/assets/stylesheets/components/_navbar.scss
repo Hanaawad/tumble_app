@@ -6,8 +6,6 @@
   height: 70px;
   width: 100%;
   padding: 0px 30px;
-
-  display: flex;
   align-items: center;
   justify-content: space-around !important;
   font-family:$navbar-font;
@@ -16,13 +14,12 @@
 .banner-logo{
 opacity:0.7;
  display: block;
-    margin-left: auto;
-    margin-right: auto;
+margin-left: auto;
+margin-right: auto;
+  display: flex;
+  justify-content: center;
 
-display: flex;
-  justify-content: space-around;
-
-
+   padding-top: 22px;
 
 }
 
@@ -40,19 +37,14 @@ display: flex;
   height: 50px;
 }
 
-/* User Avatar */
-.navbar-wagon .avatar {
-  height: 35px;
-  width: 35px;
-  border-radius: 50%;
-
-}
 .style-nav-bar{
   display: flex;
   align-items: center;
   justify-content: space-between;
   list-style-type: none;
-  margin: 0;
+
+  margin-left: auto;
+margin-right: auto;
   padding: 0;
   font-size: 20px;
   text-decoration:none;
@@ -64,11 +56,13 @@ display: flex;
   margin-left: 60px;
   font-size:20px;
 
+
 }
 
 .display-inline {
   display: inline-block !important;
-      margin-top: 164px;
+          margin-top: 49px;
+
 }
 
 .style-navbar{
@@ -82,17 +76,7 @@ display: flex;
   }
 }
 /* Right section */
-.navbar-wagon-right {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  list-style-type: none;
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-    text-decoration:none;
 
-}
 
 /* Basic navbar item */
 .navbar-wagon-item {
@@ -151,9 +135,9 @@ background-color:transparent;
 }
 
 a.monkeypants{
-      color: white;
+    color: white;
     font-size: 20px;
-      list-style-type: none;
+    list-style-type: none;
 
     text-decoration:none;
     &:hover{
@@ -162,4 +146,8 @@ a.monkeypants{
 }
 
 
+.navbar-wagon-right {
 
+    align-items: center;
+    justify-content: center;
+    display: flex;}
