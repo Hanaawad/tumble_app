@@ -33,8 +33,8 @@ padding-top:20px;
 }
 .card:hover .info {
   opacity: 1;
-  -webkit-transform: translateY(0px);
-          transform: translateY(0px);
+  -webkit-transform: translateY(30px);
+          transform: translateY(30px);
 }
 .card:before {
   content: "";
@@ -65,8 +65,7 @@ padding-top:20px;
   z-index: 3;
   color: white;
   opacity: 0;
-  -webkit-transform: translateY(30px);
-          transform: translateY(30px);
+
   transition: 0.5s;
 }
 .card .info  h2 a {
