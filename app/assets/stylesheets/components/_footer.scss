@@ -1,12 +1,12 @@
   .footer {
 
     background-size: cover;
-    background-image: asset-url("footer.svg") ;
+    background-image: asset-url("footer.png") ;
 
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 200px;
+    height: 150px;
 
     margin-bottom: -46px
   }

@@ -9,16 +9,16 @@
 
   margin-top:50px;
   margin-right: 50px;
-     width: 300px;
-    height: 300px;
-  border-radius: 15px;
+     width: 180px;
+    height: 180px;
+  border-radius: 9px;
   padding: 1.5rem;
   background: white;
   position: relative;
   display: flex;
   align-items: flex-end;
   transition: 0.4s ease-out;
-  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.1);
 
 }
 .card:hover {
@@ -78,7 +78,7 @@
   letter-spacing: 1px;
   font-size: 15px;
   margin-top: 8px;
-  font-size:Roboto;
+
   color:white;
 }
 .card .info button {
@@ -108,5 +108,14 @@ margin-top:40%;
 
 }
 
+
+
+// path {
+//   fill: transparent;
+// }
+
+// text {
+//   fill: #FF9800;
+// }
 
 
