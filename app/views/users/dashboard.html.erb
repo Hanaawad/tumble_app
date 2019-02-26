@@ -1,0 +1,14 @@
+<h1>Upcoming adventures</h1>
+<% @bookings.each do |booking| %>
+  <h2><%= booking.activity.name %></h2>
+  <h3>Min limit is <%= booking.activity.min_limit %></h3>
+  <h3>Max limit is <%= booking.activity.max_limit %></h3>
+  <h4>Current amount of members is <%= booking.activity.users.count %></h3>
+  <%= booking.activity.description %>
+  <%= booking.activity.start_date %>
+  <%= booking.activity.end_date %>
+  <%= booking.activity.activation_date %>
+  <%= booking.activity.location %>
+  <%= booking.activity.photo %>
+  <%= link_to "Remove", activity_booking_path(booking.activity, booking), method:"delete" %>
+<% end %>

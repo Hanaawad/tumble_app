@@ -1,29 +1,19 @@
 class BookingsController < ApplicationController
   before_action :set_activity, except: :index
-  before_action :set_booking, only: [ :edit, :update, :destroy ]
-
-  def new
-    @booking = Booking.new
-  end
+  before_action :set_booking, only: [ :destroy ]
 
   def create
-    @booking = Booking.new(booking_params)
-    @booking.activity = @activity
-    @booking.user = current_user
+    @booking = Booking.new(user_id: current_user.id, activity_id: @activity.id)
     @booking.save
-    redirect_to activities_path
+    redirect_to dashboard_path(current_user)
   end
 
   def destroy
     @booking.destroy
-    redirect_to activities_path
+    redirect_to dashboard_path(current_user)
   end
 
   private
-
-  def booking_params
-    params.require(:booking).permit()
-  end
 
   def set_booking
     @booking = Booking.find(params[:id])
