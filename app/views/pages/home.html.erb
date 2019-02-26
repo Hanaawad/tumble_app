@@ -5,25 +5,34 @@
         <h1>lets get ready to tumble</h1>
       </div>
     </div>
-    <div class="button-discover">
-      <div>
-
-      </div>
-    </div>
   </div>
-
 <div class="container">
       <div class="home-search ">
         <h1>Find your next activity</h1>
-
+        <p  class="searchbar">search</p>
       </div>
 </div>
-  <%= render 'shared/cards' %>
-  <%= render 'shared/hot&trending' %>
-<div>
 
+
+  <div class="home-search ">
+       <h1>Explore tumble activities</h1>
+      </div>
+<div class="map-cards-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.5) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1444210971048-6130cf0c46cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);">
+  <div adjust-card>
+    <%= render 'shared/cards' %>
+  </div>
 </div>
 
-        <a class="black-button-tumble" href="#">Book Now</a>
-        <a class="white-button-tumble" href="#">Book Now</a>
+<%= render 'shared/hot&trending' %>
 
+<div class="scrape-pictures">
+  <h1>Scrapebook</h1>
+  <div class="grid-container">
+    <div class="item-1"></div>
+    <div class="item-2"></div>
+    <div class="item-3"></div>
+    <div class="item-4"></div>
+    <div class="item-5"></div>
+    <div class="item-6"></div>
+  </div>
+</div>
