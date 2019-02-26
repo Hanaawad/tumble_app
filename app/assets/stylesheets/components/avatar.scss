@@ -2,11 +2,14 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300);
 html {
   height: 100%;
-  background: #3498db;
+  background: white;
 }
 
-.avatar-container {
-
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 .insta-icon {

@@ -3,7 +3,13 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @activities = Activity.all
+    @activities = Activity.where.not(latitude: nil, longitude: nil)
+    @markers = @activities.map do |activity|
+      {
+        lng: activity.longitude,
+        lat: activity.latitude
+      }
+    end
   end
 
   def show
