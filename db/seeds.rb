@@ -1,4 +1,9 @@
 require "date"
+p "cleaning database"
+Booking.delete_all
+User.delete_all
+Activity.delete_all
+Category.delete_all
 
 p "creating 10 detailed users"
 p "user 1"
