@@ -1,18 +1,16 @@
-
 <div class=" container ">
   <div class="card-wrapper">
     <div class="row">
-      <% %>
+       <% @activities.each do |activity| %>
        <div class="col-xs-12  col-md-4 col-sm-6 ">
-        <div class="card"><%= %>
-
-         <h2>adventure name</h2>
+        <div class="card">
+          <%= cl_image_tag(activity.photo, crop: :fill) %>
           <div class="info">
-            <h2 ><%= %></h2>
+           <h2 ><%=link_to activity.name, activity_path(activity) ,:class => "type"%></h2>
           </div>
         </div>
       </div>
-    <%%>
+    <% end %>
     </div>
   </div>
 </div>

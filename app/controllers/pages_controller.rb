@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @most_recent_activity = Activity.order("activation_date").first
+    @activities = Activity.all
   end
 
   def search

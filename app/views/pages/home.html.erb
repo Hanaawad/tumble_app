@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.5) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1444210971048-6130cf0c46cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);">
+<div class="banner" style="background-image:linear-gradient(-225deg, rgba(243, 241, 241, 0.9) 0%, rgba(232, 226, 179, 0.1) 90%), url(https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);">
     <div class="slogen">
       <div>
 
@@ -17,22 +17,11 @@
   <div class="home-search ">
        <h1>Explore tumble activities</h1>
       </div>
-<div class="map-cards-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.5) 0%, rgba(0,36,61,0.6) 50%), url('https://images.unsplash.com/photo-1444210971048-6130cf0c46cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);">
+<div class="map-cards-banner" style="background-image: linear-gradient(-225deg, rgba(225,225,225,0.01) 0%, rgba(225,225,225,0.01) 50%), url(<%= image_path 'worldmap.svg' %>);">
   <div adjust-card>
-    <%= render 'shared/cards' %>
   </div>
+    <%= render 'shared/cards' %>
 </div>
 
 <%= render 'shared/hot&trending' %>
-
-<div class="scrape-pictures">
-  <h1>Scrapebook</h1>
-  <div class="grid-container">
-    <div class="item-1"></div>
-    <div class="item-2"></div>
-    <div class="item-3"></div>
-    <div class="item-4"></div>
-    <div class="item-5"></div>
-    <div class="item-6"></div>
-  </div>
-</div>
+<%= render 'shared/scrapebookhomepage' %>
