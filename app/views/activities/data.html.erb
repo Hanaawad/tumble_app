@@ -1,0 +1,54 @@
+<%= @activity.name %>
+<%= @activity.description %>
+<%= @activity.start_date %>
+<%= @activity.end_date %>
+<%= @activity.activation_date %>
+<%= @activity.location %>
+<%= @activity.photo %>
+<%= link_to "Join group", activity_bookings_path(@activity), method:"post" %>
+
+<h1>minimum limit: <%= @activity.min_limit %> members</h1>
+<h1>maximum limit: <%= @activity.max_limit %> members</h1>
+<h1>current number of members: <%= @activity.users.count %> members</h1>
+
+<h2>current members</h2>
+
+<div class="avatar-wrapper">
+  <% @activity.users.each do |user| %>
+    <aside class="profile-card">
+    <header>
+      <!-- here’s the avatar -->
+      <a href="http://themeforest.net/user/balapa">
+        <%= cl_image_tag(user.photo, crop: :fill) %>
+      </a>
+      <!-- the username -->
+      <h1><%= user.name %> <%= user.surname %></h1>
+      <h2><%= user.age %> years old</h2>
+    </header>
+    <!-- bit of a bio; who are you? -->
+    <div class="profile-bio">
+      <p><%= user.description %></p>
+    </div>
+    <!-- some social links to show off -->
+      <ul class="profile-social-links">
+        <!-- twitter - el clásico  -->
+        <li>
+          <a href="https://twitter.com/balapa95">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/social-twitter.svg">
+          </a>
+        </li>
+        <li>
+          <div class="facebook-icon">
+            <i class="fab fa-facebook-square"></i>
+          </div>
+        </li>
+        <li>
+          <div class="insta-icon">
+            <i class="fab fa-instagram"></i>
+          </div>
+        </li>
+      </ul>
+    </aside>
+  <% end %>
+</div>
+
