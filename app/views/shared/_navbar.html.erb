@@ -15,8 +15,8 @@
 
       <!-- Links when logged in -->
       <%= link_to "Explore", activities_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Dashboard", dashboard_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Dashboard", bookings_dashboard_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "My scrapebook", reviews_dashboard_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -56,7 +56,7 @@
         </div>
        <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "monkeypants" %>
         <%= link_to "Explore", activities_path, class: "monkeypants" %>
-       <%= link_to "Contact", "#", class: "monkeypants" %>
+       <%= link_to "Scrapebook", scrapebook_path, class: "monkeypants" %>
          </div>
       <% end %>
      </div>

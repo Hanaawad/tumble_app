@@ -14,7 +14,6 @@ class ActivitiesController < ApplicationController
       end
     elsif params["category"].present?
       @activities = Activity.all.where(category_id: Category.find_by_name(params["category"]).id)
-
     else
       @activities = Activity.where.not(latitude: nil, longitude: nil)
       @markers = @activities.map do |activity|
