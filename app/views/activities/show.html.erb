@@ -11,13 +11,13 @@
     <div class="body-left">
       <div class="sketchy">
          <h1><%= @activity.name %></h1>
-          <p>  <%= @activity.description%></p>
-          <p><%= @activity.start_date %> - <%= @activity.end_date %></p>
-          <p> Activation date: <%= @activity.activation_date %></p>
-          <p><%= @activity.location %></p>
-          <p>minimum limit: <%= @activity.min_limit %> members</p>
-          <p>maximum limit: <%= @activity.max_limit %> members</p>
-          <p>current number of members: <%= @activity.users.count %> members</p>
+          <p>  <i class="fas fa-caret-right icon-color"></i> <%= @activity.description%></p>
+          <p class="indent">- <%= @activity.start_date %> - <%= @activity.end_date %></p>
+          <p class="indent">- Activation date: <%= @activity.activation_date %></p>
+          <p class="indent">- <%= @activity.location %></p>
+          <p class="indent">- minimum limit: <%= @activity.min_limit %> members</p>
+          <p class="indent">- maximum limit: <%= @activity.max_limit %> members</p>
+          <p class="indent">- current number of members: <%= @activity.users.count %> members</p>
           <%= link_to "Join group", activity_bookings_path(@activity), method:"post" ,class:'black-button-tumble' %>
        <!--    <p>current members</p>
  -->
@@ -40,6 +40,7 @@
         <div class="page2"></div>
         <div class="page1"></div>
         <div class="front"style="background-image: linear-gradient(-225deg, rgba(225,225,225,0) 0%, rgba(225,225,225,0) 100%), url(<%= image_path 'worldmap.svg' %>);" class ="adjustsize">
+          <h1>reviews</h1>
         </div>
       </div>
     </div>
