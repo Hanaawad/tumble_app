@@ -118,3 +118,36 @@
 .book:hover .back {
   transform: rotateY(-20deg) scale(1.1);
 }
+
+
+body-left{
+    padding: 2rem;
+    background:#222220;
+}
+
+.sketchy {
+
+}
+.show-description{
+  display:flex;
+justify-content: space-between;
+  align-items: center;
+  width:50%;
+   padding: 4px 34px;
+    border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+    border: 3px solid black;
+        padding-bottom: 27px;
+  h1{
+    font-size:20px;
+    text-align: center;
+  }
+  p{
+    font-size:14px;
+  color:black;
+  font-family:$text-font;
+  }
+}
+
+.container {
+  padding-top: 73px;
+}
