@@ -3,12 +3,23 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @activities = Activity.where.not(latitude: nil, longitude: nil)
-    @markers = @activities.map do |activity|
-      {
-        lng: activity.longitude,
-        lat: activity.latitude
-      }
+    if params[:query].present?
+      sql_query = "location ILIKE :query"
+      @activities = Activity.all.where(sql_query, query: "%#{params[:query]}%")
+      @markers = @activities.map do |activity|
+        {
+          lng: activity.longitude,
+          lat: activity.latitude
+        }
+      end
+    else
+      @activities = Activity.where.not(latitude: nil, longitude: nil)
+      @markers = @activities.map do |activity|
+        {
+          lng: activity.longitude,
+          lat: activity.latitude
+        }
+      end
     end
   end
 

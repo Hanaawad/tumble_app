@@ -9,7 +9,15 @@
 <div class="container">
       <div class="home-search ">
         <h1>Find your next activity</h1>
-        <p  class="searchbar">search</p>
+        <p  class="searchbar">
+          <%= form_tag activities_path, method: :get do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control", id:"search-input",
+              placeholder: "Find activities at your next destination"
+            %>
+          <% end %>
+        </p>
       </div>
 </div>
 
@@ -17,7 +25,7 @@
   <div class="home-search ">
        <h1>Explore tumble activities</h1>
       </div>
-<div class="map-cards-banner" style="background-image: linear-gradient(-225deg, rgba(225,225,225,0.01) 0%, rgba(225,225,225,0.01) 50%), url(<%= image_path 'worldmap.svg' %>);">
+<div class="map-cards-banner" style="background-image: linear-gradient(-225deg, rgba(225,225,225,0.01) 0%, rgba(225,225,225,0.01) 50%), url(<%= image_path '6.png' %>);">
   <div adjust-card>
   </div>
     <%= render 'shared/cards' %>
@@ -25,3 +33,5 @@
 
 <%= render 'shared/hottrending' %>
 <%= render 'shared/scrapebookhomepage' %>
+
+
