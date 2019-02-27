@@ -1,0 +1,9 @@
+.cards-container {
+  display: flex;
+}
+#map {
+  flex: 0 0 450px;
+  height: 100vh !important;
+  position: sticky !important; /* !important to override Gmaps inline CSS */
+  top: 0 !important;
+}
