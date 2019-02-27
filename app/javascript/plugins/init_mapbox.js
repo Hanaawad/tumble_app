@@ -15,14 +15,23 @@ const fitMapToMarkers = (map, markers) => {
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v10'
     });
-  }
     const markers = JSON.parse(mapElement.dataset.markers);
+<<<<<<< HEAD
   markers.forEach((marker) => {
     new mapboxgl.Marker()
       .setLngLat([ marker.lng, marker.lat ])
       .addTo(map);
   });
   fitMapToMarkers(map, markers);
+=======
+    markers.forEach((marker) => {
+      new mapboxgl.Marker()
+        .setLngLat([ marker.lng, marker.lat ])
+        .addTo(map);
+    });
+    fitMapToMarkers(map, markers);
+  }
+>>>>>>> 3cf96f0e6c58991e5f6dfdff7a3efdc3c87da0af
 };
 
 export { initMapbox };

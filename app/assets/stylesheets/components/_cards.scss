@@ -2,19 +2,18 @@
 
 }
 .card-wrapper {
-  width: 90%;
+width: 100%;
 background-size: cover;
-
-  margin-top: -10px;
-  padding-top:20px;
+margin-top: -10px;
+padding-top:20px;
 }
 
 .card {
 
   margin-top:50px;
   margin-right: 50px;
-     width: 180px;
-    height: 180px;
+  width: 300px;
+  height: 300px;
   border-radius: 9px;
   padding: 1.5rem;
   background: white;
@@ -34,8 +33,8 @@ background-size: cover;
 }
 .card:hover .info {
   opacity: 1;
-  -webkit-transform: translateY(0px);
-          transform: translateY(0px);
+  -webkit-transform: translateY(30px);
+          transform: translateY(30px);
 }
 .card:before {
   content: "";
@@ -45,7 +44,7 @@ background-size: cover;
   display: block;
   width: 100%;;
   height: 100%;
-  border-radius: 15px;
+  border-radius: 9px;
   background: rgba(0, 0, 0, 0.6);
   z-index: 2;
   transition: 0.5s;
@@ -59,15 +58,14 @@ background-size: cover;
   position: absolute;
   top: 0;
   left: 0;
-  border-radius: 15px;
+  border-radius: 9px;
 }
 .card .info {
   position: relative;
   z-index: 3;
   color: white;
   opacity: 0;
-  -webkit-transform: translateY(30px);
-          transform: translateY(30px);
+
   transition: 0.5s;
 }
 .card .info  h2 a {
