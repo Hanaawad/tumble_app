@@ -4,8 +4,12 @@
   "dependencies": {
     "@rails/webpacker": "3.5",
     "bootstrap": "3.4.0",
+    "hash": "^0.2.1",
     "jquery": "^3.3.1",
-    "mapbox-gl": "^0.53.0"
+    "mapbox-gl": "^0.53.0",
+    "scissors": "^0.2.5",
+    "turn": "^0.0.0",
+    "zoom": "^0.0.2"
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"
