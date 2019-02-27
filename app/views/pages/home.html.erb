@@ -9,7 +9,15 @@
 <div class="container">
       <div class="home-search ">
         <h1>Find your next activity</h1>
-        <p  class="searchbar">search</p>
+        <p  class="searchbar">
+          <%= form_tag activities_path, method: :get do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control", id:"search-input",
+              placeholder: "Find activities at your next destination"
+            %>
+          <% end %>
+        </p>
       </div>
 </div>
 
@@ -25,3 +33,5 @@
 
 <%= render 'shared/hottrending' %>
 <%= render 'shared/scrapebookhomepage' %>
+
+
