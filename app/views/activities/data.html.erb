@@ -1,18 +1,3 @@
-<%= @activity.name %>
-<%= @activity.description %>
-<%= @activity.start_date %>
-<%= @activity.end_date %>
-<%= @activity.activation_date %>
-<%= @activity.location %>
-<%= @activity.photo %>
-<%= link_to "Join group", activity_bookings_path(@activity), method:"post" %>
-
-<h1>minimum limit: <%= @activity.min_limit %> members</h1>
-<h1>maximum limit: <%= @activity.max_limit %> members</h1>
-<h1>current number of members: <%= @activity.users.count %> members</h1>
-
-<h2>current members</h2>
-
 <div class="avatar-wrapper">
   <% @activity.users.each do |user| %>
     <aside class="profile-card">
@@ -51,4 +36,3 @@
     </aside>
   <% end %>
 </div>
-

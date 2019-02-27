@@ -1,79 +1,153 @@
-@import url('https://fonts.googleapis.com/css?family=Stalemate');
-*, *:before, *:after {
-  box-sizing: border-box;
+.body-book {
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1200px;
+
 }
 
-img {
-  max-width: 100%;
+.book {
+  transform-style: preserve-3d;
+  position: relative;
+  height: 300px;
+  cursor: pointer;
+  backface-visibility: visible;
+}
+
+.front, .back, .page1, .page2, .page3, .page4, .page5, .page6 {
+  transform-style: preserve-3d;
+  position: absolute;
+  width: 400px;
+  height: 100%;
+  top: 0; left: 0;
+  transform-origin: left center;
+  transition: transform .5s ease-in-out, box-shadow .35s ease-in-out;
+}
+.adjustsize{
+  background-size: 100% 100%;
+
+}
+.front, .back {
+    background-image: url("https://img00.deviantart.net/cbb9/i/2005/258/c/4/paper_texture_v5_by_bashcorpo.jpg");
+   background-size: 100% 100%;
+
+
+
+}
+
+.front, .page1, .page3, .page5 {
+        border-radius: 222px 53px 116px 12px/23px 235px 26px 208px;
+
+
+}
+
+.back, .page2, .page4, .page6 {
+    border-radius: 222px 53px 116px 12px/23px 235px 26px 208px;
+   opacity: 0.7;
+}
+
+.page1 {
+  background-image: url("https://img00.deviantart.net/cbb9/i/2005/258/c/4/paper_texture_v5_by_bashcorpo.jpg");
+   background-size: 100% 100%;
+}
+
+.page2 {
+  background-image: url("https://img00.deviantart.net/cbb9/i/2005/258/c/4/paper_texture_v5_by_bashcorpo.jpg");
+   background-size: 100% 100%;
+}
+
+.page3 {
+  background-image: url("https://img00.deviantart.net/cbb9/i/2005/258/c/4/paper_texture_v5_by_bashcorpo.jpg");
+   background-size: 100% 100%;
+}
+
+.page4 {
+  background-image: url("https://img00.deviantart.net/cbb9/i/2005/258/c/4/paper_texture_v5_by_bashcorpo.jpg");
+   background-size: 100% 100%;
+
+}
+
+.page5 {
+  background-image: url("https://img00.deviantart.net/cbb9/i/2005/258/c/4/paper_texture_v5_by_bashcorpo.jpg");
+   background-size: 100% 100%;
+}
+
+.page6 {
+  background-image: url("https://img00.deviantart.net/cbb9/i/2005/258/c/4/paper_texture_v5_by_bashcorpo.jpg");
+   background-size: 100% 100%;
+
+}
+
+.book:hover .front {
+  transform: rotateY(-160deg) scale(1.1);
+  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+}
+
+.book:hover .page1 {
+  transform: rotateY(-150deg) scale(1.1);
+  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+}
+
+.book:hover .page2 {
+  transform: rotateY(-30deg) scale(1.1);
+  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+}
+
+.book:hover .page3 {
+  transform: rotateY(-140deg) scale(1.1);
+  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+}
+
+.book:hover .page4 {
+  transform: rotateY(-40deg) scale(1.1);
+  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+}
+
+.book:hover .page5 {
+  transform: rotateY(-130deg) scale(1.1);
+  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+}
+
+.book:hover .page6 {
+  transform: rotateY(-50deg) scale(1.1);
+  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+}
+
+.book:hover .back {
+  transform: rotateY(-20deg) scale(1.1);
 }
 
 
+body-left{
+    padding: 2rem;
+    background:#222220;
+}
+
+.sketchy {
+
+}
+.show-description{
+  display:flex;
+justify-content: space-between;
+  align-items: center;
+  width:50%;
+   padding: 4px 34px;
+    border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+    border: 3px solid black;
+        padding-bottom: 27px;
+  h1{
+    font-size:20px;
+    text-align: center;
+  }
+  p{
+    font-size:14px;
+  color:black;
+  font-family:$text-font;
+  }
+}
 
 .container {
-  overflow: hidden;
- // margin-top: 3%;
-}
-.book-wrapper {
-  position: relative;
-  margin: 2% auto;
-  width: 670px;
-}
-
-.book-wrapper img {
-      filter: drop-shadow(15px 5px 5px #494338);
-}
-.pages-container {
-    position: absolute;
-    top: 4%;
-    left: 3%;
-    right: 0;
-    bottom: 0;
-    width: 91.5%;
-    height: 91%;
-}
-
-.pages {
-
-}
-.pages [class^="page-num-"] {
-  background-image: url("https://img00.deviantart.net/cbb9/i/2005/258/c/4/paper_texture_v5_by_bashcorpo.jpg");
-   background-size: auto 100%;
-  position: relative;
-}
-
-
-.pages-content {
-    text-align: center;
-      position: absolute;
-    width: 100%;
-    height: 100%;
-    display: table;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 10%;
-}
-
-.content-inner {
-      text-align: center;
-    display: table-cell;
-    vertical-align: middle;
-}
-
-
-.book-wrapper {
-   user-select: none;
-}
-
-
-.page-num-1 .pages-background {
-    background: linear-gradient( rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url(map.svg);
-    background-size: cover;
-    opacity: 0.2;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
+  padding-top: 73px;
 }
