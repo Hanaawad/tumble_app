@@ -1,0 +1,7 @@
+<%= simple_form_for([@review, @activity]) do |f| %>
+  <%= f.input :description %>
+  <%= f.input :rating %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.button :submit, "Share", :class => "btn-yours button-center" %>
+<% end %>

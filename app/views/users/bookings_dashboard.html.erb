@@ -10,5 +10,6 @@
   <%= booking.activity.activation_date %>
   <%= booking.activity.location %>
   <%= booking.activity.photo %>
-  <%= link_to "Remove", activity_booking_path(booking.activity, booking), method:"delete" %>
+  <%= link_to "Leave group", activity_booking_path(booking.activity, booking), method:"delete" %>
+  <%= link_to "Add experience", new_activity_review_path(booking.activity) %>
 <% end %>
