@@ -12,13 +12,13 @@
     <div class="body-left">
       <div class="sketchy">
          <h1><%= @activity.name %></h1>
-          <p>  <%= @activity.description%></p>
-          <p><%= @activity.start_date %> - <%= @activity.end_date %></p>
-          <p> Activation date: <%= @activity.activation_date %></p>
-          <p><%= @activity.location %></p>
-          <p>minimum limit: <%= @activity.min_limit %> members</p>
-          <p>maximum limit: <%= @activity.max_limit %> members</p>
-          <p>current number of members: <%= @activity.users.count %> members</p>
+          <p> <i class="fas fa-caret-right indent"></i><%= @activity.description%></p>
+          <p class="indent-right">  <strong class="color-dash">-</strong> <%= @activity.start_date %> - <%= @activity.end_date %></p>
+          <p class="indent-right"> <strong class="color-dash">-</strong> Activation date: <%= @activity.activation_date %></p>
+          <p class="indent-right">  <strong class="color-dash">-</strong> <%= @activity.location %></p>
+          <p class="indent-right">  <strong class="color-dash">-</strong> minimum limit: <%= @activity.min_limit %> members</p>
+          <p class="indent-right">  <strong class="color-dash">-</strong> maximum limit: <%= @activity.max_limit %> members</p>
+          <p class="indent-right">  <strong class="color-dash">-</strong> current number of members: <%= @activity.users.count %> members</p>
           <%= link_to "Join group", activity_bookings_path(@activity), method:"post" ,class:'black-button-tumble' %>
        <!--    <p>current members</p>
  -->
