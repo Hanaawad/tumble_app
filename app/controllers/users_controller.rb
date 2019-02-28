@@ -1,3 +1,5 @@
+require "date"
+
 class UsersController < ApplicationController
   before_action :set_user, only: [ :bookings_dashboard, :reviews_dashboard ]
 
@@ -6,7 +8,8 @@ class UsersController < ApplicationController
   end
 
   def reviews_dashboard
-    @activities_been_to = current_user.activities.where("end_date < ?", Time.now)
+    time = Time.new(2020, 03, 20, 10, 15)
+    @activities_been_to = current_user.activities.where("end_date < ?", time)
     @reviews = @user.reviews
   end
 

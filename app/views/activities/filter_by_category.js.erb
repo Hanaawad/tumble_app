@@ -1,0 +1,7 @@
+function showActivities(resultsHTML) {
+  const activities = document.getElementById('activity-cards');
+  activities.innerHTML = resultsHTML;
+}
+
+showActivities('<%= j render "list", activities: @activities %>')
+
