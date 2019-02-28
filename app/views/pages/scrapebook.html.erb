@@ -1,7 +1,7 @@
 <h1>Scrapebook</h1>
 <% @reviews.each do |review| %>
-  <%= review.user.name %>
-  <%= review.activity.name %>
-  <%= review.description %>
-  <%= review.rating * "*" %>
+  <h4><%= review.user.name %>
+    <%= review.activity.name %>
+    <%= review.description %>
+    <%= "*" * review.rating %></h4>
 <% end %>

@@ -1,17 +1,21 @@
 <h1>Welcome to your scrapebook <%= current_user.name %> !</h1>
 <% if @reviews.present? %>
   <% @reviews.each do |review| %>
-    <%= review.user.name %>
-    <%= review.activity.name %>
-    <%= review.description %>
-    <%= review.rating * "*" %>
+    <h4>
+      <%= review.user.name %>
+      <%= review.activity.name %>
+      <%= review.description %>
+      <%= "*" * review.rating %>
+    </h4>
   <% end %>
 <% else %>
   <h3>Sorry, you have not shared any of your experiences yet</h3>
 <% end %>
 
-<h1>Here's a list of activities you have already been to:</h1>
-<% @activities_been_to.each do |activity| %>
-  <%= activity.name %>
+<% if @activities_been_to.present? %>
+  <h1>Here's a list of activities you have already been to:</h1>
+  <% @activities_been_to.each do |activity| %>
+    <%= activity.name %>
+    <%= link_to "Add a review to your scrapebook !", new_activity_review_path(activity) %>
+  <% end %>
 <% end %>
-<%= link_to "Add experiences to your scrapebook !", bookings_dashboard_path(current_user) %>

@@ -1,7 +1,9 @@
 require "date"
 p "cleaning database"
 Booking.delete_all
+Review.delete_all
 User.delete_all
+Photo.delete_all
 Activity.delete_all
 Category.delete_all
 
@@ -131,13 +133,19 @@ Elmont, NY 11003")
 eva.remote_photo_url = "https://i.imgur.com/ESaXlDos.png"
 eva.save!
 p "done with users!"
-p "creating 4 categories"
-earth = Category.new(name: "earth")
-wind = Category.new(name: "wind")
-fire = Category.new(name: "fire")
-water = Category.new(name: "water")
+p "creating 6 categories"
+indoor = Category.create(name: "indoor")
+educational = Category.create(name: "educational")
+extreme = Category.create(name: "extreme")
+water = Category.create(name: "water")
+nature = Category.create(name: "nature")
+social = Category.create(name: "social")
 p "Creating 15 activities"
 p "act 1"
+
+url = "https://23srl238m4633xpusz2dk3vb-wpengine.netdna-ssl.com/wp-content/uploads/2016/11/67f706_993b4ce24eea4f8ba0aefabe263e207c.png"
+p1 = Photo.new
+p1.remote_photo_url = url
 act1 = Activity.new(name: "Empire City Watersports", location: "417 Bay 41st St, Brooklyn, NY 11214, USA",
   description: "At Empire City Watersports we have taken the idea of renting a Jet ski and have
   brought it to the beautiful Empire City known as more popularly New York City. The excitement of
@@ -149,8 +157,16 @@ act1 = Activity.new(name: "Empire City Watersports", location: "417 Bay 41st St,
   Time.new(2019, 03, 20, 12, 15), activation_date: Time.new(2019, 03, 12, 11, 15),
   min_limit: 15, max_limit: 20)
 act1.category = water
-act1.remote_photo_url = "https://23srl238m4633xpusz2dk3vb-wpengine.netdna-ssl.com/wp-content/uploads/2016/11/67f706_993b4ce24eea4f8ba0aefabe263e207c.png"
 act1.save!
+p1.activity = act1
+p1.save!
+
+p "review 1"
+r1 = Review.new(description: "Jetskiing is super awsome! The view on NYC
+  was simply stunning!!", rating: 4)
+r1.activity = act1
+r1.user = max
+r1.save!
 p "act 2"
 act2 = Activity.new(name: "iFLY Westchester", location: "849 Ridge Hill Boulevard, Yonkers, New York, 914-449-4359",
   description: "iFLY is where the dream of flight becomes a reality. Become a part of something
@@ -160,9 +176,15 @@ act2 = Activity.new(name: "iFLY Westchester", location: "849 Ridge Hill Boulevar
   start_date: Time.new(2019, 03, 19, 11, 25), end_date:
   Time.new(2019, 03, 19, 13, 15), activation_date: Time.new(2019, 03, 12, 14, 15),
   min_limit: 15, max_limit: 20)
-act2.category = wind
+act2.category = extreme
 act2.remote_photo_url = "https://www.gannett-cdn.com/-mm-/564eaaedc71f9c21ffb61b2b37eb0498dc021d5f/c=0-341-5367-3373/local/-/media/2015/12/21/Westchester/Westchester/635863102488705581-ts122115ifly01.jpg?width=3200&height=1680&fit=crop"
 act2.save!
+p "review 2"
+r2 = Review.new(description: "Wow, i never thought that indoor flying could
+  be this cool!", rating: 5)
+r2.activity = act2
+r2.user = max
+r2.save!
 p "act 3"
 act3 = Activity.new(name: "AIRE Ancient Baths", location: "88 Franklin St, New York
 NY 10013",
@@ -175,9 +197,15 @@ NY 10013",
   start_date: Time.new(2019, 04, 19, 12, 30), end_date:
   Time.new(2019, 04, 19, 14, 30), activation_date: Time.new(2019, 03, 17, 12, 15),
   min_limit: 10, max_limit: 15)
-act3.category = water
+act3.category = indoor
 act3.remote_photo_url = "https://beaire.com/sites/all/modules/beaire/img/centros/newyork2.jpg"
 act3.save!
+p "review 3"
+r3 = Review.new(description: "Hmmm, nothing more relaxing
+  than a 2h long bath in ancient times", rating: 4)
+r3.activity = act3
+r3.user = max
+r3.save!
 p "act 4"
 act4 = Activity.new(name: "Clue Chase - Egyptian Tomb", location: "The Grace Building, The Concourse, 1114 Avenue of the Americas, New York, New York",
   description: "Clue Chase is a fun fast paced escape room game, consistently rated one
@@ -190,9 +218,14 @@ act4 = Activity.new(name: "Clue Chase - Egyptian Tomb", location: "The Grace Bui
   start_date: Time.new(2019, 04, 17, 11, 30), end_date:
   Time.new(2019, 04, 17, 13, 30), activation_date: Time.new(2019, 04, 9, 13, 30),
   min_limit: 11, max_limit: 13)
-act4.category = fire
+act4.category = indoor
 act4.remote_photo_url = "https://vignette.wikia.nocookie.net/cause-for-concern-larp/images/d/d1/Throne_Room.jpg/revision/latest?cb=20140930082151"
 act4.save!
+p "review 4"
+r4 = Review.new(description: "I got a little bit confused", rating: 3)
+r4.activity = act4
+r4.user = max
+r4.save!
 p "act 5"
 act5 = Activity.new(name: "New York Midtown Scavenger Hunt Adventure", location: "The Grace Building, The Concourse, 1114 Avenue of the Americas, New York, New York",
   description: "Make New York your game board with a 3-hour scavenger hunt adventure
@@ -204,7 +237,7 @@ act5 = Activity.new(name: "New York Midtown Scavenger Hunt Adventure", location:
   start_date: Time.new(2019, 04, 17, 11, 30), end_date:
   Time.new(2019, 04, 17, 13, 30), activation_date: Time.new(2019, 04, 9, 13, 30),
   min_limit: 8, max_limit: 20)
-act5.category = earth
+act5.category = social
 act5.remote_photo_url = "https://tourscanner.co/blog/wp-content/uploads/2018/03/scavenger_hunt.jpg"
 act5.save!
 p "act 6"
@@ -217,7 +250,7 @@ act6 = Activity.new(name: "NYC Helicopter tour", location: "Helicopter Flight Se
   start_date: Time.new(2019, 04, 15, 11, 30), end_date:
   Time.new(2019, 04, 15, 13, 30), activation_date: Time.new(2019, 04, 9, 13, 30),
   min_limit: 8, max_limit: 10)
-act6.category = wind
+act6.category = educational
 act6.remote_photo_url = "https://tourscanner.co/blog/wp-content/uploads/2018/03/new-york-helicopter-tour.jpg"
 act6.save!
 p "act 7"
@@ -229,7 +262,7 @@ Enjoy a unique tour off the tourist track", price: 40,
   start_date: Time.new(2019, 04, 15, 11, 30), end_date:
   Time.new(2019, 04, 15, 13, 30), activation_date: Time.new(2019, 04, 9, 13, 30),
   min_limit: 9, max_limit: 16)
-act7.category = earth
+act7.category = educational
 act7.remote_photo_url = "https://cdn.getyourguide.com/img/tour_img-220567-145.jpg"
 act7.save!
 p "act 8"
@@ -244,7 +277,7 @@ act8 = Activity.new(name: "House of Yes", location: "Bushwick",
   start_date: Time.new(2019, 04, 17, 22, 30), end_date:
   Time.new(2019, 04, 18, 5, 30), activation_date: Time.new(2019, 04, 12, 13, 30),
   min_limit: 9, max_limit: 16)
-act8.category = fire
+act8.category = social
 act8.remote_photo_url = "https://media.timeout.com/images/103533836/1372/772/image.jpg"
 act8.save!
 p "act 9"
@@ -285,7 +318,7 @@ act11 = Activity.new(name: "NYC Helicopter tour", location: "Helicopter Flight S
   start_date: Time.new(2019, 03, 15, 11, 30), end_date:
   Time.new(2019, 03, 15, 13, 30), activation_date: Time.new(2019, 03, 9, 13, 30),
   min_limit: 8, max_limit: 10)
-act11.category = wind
+act11.category = educational
 act11.remote_photo_url = "https://cdn-imgix.headout.com/tour/18044/TOUR-IMAGE/0ea13005-9e28-4de4-b235-815f129b1081-9874-new-york-nyc-helicopter-tour-15-minute-tour-03.jpg?auto=compress&fm=webp&w=1200&h=750&crop=faces&fit=min"
 act11.save!
 p "act 12"
@@ -297,7 +330,7 @@ act12 = Activity.new(name: "Manhattan Holiday Yacht Cruise with Jazz, Cocoa & Ca
   start_date: Time.new(2019, 03, 15, 11, 30), end_date:
   Time.new(2019, 03, 15, 13, 30), activation_date: Time.new(2019, 03, 9, 13, 30),
   min_limit: 20, max_limit: 30)
-act12.category = fire
+act12.category = social
 act12.remote_photo_url = "https://cdn.getyourguide.com/img/tour_img-292244-145.jpg"
 act12.save!
 p "act 13"
@@ -312,7 +345,7 @@ NY 10013",
   start_date: Time.new(2019, 04, 28, 12, 30), end_date:
   Time.new(2019, 04, 28, 14, 30), activation_date: Time.new(2019, 03, 20, 12, 15),
   min_limit: 8, max_limit: 15)
-act13.category = water
+act13.category = indoor
 act13.remote_photo_url = "https://beaire.com/sites/all/modules/beaire/img/centros/newyork2.jpg"
 act13.save!
 p "act 14"
@@ -325,7 +358,7 @@ NY 10013",
   start_date: Time.new(2019, 04, 28, 12, 30), end_date:
   Time.new(2019, 04, 28, 14, 30), activation_date: Time.new(2019, 03, 20, 12, 15),
   min_limit: 20, max_limit: 25)
-act14.category = earth
+act14.category = social
 act14.remote_photo_url = "https://i.kinja-img.com/gawker-media/image/upload/s--bFvo1fxz--/c_fill,f_auto,fl_progressive,g_center,h_675,q_80,w_1200/1322602791531132197.jpg"
 act14.save!
 p "act 15"
@@ -340,6 +373,7 @@ act15 = Activity.new(name: "Clue Chase - Alien Encounter", location: "1114 Avenu
   start_date: Time.new(2019, 03, 21, 14, 30), end_date:
   Time.new(2019, 03, 21, 18, 30), activation_date: Time.new(2019, 03, 9, 13, 30),
   min_limit: 11, max_limit: 25)
-act15.category = fire
+act15.category = indoor
 act15.remote_photo_url = "https://www.cluechase.com/storage/2018/09/Alien-Enounter-Banner.jpg"
 act15.save!
+p "done!"

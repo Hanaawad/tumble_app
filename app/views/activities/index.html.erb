@@ -1,3 +1,4 @@
+
 <div class="banner-parallax" style="background-image:linear-gradient(-225deg, rgba(243, 241, 241, 0.9) 0%, rgba(232, 226, 179, 0.1) 90%), url(https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);">
 </div>
 
@@ -11,6 +12,7 @@
             <div class="activity-card-wrapper">
             <div class="activity-card" style="background-image: url(<%= cl_image_path(activity.photo, crop: :fill) %> ); background-size: cover; background-repeat: no-repeat; background-position: 50% 50%;">
                  <div class="info">
+
                 <h2 ><%=link_to activity.name, activity_path(activity) ,:class => "type"%></h2>
                 </div>
             </div>
@@ -34,3 +36,16 @@
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+
+
+<%= link_to "indoor", filter_by_category_path(Category.find_by_name("indoor")), remote: true %>
+<%= link_to "extreme", filter_by_category_path(Category.find_by_name("extreme")), remote: true %>
+<%= link_to "educational", filter_by_category_path(Category.find_by_name("educational")), remote: true %>
+<%= link_to "water", filter_by_category_path(Category.find_by_name("water")), remote: true %>
+<%= link_to "nature", filter_by_category_path(Category.find_by_name("nature")), remote: true %>
+<%= link_to "social", filter_by_category_path(Category.find_by_name("social")), remote: true %>
+
+
+
+
+
