@@ -10,8 +10,31 @@
   margin-top:-86px;
   height:650px;
 }
+.banner-parallax{
+    color: white;
+  text-align: center;
+  height: 100vh;
+  background-size: cover !important;
+  display: flex;
+  height:750px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top:-86px;
 
+    background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
+}
+
+.banner-parallax-for-cards{
+  color: white;
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+}
 .map-cards-banner {
   color: white;
   text-align: center;
