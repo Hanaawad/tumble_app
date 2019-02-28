@@ -3,6 +3,7 @@ p "cleaning database"
 Booking.delete_all
 Review.delete_all
 User.delete_all
+Photo.delete_all
 Activity.delete_all
 Category.delete_all
 
@@ -139,6 +140,10 @@ fire = Category.new(name: "fire")
 water = Category.new(name: "water")
 p "Creating 15 activities"
 p "act 1"
+
+url = "https://23srl238m4633xpusz2dk3vb-wpengine.netdna-ssl.com/wp-content/uploads/2016/11/67f706_993b4ce24eea4f8ba0aefabe263e207c.png"
+p1 = Photo.new
+p1.remote_photo_url = url
 act1 = Activity.new(name: "Empire City Watersports", location: "417 Bay 41st St, Brooklyn, NY 11214, USA",
   description: "At Empire City Watersports we have taken the idea of renting a Jet ski and have
   brought it to the beautiful Empire City known as more popularly New York City. The excitement of
@@ -150,8 +155,10 @@ act1 = Activity.new(name: "Empire City Watersports", location: "417 Bay 41st St,
   Time.new(2019, 03, 20, 12, 15), activation_date: Time.new(2019, 03, 12, 11, 15),
   min_limit: 15, max_limit: 20)
 act1.category = water
-act1.remote_photo_url = "https://23srl238m4633xpusz2dk3vb-wpengine.netdna-ssl.com/wp-content/uploads/2016/11/67f706_993b4ce24eea4f8ba0aefabe263e207c.png"
 act1.save!
+p1.activity = act1
+p1.save!
+
 p "review 1"
 r1 = Review.new(description: "Jetskiing is super awsome! The view on NYC
   was simply stunning!!", rating: 4)
