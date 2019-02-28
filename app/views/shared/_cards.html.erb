@@ -4,7 +4,7 @@
        <%  @top_three_activity.each do |activity| %>
           <div class="col-xs-12 col-sm-4">
             <div class="activity-card-wrapper">
-              <div class="activity-card" style="background-image: url(<%= cl_image_path(activity.photo, crop: :fill) %>) background-size:10%,10% ">
+            <div class="activity-card" style="background-image: url(<%= cl_image_path(activity.photo, crop: :fill) %> ); background-size: cover; background-repeat: no-repeat; background-position: 50% 50%;">
                  <div class="info">
                 <h2 ><%=link_to activity.name, activity_path(activity) ,:class => "type"%></h2>
               </div>
