@@ -5,12 +5,12 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(user_id: current_user.id, activity_id: @activity.id)
     @booking.save
-    redirect_to dashboard_path(current_user)
+    redirect_to bookings_dashboard_path(current_user)
   end
 
   def destroy
     @booking.destroy
-    redirect_to dashboard_path(current_user)
+    redirect_to bookings_dashboard_path(current_user)
   end
 
   private

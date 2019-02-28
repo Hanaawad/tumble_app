@@ -56,7 +56,7 @@ class ActivitiesController < ApplicationController
 
   def destroy
     @activity.destroy
-    redirect_to dashboard_path(current_user)
+    redirect_to bookings_dashboard_path(current_user)
   end
 
   private

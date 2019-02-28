@@ -11,11 +11,15 @@
         <h1>Find your next activity</h1>
         <p  class="searchbar">
           <%= form_tag activities_path, method: :get do %>
-            <%= text_field_tag :query,
-              params[:query],
+            <%= text_field_tag :location,
+              params[:location],
               class: "form-control", id:"search-input",
               placeholder: "Find activities at your next destination"
             %>
+            <%= text_field_tag :start_date,
+              params[:start_date],
+              class: "form-control", id:"search-input",
+              placeholder: "Find activities at your next destination" %>
           <% end %>
         </p>
       </div>

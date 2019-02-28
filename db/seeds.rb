@@ -1,6 +1,7 @@
 require "date"
 p "cleaning database"
 Booking.delete_all
+Review.delete_all
 User.delete_all
 Activity.delete_all
 Category.delete_all
@@ -151,6 +152,12 @@ act1 = Activity.new(name: "Empire City Watersports", location: "417 Bay 41st St,
 act1.category = water
 act1.remote_photo_url = "https://23srl238m4633xpusz2dk3vb-wpengine.netdna-ssl.com/wp-content/uploads/2016/11/67f706_993b4ce24eea4f8ba0aefabe263e207c.png"
 act1.save!
+p "review 1"
+r1 = Review.new(description: "Jetskiing is super awsome! The view on NYC
+  was simply stunning!!", rating: 4)
+r1.activity = act1
+r1.user = max
+r1.save!
 p "act 2"
 act2 = Activity.new(name: "iFLY Westchester", location: "849 Ridge Hill Boulevard, Yonkers, New York, 914-449-4359",
   description: "iFLY is where the dream of flight becomes a reality. Become a part of something
@@ -163,6 +170,12 @@ act2 = Activity.new(name: "iFLY Westchester", location: "849 Ridge Hill Boulevar
 act2.category = wind
 act2.remote_photo_url = "https://www.gannett-cdn.com/-mm-/564eaaedc71f9c21ffb61b2b37eb0498dc021d5f/c=0-341-5367-3373/local/-/media/2015/12/21/Westchester/Westchester/635863102488705581-ts122115ifly01.jpg?width=3200&height=1680&fit=crop"
 act2.save!
+p "review 2"
+r2 = Review.new(description: "Wow, i never thought that indoor flying could
+  be this cool!", rating: 5)
+r2.activity = act2
+r2.user = max
+r2.save!
 p "act 3"
 act3 = Activity.new(name: "AIRE Ancient Baths", location: "88 Franklin St, New York
 NY 10013",
@@ -178,6 +191,12 @@ NY 10013",
 act3.category = water
 act3.remote_photo_url = "https://beaire.com/sites/all/modules/beaire/img/centros/newyork2.jpg"
 act3.save!
+p "review 3"
+r3 = Review.new(description: "Hmmm, nothing more relaxing
+  than a 2h long bath in ancient times", rating: 4)
+r3.activity = act3
+r3.user = max
+r3.save!
 p "act 4"
 act4 = Activity.new(name: "Clue Chase - Egyptian Tomb", location: "The Grace Building, The Concourse, 1114 Avenue of the Americas, New York, New York",
   description: "Clue Chase is a fun fast paced escape room game, consistently rated one
@@ -193,6 +212,11 @@ act4 = Activity.new(name: "Clue Chase - Egyptian Tomb", location: "The Grace Bui
 act4.category = fire
 act4.remote_photo_url = "https://vignette.wikia.nocookie.net/cause-for-concern-larp/images/d/d1/Throne_Room.jpg/revision/latest?cb=20140930082151"
 act4.save!
+p "review 4"
+r4 = Review.new(description: "I got a little bit confused", rating: 3)
+r4.activity = act4
+r4.user = max
+r4.save!
 p "act 5"
 act5 = Activity.new(name: "New York Midtown Scavenger Hunt Adventure", location: "The Grace Building, The Concourse, 1114 Avenue of the Americas, New York, New York",
   description: "Make New York your game board with a 3-hour scavenger hunt adventure
@@ -343,3 +367,4 @@ act15 = Activity.new(name: "Clue Chase - Alien Encounter", location: "1114 Avenu
 act15.category = fire
 act15.remote_photo_url = "https://www.cluechase.com/storage/2018/09/Alien-Enounter-Banner.jpg"
 act15.save!
+p "done!"
