@@ -1,5 +1,6 @@
+require "pry-byebug"
 class ActivitiesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :show ]
+  skip_before_action :authenticate_user!, only: [ :index, :show, :filter_by_category ]
   before_action :set_activity, only: [ :show, :edit, :update, :destroy ]
 
   def index
@@ -29,8 +30,6 @@ class ActivitiesController < ApplicationController
           lat: activity.latitude
         }
       end
-    elsif params["category"].present?
-      @activities = Activity.all.where(category_id: Category.find_by_name(params["category"]).id)
     else
       @activities = Activity.where.not(latitude: nil, longitude: nil)
       @markers = @activities.map do |activity|

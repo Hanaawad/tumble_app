@@ -25,10 +25,12 @@
   </div>
 </div>
 
-<%= link_to "Earth", filter_by_category_path(Category.find_by_name("earth")), remote: true %>
-<%= link_to "Wind", filter_by_category_path(Category.find_by_name("wind")), remote: true %>
-<%= link_to "Fire", filter_by_category_path(Category.find_by_name("fire")), remote: true %>
-<%= link_to "Water", filter_by_category_path(Category.find_by_name("water")), remote: true %>
+<%= link_to "indoor", filter_by_category_path(Category.find_by_name("indoor")), remote: true %>
+<%= link_to "extreme", filter_by_category_path(Category.find_by_name("extreme")), remote: true %>
+<%= link_to "educational", filter_by_category_path(Category.find_by_name("educational")), remote: true %>
+<%= link_to "water", filter_by_category_path(Category.find_by_name("water")), remote: true %>
+<%= link_to "nature", filter_by_category_path(Category.find_by_name("nature")), remote: true %>
+<%= link_to "social", filter_by_category_path(Category.find_by_name("social")), remote: true %>
 
 
 

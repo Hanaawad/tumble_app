@@ -133,11 +133,13 @@ Elmont, NY 11003")
 eva.remote_photo_url = "https://i.imgur.com/ESaXlDos.png"
 eva.save!
 p "done with users!"
-p "creating 4 categories"
-earth = Category.new(name: "earth")
-wind = Category.new(name: "wind")
-fire = Category.new(name: "fire")
-water = Category.new(name: "water")
+p "creating 6 categories"
+indoor = Category.create(name: "indoor")
+educational = Category.create(name: "educational")
+extreme = Category.create(name: "extreme")
+water = Category.create(name: "water")
+nature = Category.create(name: "nature")
+social = Category.create(name: "social")
 p "Creating 15 activities"
 p "act 1"
 
@@ -174,7 +176,7 @@ act2 = Activity.new(name: "iFLY Westchester", location: "849 Ridge Hill Boulevar
   start_date: Time.new(2019, 03, 19, 11, 25), end_date:
   Time.new(2019, 03, 19, 13, 15), activation_date: Time.new(2019, 03, 12, 14, 15),
   min_limit: 15, max_limit: 20)
-act2.category = wind
+act2.category = extreme
 act2.remote_photo_url = "https://www.gannett-cdn.com/-mm-/564eaaedc71f9c21ffb61b2b37eb0498dc021d5f/c=0-341-5367-3373/local/-/media/2015/12/21/Westchester/Westchester/635863102488705581-ts122115ifly01.jpg?width=3200&height=1680&fit=crop"
 act2.save!
 p "review 2"
@@ -195,7 +197,7 @@ NY 10013",
   start_date: Time.new(2019, 04, 19, 12, 30), end_date:
   Time.new(2019, 04, 19, 14, 30), activation_date: Time.new(2019, 03, 17, 12, 15),
   min_limit: 10, max_limit: 15)
-act3.category = water
+act3.category = indoor
 act3.remote_photo_url = "https://beaire.com/sites/all/modules/beaire/img/centros/newyork2.jpg"
 act3.save!
 p "review 3"
@@ -216,7 +218,7 @@ act4 = Activity.new(name: "Clue Chase - Egyptian Tomb", location: "The Grace Bui
   start_date: Time.new(2019, 04, 17, 11, 30), end_date:
   Time.new(2019, 04, 17, 13, 30), activation_date: Time.new(2019, 04, 9, 13, 30),
   min_limit: 11, max_limit: 13)
-act4.category = fire
+act4.category = indoor
 act4.remote_photo_url = "https://vignette.wikia.nocookie.net/cause-for-concern-larp/images/d/d1/Throne_Room.jpg/revision/latest?cb=20140930082151"
 act4.save!
 p "review 4"
@@ -235,7 +237,7 @@ act5 = Activity.new(name: "New York Midtown Scavenger Hunt Adventure", location:
   start_date: Time.new(2019, 04, 17, 11, 30), end_date:
   Time.new(2019, 04, 17, 13, 30), activation_date: Time.new(2019, 04, 9, 13, 30),
   min_limit: 8, max_limit: 20)
-act5.category = earth
+act5.category = social
 act5.remote_photo_url = "https://tourscanner.co/blog/wp-content/uploads/2018/03/scavenger_hunt.jpg"
 act5.save!
 p "act 6"
@@ -248,7 +250,7 @@ act6 = Activity.new(name: "NYC Helicopter tour", location: "Helicopter Flight Se
   start_date: Time.new(2019, 04, 15, 11, 30), end_date:
   Time.new(2019, 04, 15, 13, 30), activation_date: Time.new(2019, 04, 9, 13, 30),
   min_limit: 8, max_limit: 10)
-act6.category = wind
+act6.category = educational
 act6.remote_photo_url = "https://tourscanner.co/blog/wp-content/uploads/2018/03/new-york-helicopter-tour.jpg"
 act6.save!
 p "act 7"
@@ -260,7 +262,7 @@ Enjoy a unique tour off the tourist track", price: 40,
   start_date: Time.new(2019, 04, 15, 11, 30), end_date:
   Time.new(2019, 04, 15, 13, 30), activation_date: Time.new(2019, 04, 9, 13, 30),
   min_limit: 9, max_limit: 16)
-act7.category = earth
+act7.category = educational
 act7.remote_photo_url = "https://cdn.getyourguide.com/img/tour_img-220567-145.jpg"
 act7.save!
 p "act 8"
@@ -275,7 +277,7 @@ act8 = Activity.new(name: "House of Yes", location: "Bushwick",
   start_date: Time.new(2019, 04, 17, 22, 30), end_date:
   Time.new(2019, 04, 18, 5, 30), activation_date: Time.new(2019, 04, 12, 13, 30),
   min_limit: 9, max_limit: 16)
-act8.category = fire
+act8.category = social
 act8.remote_photo_url = "https://media.timeout.com/images/103533836/1372/772/image.jpg"
 act8.save!
 p "act 9"
@@ -316,7 +318,7 @@ act11 = Activity.new(name: "NYC Helicopter tour", location: "Helicopter Flight S
   start_date: Time.new(2019, 03, 15, 11, 30), end_date:
   Time.new(2019, 03, 15, 13, 30), activation_date: Time.new(2019, 03, 9, 13, 30),
   min_limit: 8, max_limit: 10)
-act11.category = wind
+act11.category = educational
 act11.remote_photo_url = "https://cdn-imgix.headout.com/tour/18044/TOUR-IMAGE/0ea13005-9e28-4de4-b235-815f129b1081-9874-new-york-nyc-helicopter-tour-15-minute-tour-03.jpg?auto=compress&fm=webp&w=1200&h=750&crop=faces&fit=min"
 act11.save!
 p "act 12"
@@ -328,7 +330,7 @@ act12 = Activity.new(name: "Manhattan Holiday Yacht Cruise with Jazz, Cocoa & Ca
   start_date: Time.new(2019, 03, 15, 11, 30), end_date:
   Time.new(2019, 03, 15, 13, 30), activation_date: Time.new(2019, 03, 9, 13, 30),
   min_limit: 20, max_limit: 30)
-act12.category = fire
+act12.category = social
 act12.remote_photo_url = "https://cdn.getyourguide.com/img/tour_img-292244-145.jpg"
 act12.save!
 p "act 13"
@@ -343,7 +345,7 @@ NY 10013",
   start_date: Time.new(2019, 04, 28, 12, 30), end_date:
   Time.new(2019, 04, 28, 14, 30), activation_date: Time.new(2019, 03, 20, 12, 15),
   min_limit: 8, max_limit: 15)
-act13.category = water
+act13.category = indoor
 act13.remote_photo_url = "https://beaire.com/sites/all/modules/beaire/img/centros/newyork2.jpg"
 act13.save!
 p "act 14"
@@ -356,7 +358,7 @@ NY 10013",
   start_date: Time.new(2019, 04, 28, 12, 30), end_date:
   Time.new(2019, 04, 28, 14, 30), activation_date: Time.new(2019, 03, 20, 12, 15),
   min_limit: 20, max_limit: 25)
-act14.category = earth
+act14.category = social
 act14.remote_photo_url = "https://i.kinja-img.com/gawker-media/image/upload/s--bFvo1fxz--/c_fill,f_auto,fl_progressive,g_center,h_675,q_80,w_1200/1322602791531132197.jpg"
 act14.save!
 p "act 15"
@@ -371,7 +373,7 @@ act15 = Activity.new(name: "Clue Chase - Alien Encounter", location: "1114 Avenu
   start_date: Time.new(2019, 03, 21, 14, 30), end_date:
   Time.new(2019, 03, 21, 18, 30), activation_date: Time.new(2019, 03, 9, 13, 30),
   min_limit: 11, max_limit: 25)
-act15.category = fire
+act15.category = indoor
 act15.remote_photo_url = "https://www.cluechase.com/storage/2018/09/Alien-Enounter-Banner.jpg"
 act15.save!
 p "done!"
