@@ -6,10 +6,14 @@
     justify-content: space-around;
     align-items: center;
     height: 150px;
-    margin-top: 125px;
-    margin-bottom: -46px
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    z-index: 1000;
   }
-
+.margin-top {
+  height: 200px;
+}
 .display{
   display: flex;
    justify-content: space-around;

@@ -1,6 +1,3 @@
-.container{
-
-}
 .card-wrapper {
 width: 100%;
 background-size: cover;
@@ -8,12 +5,10 @@ margin-top: -10px;
 padding-top:20px;
 }
 
-.card {
-
-  margin-top:50px;
-  margin-right: 50px;
+.activity-card {
   width: 300px;
   height: 300px;
+  margin-top:50px;
   border-radius: 9px;
   padding: 1.5rem;
   background: white;
@@ -22,45 +17,42 @@ padding-top:20px;
   align-items: flex-end;
   transition: 0.4s ease-out;
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.1);
-
 }
-.card:hover {
+
+
+.activity-card-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.activity-card:hover {
   -webkit-transform: translateY(20px);
           transform: translateY(20px);
 }
-.card:hover:before {
+.activity-card:hover:before {
   opacity: 1;
 }
-.card:hover .info {
+.activity-card:hover .info {
   opacity: 1;
   -webkit-transform: translateY(30px);
           transform: translateY(30px);
 }
-.card:before {
+.activity-card:before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   display: block;
-  width: 100%;;
-  height: 100%;
+  width: 300px;;
+  height: 300px;
   border-radius: 9px;
   background: rgba(0, 0, 0, 0.6);
   z-index: 2;
   transition: 0.5s;
   opacity: 0;
 }
-.card img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 9px;
-}
-.card .info {
+
+.activity-card .info {
   position: relative;
   z-index: 3;
   color: white;
@@ -68,7 +60,7 @@ padding-top:20px;
 
   transition: 0.5s;
 }
-.card .info  h2 a {
+.activity-card .info  h2 a {
   margin: 0px;
    font-size:Roboto;
    text-decoration:none;
@@ -76,14 +68,14 @@ padding-top:20px;
     opacity:0.6;
 
 }
-.card .info p a{
+.activity-card .info p a{
   letter-spacing: 1px;
   font-size: 15px;
   margin-top: 8px;
 
   color:white;
 }
-.card .info button {
+.activity-card .info button {
   padding: 0.6rem;
   outline: none;
   border: none;
@@ -96,7 +88,7 @@ padding-top:20px;
   transition: 0.4s ease;
   font-size:10px;
 }
-.card .info button a {
+.activity-card .info button a {
   background: transparent;
   color: white;
   font-size:Roboto;
