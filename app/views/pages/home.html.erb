@@ -16,11 +16,21 @@
               class: "form-control", id:"search-input",
               placeholder: "Find activities at your next destination"
             %>
+            <%= date_field_tag :start_date,
+              params[:start_date],
+              class: "form-control datepicker", id:"search-input",
+              placeholder: "Start date"
+            %>
+            <%= date_field_tag :end_date,
+              params[:end_date],
+              class: "form-control datepicker", id:"search-input",
+              placeholder: "End date"
+            %>
+            <%= submit_tag 'Search', class: "btn" %>
           <% end %>
         </p>
       </div>
 </div>
-
 
   <div class="home-search ">
        <h1>Explore tumble activities</h1>

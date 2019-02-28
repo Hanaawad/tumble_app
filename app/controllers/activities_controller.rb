@@ -3,9 +3,26 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    if params[:query].present?
-      sql_query = "location ILIKE :query"
-      @activities = Activity.all.where(sql_query, query: "%#{params[:query]}%")
+    if params[:location].present? && params[:start_date].present? && params[:end_date].present?
+      sql_query = "location ILIKE :location AND start_date BETWEEN :start AND :end"
+      @activities = Activity.all.where(sql_query, location: "%#{params[:location]}%", start: "#{params[:start_date]}", end: "#{params[:end_date]}")
+      @markers = @activities.map do |activity|
+        {
+          lng: activity.longitude,
+          lat: activity.latitude
+        }
+      end
+    elsif params[:location].present?
+      sql_query = "location ILIKE :location"
+      @activities = Activity.all.where(sql_query, location: "%#{params[:location]}%")
+      @markers = @activities.map do |activity|
+        {
+          lng: activity.longitude,
+          lat: activity.latitude
+        }
+      end
+    elsif params[:start_date].present? && params[:end_date].present?
+      @activities = Activity.all.where(start_date: (params[:start_date]..params[:end_date]))
       @markers = @activities.map do |activity|
         {
           lng: activity.longitude,
@@ -22,6 +39,15 @@ class ActivitiesController < ApplicationController
           lat: activity.latitude
         }
       end
+    end
+  end
+
+  def filter_by_category
+    @category = Category.find(params[:id])
+    @activities = @category.activities
+    respond_to do |format|
+      format.html { redirect_to activities_path }
+      format.js
     end
   end
 
