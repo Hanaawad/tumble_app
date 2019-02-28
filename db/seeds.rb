@@ -135,11 +135,23 @@ eva.save!
 p "done with users!"
 p "creating 6 categories"
 indoor = Category.create(name: "indoor")
-educational = Category.create(name: "educational")
-extreme = Category.create(name: "extreme")
-water = Category.create(name: "water")
-nature = Category.create(name: "nature")
-social = Category.create(name: "social")
+indoor.font = 'fas fa-home'
+indoor.save!
+educational = Category.new(name: "educational")
+educational.font = "fas fa-book"
+educational.save!
+extreme = Category.new(name: "extreme")
+extreme.font = "fas fa-user-ninja"
+extreme.save!
+water = Category.new(name: "water")
+water.font = "fas fa-water"
+water.save!
+nature = Category.new(name: "nature")
+nature.font = "fas fa-leaf"
+nature.save!
+social = Category.new(name: "social")
+social.font = "fas fa-user-friends"
+social.save!
 p "Creating 15 activities"
 p "act 1"
 
