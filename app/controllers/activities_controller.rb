@@ -1,4 +1,3 @@
-require "pry-byebug"
 class ActivitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show, :filter_by_category ]
   before_action :set_activity, only: [ :show, :edit, :update, :destroy ]
