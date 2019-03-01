@@ -14,7 +14,19 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Explore", activities_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <div class="dropdown display-inline">
+         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Trips <i class="fas fa-caret-down"></i>
+         </button>
+         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <h6><%= link_to "View all", activities_path, class: "navbar-wagon-item navbar-wagon-link" %></h6>
+          <% Category.all.each do |category| %>
+            <%= link_to filter_by_dropdown_path(category) do %>
+              <h6><%= category.name %><i class=<%= category.font %>></i></h6>
+            <% end %>
+          <% end %>
+         </div>
+      </div>
       <%= link_to "Dashboard", bookings_dashboard_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "My scrapebook", reviews_dashboard_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
 
@@ -49,9 +61,11 @@
              Trips <i class="fas fa-caret-down"></i>
            </button>
            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-             <button class="dropdown-item" type="button">Action</button>
-             <button class="dropdown-item" type="button">Another action</button>
-             <button class="dropdown-item" type="button">Something else here</button>
+            <% Category.all.each do |category| %>
+              <%= link_to filter_by_dropdown_path(category) do %>
+                <h6><%= category.name %><i class=<%= category.font %>></i></h6>
+              <% end %>
+            <% end %>
            </div>
         </div>
        <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "monkeypants" %>
