@@ -1,5 +1,5 @@
 class ActivitiesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :show, :filter_by_category ]
+  skip_before_action :authenticate_user!, only: [ :index, :show, :filter_by_category, :filter_by_dropdown ]
   before_action :set_activity, only: [ :show, :edit, :update, :destroy ]
 
   def index
@@ -38,6 +38,11 @@ class ActivitiesController < ApplicationController
         }
       end
     end
+  end
+
+  def filter_by_dropdown
+    @category = Category.find(params[:id])
+    @activities = @category.activities
   end
 
   def filter_by_category

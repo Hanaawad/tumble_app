@@ -134,7 +134,7 @@ eva.remote_photo_url = "https://i.imgur.com/ESaXlDos.png"
 eva.save!
 p "done with users!"
 p "creating 6 categories"
-indoor = Category.create(name: "indoor")
+indoor = Category.new(name: "indoor")
 indoor.font = 'fas fa-home'
 indoor.save!
 educational = Category.new(name: "educational")
