@@ -1,17 +1,17 @@
 // Import Google fonts
 @font-face {
   font-family: 'BernierDistressed';
-  src: url('/assets/bernierdistressed-regular-webfont.ttf') ;
+  src: asset-url('bernierdistressed-regular-webfont.ttf') ;
 }
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
 
 @font-face {
   font-family: 'Acid';
-  src: url('/assets/acid.ttf') ;
+  src: asset-url('acid.ttf') ;
 }
 @font-face {
   font-family: 'Bell';
-  src: url('/assets/Bell-Centennial-Std-Address.ttf') ;
+  src: asset-url('Bell-Centennial-Std-Address.ttf') ;
 }
 // Define fonts for body and headers
 $body-font: "Acid", "Helvetica", "sans-serif";
@@ -20,7 +20,7 @@ $navbar-font: "BernierDistressed";
 $text-font:"bell"
 // To use a font file (.woff) uncomment following lines
 // @font-face {
-//   font-family: "Font Name";
+//   font-family: "Font Name";}
 //   src: font-url('FontFile.eot');
 //   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
 //        font-url('FontFile.woff') format('woff'),
