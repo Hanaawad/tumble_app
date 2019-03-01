@@ -9,42 +9,48 @@ Category.delete_all
 
 p "creating 10 detailed users"
 p "user 1"
+five_users = []
 nic = User.new(name: "Nicolas", surname: "Feer", email: "nic@gmail.com", password: "nic12345",
   age: 19, location: "628 Wilson St.
-Brooklyn, NY 11238", description: "Hi I'm Nic. I'm currently on my gap year before starting uni at Masstricht in Sep.
+Brooklyn, NY 11238", phone:"+4523451026", description: "Hi I'm Nic. I'm currently on my gap year before starting uni at Masstricht in Sep.
   I love karaoke and gaming!")
 nic.remote_photo_url = "https://i.imgur.com/FYloZCSs.png"
 nic.save!
+five_users << nic
 p "user 2"
 chris = User.new(name: "Christian", surname: "Soelling", email: "chris@gmail.com", password: "chris12345",
   age: 18, location: "8 Smith Store Dr.
-Astoria, NY 11105", description: "Im Chris, originally from Sydney. I love Fifa and traveling!")
+Astoria, NY 11105", phone:"+4560735698", description: "Im Chris, originally from Sydney. I love Fifa and traveling!")
 chris.remote_photo_url = "https://i.imgur.com/utZQmi6s.png"
 chris.save!
+five_users << chris
 p "user 3"
 lucas = User.new(name: "Lucas", surname: "Cheung", email: "lucas@gmail.com", password: "lucas12345",
-  age: 17, location: "71 Greenrose Lane
+  age: 17, phone:"+447428512818", location: "71 Greenrose Lane
 Jamestown, NY 14701", description: "Love climbing, basketball and asian food :)")
 lucas.remote_photo_url = "https://i.imgur.com/PP0iLGYs.png"
 lucas.save!
+five_users << lucas
 p "user 4"
 hana = User.new(name: "Hana", surname: "Awad", email: "hana@gmail.com", password: "hana12345",
-  age: 19, location: "7181 James St.
+  age: 19, phone:"+4593839046", location: "7181 James St.
 Buffalo, NY 14215", description: "Hi! I love cooking and doing all sorts of sports, especially surfing!")
 hana.remote_photo_url = "https://i.imgur.com/aEctbqGs.jpg"
 hana.save!
+five_users << hana
 p "user 5"
 max = User.new(name: "Max", surname: "Glasmacher", email: "max@gmail.com", password: "max12345",
   age: 18, location: "9104 St Margarets St.
-Brentwood, NY 11717", description: "Yoo! Surfing, basketball and traveling is ma life!!!")
+Brentwood, NY 11717", phone:"+4915223602341", description: "Yoo! Surfing, basketball and traveling is ma life!!!")
 max.remote_photo_url = "https://i.imgur.com/s2xRA1Zs.jpg"
 max.save!
 p "user 6"
 amanda = User.new(name: "Amanda", surname: "Schjørmann", email: "amanda@gmail.com", password: "amanda12345",
   age: 18, location: "430 Hamilton Street
-Bronx, NY 10466", description: "Heya! I always love skydiving and finding new cool bars!")
+Bronx, NY 10466", phone: "+4541432080", description: "Heya! I always love skydiving and finding new cool bars!")
 amanda.remote_photo_url = "https://i.imgur.com/0dhCekOs.png"
 amanda.save!
+five_users << amanda
 p "user 7"
 irene = User.new(name: "Irene", surname: "Jona Smith", email: "irene@gmail.com", password: "irene12345",
   age: 19, location: "572 Wagon St.
@@ -165,11 +171,17 @@ act1 = Activity.new(name: "Empire City Watersports", location: "417 Bay 41st St,
   opportunity, while riding comfortably and freely at your own pace.", price: 250,
   start_date: Time.new(2019, 03, 20, 10, 15), end_date:
   Time.new(2019, 03, 20, 12, 15), activation_date: Time.new(2019, 03, 12, 11, 15),
-  min_limit: 15, max_limit: 20)
+  min_limit: 6, max_limit: 10)
 act1.category = water
 act1.remote_photo_url = url
 act1.save!
-
+p "Creating 5 bookings for act 1"
+five_users.each do |user|
+  b = Booking.new
+  b.user = user
+  b.activity = act1
+  b.save!
+end
 
 p "review 1"
 r1 = Review.new(description: "Jetskiing is super awsome! The view on NYC
