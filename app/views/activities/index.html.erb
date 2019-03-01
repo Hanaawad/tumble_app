@@ -3,35 +3,17 @@
 </div>
 
 
-<div class="cards-container" class="banner-parallax-for-cards" style="height: 100vh; background-image: url(<%= image_path 'backgourndparallox.png' %>);">
-  <div class="card-wrapper">
-    <div class="container">
-      <div class="row text-center" id="activity-cards">
-        <% @activities.each do |activity| %>
-          <div class="col-xs-12 col-sm-4" style="padding: 0px">
-            <div class="activity-card-wrapper">
-            <div class="activity-card" style="background-image: url(<%= cl_image_path(activity.photo, crop: :fill) %> ); background-size: cover; background-repeat: no-repeat; background-position: 50% 50%;">
-                 <div class="info">
-
-                <h2 >
-                  <%=link_to activity_path(activity), class: 'type' do %>
-                    <%= activity.name %><i class="<%= activity.category.font %>"></i>
-                  <% end %>
-                </h2>
-                </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    </div>
+<div class="map-cards-banner" style="background-image: linear-gradient(-225deg, rgba(225,225,225,0.01) 0%, rgba(225,225,225,0.01) 50%), url(<%= image_path '6.png' %>);">
+  <div adjust-card>
   </div>
+    <%= render 'shared/allactivities' %>
+<div>
+  </div>
+<div class= "flex-buttons">
+  <a id="show-map" class="black-button-tumble for-explore "  href="#">map</a>
+   <a class="black-button-tumble view-c" href="#">up</a>
 
-</div>
-   <a class="black-button-tumble" href="#">View more trips </a>
-
-
-  <a id="show-map" class="black-button-tumble" href="#">Show on map</a>
+</div></div>
 
 <div
   id="map" class="hide"
