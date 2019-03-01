@@ -7,10 +7,10 @@
     </div>
   </div>
 
-<div class="container">
+<div class="container form-inline form-search-bar">
       <div class="home-search ">
         <h1>Find your next activity</h1>
-        <p  class="searchbar">
+        <div  class="searchbar">
           <%= form_tag activities_path, method: :get do %>
             <%= text_field_tag :location,
               params[:location],
@@ -27,9 +27,11 @@
               class: "form-control datepicker", id:"search-input",
               placeholder: "End date"
             %>
-            <%= submit_tag 'Search', class: "btn" %>
+            <%= button_tag(type: 'submit', class: "btn search-bar") do %>
+              <i class="fas fa-search"></i>
+            <% end %>
           <% end %>
-        </p>
+        </div>
       </div>
 </div>
 
