@@ -102,8 +102,15 @@ margin-top:40%;
 
 }
 
+.row{
+  margin-bottom: 400px;
+}
 
-
+.row-allactivties{
+margin-bottom: 0;
+    margin-right: -15px;
+    margin-left: -15px;
+}
 // path {
 //   fill: transparent;
 // }
@@ -113,3 +120,11 @@ margin-top:40%;
 // }
 
 
+
+
+
+.flex-buttons{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
