@@ -36,9 +36,23 @@
   <div class="home-search ">
        <h1>Explore tumble activities</h1>
       </div>
-<div class="map-cards-banner" style="background-image: linear-gradient(-225deg, rgba(225,225,225,0.01) 0%, rgba(225,225,225,0.01) 50%), url(<%= image_path '6.png' %>);">
+
+<div class="index-filter-buttons" style="background-image: linear-gradient(-225deg, rgba(225,225,225,0.01) 0%, rgba(225,225,225,0.01) 50%), url(<%= image_path 'footer.png' %>);">>
+    <div class="filter-buttons">
+      <% Category.all.each do |category| %>
+        <%= link_to category.name, filter_by_category_path(Category.find_by_name(category.name)), remote: true  ,:class => "tabs-tumble"%>
+      <% end %>
+    </div>
+
+</div>
+
+
+<div class="map-cards-banner" style="background-image: linear-gradient(-225deg, rgba(225,225,225,0.01) 0%, rgba(225,225,225,0.01) 50%), url(<%= image_path 'map.png' %>);">
+  <div class="adjust-card">
 
     <%= render 'shared/cards' %>
+  </div>
+
 </div>
 
 <%= render 'shared/hottrending' %>

@@ -30,3 +30,56 @@
     opacity: 1;
     }
  }
+
+.black-button-tumble-up{
+    padding: 0px 6px;
+    border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+    border: 3px solid black;
+    font-family:$navbar-font;
+    font-size: 20px;
+
+    color: #a5a59f;
+    opacity: 1;
+    &:hover{
+      text-decoration: none;
+      color: #da552f;
+    }
+
+}
+
+.view-c{
+  text-align: right;
+  margin-right:  10px;
+  color: #da552f;
+    &:hover{
+      text-decoration: none;
+      color: #da552f;
+    }
+}
+
+ .for-explore{
+  margin-top: 26px;
+  color: #da552f;
+ }
+
+.tabs-tumble{
+        padding: 1px 4px;
+    margin-right: 51px;
+    border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+    border: 3px solid black;
+    font-family:$navbar-font;
+    font-size: 25px;
+    border-color: white;
+    background-color: white;
+    font-family: BERNIERDistressed;
+    color: #823333;
+    opacity: 1;
+    mix-blend-mode:overlay;
+    &:hover{
+    text-decoration: none;
+    color:#6f6565;
+    opacity: 1;
+
+    }
+
+}

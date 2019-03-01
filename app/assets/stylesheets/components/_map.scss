@@ -5,14 +5,32 @@
   background-color: rgba(blue,0);
 
 }
-#map {
-  flex: 0 0 450px;
-  height: 100vh !important;
-  position: sticky !important; /* !important to override Gmaps inline CSS */
-  top: 0 !important;
-
-}
 
 .hide {
   opacity: 0;
+}
+
+.modal-body{
+  background-color: transparent;
+
+}
+
+
+#myModal #map {
+  width: 1000px;
+  height: 600px;
+  canvas.mapboxgl-canvas {
+    position: relative;
+    width: 1000px;
+    height: 600px;
+  }
+}
+
+
+
+
+.box {
+  width: 1000px;
+  height: 600px;
+  background-color: red;
 }

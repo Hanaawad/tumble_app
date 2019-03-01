@@ -1,29 +1,49 @@
-<div class="banner-parallax" style="background-image:linear-gradient(-225deg, rgba(243, 241, 241, 0.9) 0%, rgba(232, 226, 179, 0.1) 90%), url(https://images.unsplash.com/photo-1473158912295-779ef17fc94b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80
-);">
+<div class="banner-parallax" style="background-image:linear-gradient(-225deg, rgba(243, 241, 241, 0.9) 0%, rgba(232, 226, 179, 0.1) 90%), url(https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);">
+</div>
+
+<div class="index-filter-buttons" style="background-image: linear-gradient(-225deg, rgba(225,225,225,0.01) 0%, rgba(225,225,225,0.01) 50%), url(<%= image_path 'footer.png' %>);">>
+    <div class="filter-buttons">
+      <% Category.all.each do |category| %>
+        <%= link_to category.name, filter_by_category_path(Category.find_by_name(category.name)), remote: true ,:class => "tabs-tumble"%>
+      <% end %>
+    </div>
+
+</div>
+<div class="map-cards-banner" style="background-image: linear-gradient(-225deg, rgba(225,225,225,0.01) 0%, rgba(225,225,225,0.01) 50%), url(<%= image_path 'map.png' %>);">
+  <div class="adjust-card">
+
+    <%= render 'shared/allactivities' %>
+  </div>
+
+  <div class= "for-explore ">
+<!--     <a id="show-map" class="black-button-tumble "  href="#">map</a>
+ --><a type="a" class="black-button-tumble " data-toggle="modal" data-target="#myModal">map</a>
+  </div>
+</div>
+
+<div class="view-c">
+  <a class="black-button-tumble-up " href="#"><i class="fas fa-chevron-up"></i></a>
 </div>
 
 
-<div class="map-cards-banner" style="background-image: linear-gradient(-225deg, rgba(225,225,225,0.01) 0%, rgba(225,225,225,0.01) 50%), url(<%= image_path '6.png' %>);">
- <div adjust-card>
- </div>
-   <%= render 'shared/allactivities' %>
-<div>
- </div>
-<div class= "flex-buttons">
- <a id="show-map" class="black-button-tumble for-explore "  href="#">map</a>
-  <a class="black-button-tumble view-c" href="#">up</a>
 
-</div></div>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">location</h4>
+      </div>
 
-<div
- id="map" class="hide"
- style="width: 800px;
- height: 400px;"
- data-markers="<%= @markers.to_json %>"
- data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
- </div>
+      <div
+        id="map"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
+  </div>
+</div>
+</div>
 
 
-<% Category.all.each do |category| %>
-  <%= link_to category.name, filter_by_category_path(Category.find_by_name(category.name)), remote: true %>
-<% end %>
+
