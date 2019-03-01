@@ -8,6 +8,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user = current_user
+    @review.activity = @activity
     if @review.save
       redirect_to reviews_dashboard_path(current_user)
     else
