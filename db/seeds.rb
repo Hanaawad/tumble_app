@@ -162,7 +162,7 @@ p "Creating 15 activities"
 p "act 1"
 
 url = "https://23srl238m4633xpusz2dk3vb-wpengine.netdna-ssl.com/wp-content/uploads/2016/11/67f706_993b4ce24eea4f8ba0aefabe263e207c.png"
-act1 = Activity.new(name: "Empire City Watersports", location: "417 Bay 41st St, Brooklyn, NY 11214, USA",
+act1 = Activity.new(name: "Empire City Watersports", location: "New york city",
   description: "At Empire City Watersports we have taken the idea of renting a Jet ski and have
   brought it to the beautiful Empire City known as more popularly New York City. The excitement of
   riding a Jet ski in itself is something worth coming down for, but taking one of our tours and
