@@ -3,6 +3,7 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: [ :show, :edit, :update, :destroy ]
 
   def index
+
     if params[:location].present? && params[:start_date].present? && params[:end_date].present?
       sql_query = "location ILIKE :location AND start_date BETWEEN :start AND :end"
       @activities = Activity.all.where(sql_query, location: "%#{params[:location]}%", start: "#{params[:start_date]}", end: "#{params[:end_date]}")
