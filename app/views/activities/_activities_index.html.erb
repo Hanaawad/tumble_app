@@ -1,44 +1,27 @@
-<div class="banner-parallax" style="background-image:linear-gradient(-225deg, rgba(243, 241, 241, 0.9) 0%, rgba(232, 226, 179, 0.1) 90%), url(https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);">
+<div class="banner-parallax" style="background-image:linear-gradient(-225deg, rgba(243, 241, 241, 0.9) 0%, rgba(232, 226, 179, 0.1) 90%), url(https://images.unsplash.com/photo-1473158912295-779ef17fc94b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80
+);">
 </div>
 
 
-<div class="cards-container" class="banner-parallax-for-cards" style="height: 100vh; background-image: url(<%= image_path 'backgourndparallox.png' %>);">
-  <div class="card-wrapper">
-    <div class="container">
-      <div class="row text-center" id="activity-cards">
-        <% @activities.each do |activity| %>
-          <div class="col-xs-12 col-sm-4" style="padding: 0px">
-            <div class="activity-card-wrapper">
-            <div class="activity-card" style="background-image: url(<%= cl_image_path(activity.photo, crop: :fill) %> ); background-size: cover; background-repeat: no-repeat; background-position: 50% 50%;">
-                 <div class="info">
+<div class="map-cards-banner" style="background-image: linear-gradient(-225deg, rgba(225,225,225,0.01) 0%, rgba(225,225,225,0.01) 50%), url(<%= image_path '6.png' %>);">
+ <div adjust-card>
+ </div>
+   <%= render 'shared/allactivities' %>
+<div>
+ </div>
+<div class= "flex-buttons">
+ <a id="show-map" class="black-button-tumble for-explore "  href="#">map</a>
+  <a class="black-button-tumble view-c" href="#">up</a>
 
-                <h2 >
-                  <%=link_to activity_path(activity), class: 'type' do %>
-                    <%= activity.name %><i class="<%= activity.category.font %>"></i>
-                  <% end %>
-                </h2>
-                </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    </div>
-  </div>
-
-</div>
-   <a class="black-button-tumble" href="#">View more trips </a>
-
-
-  <a id="show-map" class="black-button-tumble" href="#">Show on map</a>
+</div></div>
 
 <div
-  id="map" class="hide"
-  style="width: 800px;
-  height: 400px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+ id="map" class="hide"
+ style="width: 800px;
+ height: 400px;"
+ data-markers="<%= @markers.to_json %>"
+ data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+ </div>
 
 
 <% Category.all.each do |category| %>
