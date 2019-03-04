@@ -14,7 +14,7 @@
           <p class="indent-right focus">  <strong class="color-dash">-</strong> maximum limit: <%= @activity.max_limit %> members</p>
           <p class="indent-right">  <strong class="color-dash">-</strong> current number of members: <%= @activity.users.count %> members</p>
 
-          <%= link_to "Join group", activity_bookings_path(@activity), method:"post" ,class:'black-button-tumble' %>
+          <%= link_to "Join group", activity_bookings_path(@activity), remote:true, id:"join-button", method:"post" , class:'black-button-tumble', data: { title: @activity.name, url: activities_path } %>
        <!--    <p>current members</p>
  -->
       </div>
