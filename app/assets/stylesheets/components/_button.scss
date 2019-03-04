@@ -13,6 +13,21 @@
        color:rgba(0,0,0,0.7);
     }
  }
+ .black-button-tumble-white{
+    padding: 4px 21px;
+    border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+    border: 3px solid black;
+    font-family:$navbar-font;
+    font-size: 20px;
+    border-color: white;
+    font-family: BERNIERDistressed;
+    color: white;
+    opacity: 1;
+    &:hover{
+      text-decoration: none;
+       color:rgba(0,0,0,0.7);
+    }
+ }
 
 .white-button-tumble {
     padding: 4px 34px;
@@ -69,12 +84,14 @@
     border: 3px solid black;
     font-family:$navbar-font;
     font-size: 25px;
-    border-color: white;
-    background-color: white;
+
     font-family: BERNIERDistressed;
-    color: #823333;
+       border-color: #c5c0c0;
+    background-color: #cecece;
+    font-family: BERNIERDistressed;
+    color: #131313;
     opacity: 1;
-    mix-blend-mode:overlay;
+
     &:hover{
     text-decoration: none;
     color:#6f6565;
