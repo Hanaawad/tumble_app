@@ -6,37 +6,64 @@
     </a>
 
     <!-- Right Navigation -->
-    <div class="normal-navbar-wagon-right hidden-xs hidden-sm">
-      <div class="dropdown normal-navbar-wagon-item normal-navbar-wagon-link">
-         <button class="btn btn-secondary dropdown-toggle" type="button" id="normal-dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           Trips <i class="fas fa-caret-down"></i>
-         </button>
-         <div class="dropdown-menu" aria-labelledby="normal-dropdownMenu2">
-          <h6><%= link_to "View all", activities_path, class: "normal-navbar-wagon-item normal-navbar-wagon-link" %>
-          </h6>
-          <% Category.all.each do |category| %>
-            <%= link_to filter_by_dropdown_path(category) do %>
-              <h6>
-                <%= category.name %><i class=<%= category.font %>></i>
-              </h6>
+    <% if user_signed_in? %>
+      <div class="normal-navbar-wagon-right hidden-xs hidden-sm">
+        <div class="dropdown normal-navbar-wagon-item normal-navbar-wagon-link">
+           <button class="btn btn-secondary dropdown-toggle" type="button" id="normal-dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             Trips <i class="fas fa-caret-down"></i>
+           </button>
+           <div class="dropdown-menu" aria-labelledby="normal-dropdownMenu2">
+            <h6><%= link_to "View all", activities_path, class: "normal-navbar-wagon-item normal-navbar-wagon-link" %>
+            </h6>
+            <% Category.all.each do |category| %>
+              <%= link_to filter_by_dropdown_path(category) do %>
+                <h6>
+                  <%= category.name %><i class=<%= category.font %>></i>
+                </h6>
+              <% end %>
             <% end %>
-          <% end %>
-         </div>
-      </div>
-      <%= link_to "My bookings", bookings_dashboard_path(current_user), class: "normal-navbar-wagon-item normal-navbar-wagon-link" %>
-      <%= link_to "My scrapebook", reviews_dashboard_path(current_user), class: "normal-navbar-wagon-item normal-navbar-wagon-link" %>
-      <!-- Profile picture with dropdown list -->
-      <div class="normal-navbar-wagon-item">
-        <div class="dropdown">
-          <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "normal-navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <ul class="dropdown-menu dropdown-menu-right normal-navbar-wagon-dropdown-menu">
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Log Out</a></li>
-          </ul>
+           </div>
+        </div>
+        <%= link_to "My bookings", bookings_dashboard_path(current_user), class: "normal-navbar-wagon-item normal-navbar-wagon-link" %>
+        <%= link_to "My scrapebook", reviews_dashboard_path(current_user), class: "normal-navbar-wagon-item normal-navbar-wagon-link" %>
+        <!-- Profile picture with dropdown list -->
+        <div class="normal-navbar-wagon-item">
+          <div class="dropdown">
+            <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "normal-navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <ul class="dropdown-menu dropdown-menu-right normal-navbar-wagon-dropdown-menu">
+              <li><a href="#">Profile</a></li>
+              <li><a href="#">Dashboard</a></li>
+              <li>  <%= link_to destroy_user_session_path, method: :delete do %>
+                  <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                <% end %>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+    <% else %>
+      <div class="normal-navbar-wagon-right hidden-xs hidden-sm">
+        <div class="dropdown normal-navbar-wagon-item normal-navbar-wagon-link">
+           <button class="btn btn-secondary dropdown-toggle" type="button" id="normal-dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             Trips <i class="fas fa-caret-down"></i>
+           </button>
+           <div class="dropdown-menu" aria-labelledby="normal-dropdownMenu2">
+            <h6><%= link_to "View all", activities_path, class: "normal-navbar-wagon-item normal-navbar-wagon-link" %>
+            </h6>
+            <% Category.all.each do |category| %>
+              <%= link_to filter_by_dropdown_path(category) do %>
+                <h6>
+                  <%= category.name %><i class=<%= category.font %>></i>
+                </h6>
+              <% end %>
+            <% end %>
+           </div>
+        </div>
+        <%= link_to "Scrapebook", scrapebook_path, class: "normal-navbar-wagon-item normal-navbar-wagon-link" %>
+        <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "normal-navbar-wagon-item normal-navbar-wagon-link" %>
+        <!-- Profile picture with dropdown list -->
+      </div>
+    <% end %>
 
     <!-- Dropdown appearing on mobile only -->
     <div class="normal-navbar-wagon-item hidden-md hidden-lg">
