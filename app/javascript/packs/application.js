@@ -1,6 +1,8 @@
+import $ from 'jquery';
 import "bootstrap";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import "../plugins/flatpickr";
+import "../plugins/slider";
 import { initUpdateNavbarOnScroll } from '../components/navbar';
  // <-- you need to uncomment the stylesheet_pack_tag in the layout!
 
