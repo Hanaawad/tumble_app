@@ -40,6 +40,14 @@
   font-family:$navbar-font;
 }
 
+.navbar-wagon-right {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+
+
 .banner-logo{
   opacity:0.891;
   display: block;
@@ -196,11 +204,7 @@ a.monkeypants{
 }
 
 
-.navbar-wagon-right {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-}
+
 
 
 
