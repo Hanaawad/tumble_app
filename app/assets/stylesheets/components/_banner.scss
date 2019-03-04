@@ -30,6 +30,27 @@
   background-size: cover;
 
 }
+.banner-showpage{
+    color: white;
+  text-align: center;
+  height: 100vh;
+  background-size: 115% auto !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top:-85px;
+      margin-bottom: -318px;
+  background-size: cover !important;
+
+.background-show{
+    -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+}
 
 .banner-parallax-for-cards{
   color: white;
@@ -63,3 +84,4 @@
 }
 
 .index-filter-buttons {}
+
