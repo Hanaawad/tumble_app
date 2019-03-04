@@ -68,11 +68,16 @@
       border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
   h6:hover  {
     text-decoration:none;
-    color:white;
+    color:#ff2621;
   }
   a{
-
+    padding: 0;
  color:white;
+
+  }
+  a:hover  {
+    text-decoration:none;
+    color:#ff2621;
   }
 
 }
@@ -93,14 +98,17 @@
   text-decoration:none;
   color:white;
 }
-.monkeypants{
+a.monkeypants{
   color:white;
   text-decoration: none;
   margin-left: 60px;
   font-size:20px;
-
-
+  &:hover {
+    color: #ff2621;
+  }
 }
+
+
 
 .display-inline {
   display: inline-block !important;
@@ -117,6 +125,7 @@
       color:#ff2621;
     }
   }
+
 }
 /* Right section */
 
@@ -190,7 +199,7 @@ a.monkeypants{
     text-decoration:none;
     &:hover{
       color:#ff2621;
-        text-decoration:none;
+      text-decoration:none;
     }
 }
 }
