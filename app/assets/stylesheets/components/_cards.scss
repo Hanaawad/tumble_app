@@ -4,7 +4,7 @@ height:186px;
  display: flex;
   justify-content: center;
   padding-top:50px;
-  margin-top:-20px;
+  margin-top:-126px;
 
 }
 .adjust-card{
@@ -16,6 +16,7 @@ width: 100%;
 background-size: cover;
 margin-top: -10px;
 padding-top:20px;
+
 }
 
 .activity-card {
@@ -39,16 +40,16 @@ padding-top:20px;
 }
 
 .activity-card:hover {
-  -webkit-transform: translateY(20px);
-          transform: translateY(20px);
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
 }
 .activity-card:hover:before {
+
   opacity: 1;
 }
 .activity-card:hover .info {
   opacity: 1;
-  -webkit-transform: translateY(30px);
-          transform: translateY(30px);
+
 }
 .activity-card:before {
   content: "";
@@ -66,28 +67,41 @@ padding-top:20px;
 }
 
 .activity-card .info {
-  position: relative;
+
   z-index: 3;
   color: white;
-  opacity: 0;
-
+  opacity: 1;
   transition: 0.5s;
+
+
+}
+.adjust-icon{
+      margin-bottom: 80px;
+    margin-left: 120px;
+    font-size:26px;
+}
+.activity-card .info h2{
+position:absolute;
+top:10px;
+left:10px;
+font-size:32px;
+
+
 }
 .activity-card .info  h2 a {
-  margin: 0px;
-   font-size:Roboto;
+
    text-decoration:none;
     color:white;
-    opacity:0.6;
+    opacity:1;
+    margin-bottom: 35.5px;
 
 }
 .activity-card .info p a{
   letter-spacing: 1px;
   font-size: 15px;
-  margin-top: 8px;
-
   color:white;
 }
+
 .activity-card .info button {
   padding: 0.6rem;
   outline: none;
@@ -104,7 +118,7 @@ padding-top:20px;
 .activity-card .info button a {
   background: transparent;
   color: white;
-  font-size:Roboto;
+
   text-decoration:none;
 
 }
@@ -123,6 +137,7 @@ margin-top:40%;
 margin-bottom: 0;
     margin-right: -15px;
     margin-left: -15px;
+
 }
 // path {
 //   fill: transparent;

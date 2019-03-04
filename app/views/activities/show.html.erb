@@ -1,31 +1,22 @@
-<div class="banner" style="background-image:linear-gradient(-225deg, rgba(103, 103, 103, 0.98) 0%, rgba(183, 59, 59, 0.01) 90%), url(<%= @activity.photo %>);">
+<div class="banner-showpage background-show" style="background-image:linear-gradient(-225deg, rgba(103, 103, 103, 0.98) 0%, rgba(183, 59, 59, 0.01) 200%), url(<%= @activity.photo %>);">
 
-    <div class="slogen">
-      <div>
-        <h1><%= @activity.name %></h1>
-      </div>
-    </div>
-  </div>
 <div class="container">
 
   <div class="show-description">
     <div class="body-left">
       <div class="sketchy">
          <h1><%= @activity.name %></h1>
-
           <p> <i class="fas fa-caret-right indent"></i><%= @activity.description%></p>
           <p class="indent-right">  <strong class="color-dash">-</strong> <%= @activity.start_date %> - <%= @activity.end_date %></p>
           <p class="indent-right"> <strong class="color-dash">-</strong> Activation date: <%= @activity.activation_date %></p>
           <p class="indent-right">  <strong class="color-dash">-</strong> <%= @activity.location %></p>
           <p class="indent-right">  <strong class="color-dash">-</strong> minimum limit: <%= @activity.min_limit %> members</p>
-          <p class="indent-right">  <strong class="color-dash">-</strong> maximum limit: <%= @activity.max_limit %> members</p>
+          <p class="indent-right focus">  <strong class="color-dash">-</strong> maximum limit: <%= @activity.max_limit %> members</p>
           <p class="indent-right">  <strong class="color-dash">-</strong> current number of members: <%= @activity.users.count %> members</p>
 
           <%= link_to "Join group", activity_bookings_path(@activity), method:"post" ,class:'black-button-tumble' %>
        <!--    <p>current members</p>
  -->
-
-
       </div>
     </div>
 
@@ -55,3 +46,4 @@
   </div>
 </div>
 
+</div>

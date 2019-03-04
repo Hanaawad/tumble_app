@@ -1,15 +1,8 @@
 <div class="banner" style="background-image:linear-gradient(-225deg, rgba(243, 241, 241, 0.9) 0%, rgba(232, 226, 179, 0.1) 90%), url(https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60);">
     <div class="slogen">
-      <div>
-
-        <h1>lets get ready to tumble</h1>
-      </div>
-    </div>
-  </div>
-
 <div class="container form-inline form-search-bar">
       <div class="home-search ">
-        <h1>Find your next activity</h1>
+<!--         <h1>Find your next activity</h1> -->
         <div  class="searchbar">
           <%= form_tag activities_path, method: :get do %>
             <%= text_field_tag :location,
@@ -34,17 +27,20 @@
         </div>
       </div>
 </div>
+      <div>
+
+     <!--    <h1>lets get ready to tumble</h1> -->
+      </div>
+    </div>
+  </div>
+
 
   <div class="home-search ">
        <h1>Explore tumble activities</h1>
       </div>
 
 <div class="index-filter-buttons" style="background-image: linear-gradient(-225deg, rgba(225,225,225,0.01) 0%, rgba(225,225,225,0.01) 50%), url(<%= image_path 'footer.png' %>);">>
-    <div class="filter-buttons">
-      <% Category.all.each do |category| %>
-        <%= link_to category.name, filter_by_category_path(Category.find_by_name(category.name)), remote: true  ,:class => "tabs-tumble"%>
-      <% end %>
-    </div>
+
 
 </div>
 
