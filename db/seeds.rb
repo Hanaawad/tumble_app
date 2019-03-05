@@ -321,14 +321,7 @@ Your first stop early in the morning will be the iconic Lake Beratan where you w
 You will then visit the iconic Handara Gate, well known as the pathway to serenity. Take a wonderful picture in front of Handara Gate with the
  breathtaking view of green scenery and the gigantic-exotic traditional Balinese gate as your backdrop. Pamper your eyes
   with the amazing green surrounding, beautiful scenery and the amazing background of smoky green hills between the gates that creates a perfect picture for your trip. Don't forget to take some polaroid photos as well while you are here.
-
-Prepare your walking shoes because you will next go to visit the majestic and beautiful Banyumala Twin Waterfall. It’s absolutely perfect for a
-quiet and peaceful afternoon in the arms of Mother Nature. The natural pool is inviting with its translucent turquoise
- waters. Swim in tranquility, listen to the thunderous roar of cascading waters and take in the sights of the vibrant greenery. Although no picture will ever do this natural wonder justice, that shouldn’t stop you from that perfect Instagram shot
-
-Your journey will not be completed without a visit to the iconic Wanagiri Hidden Hills which is punctuated by a series of whimsical vantage
- points over Lake Tambingan and Lake Buyan. Here you will fly over the hill and lakes and experience incredible views on
-  a jungle swing. Do not miss the bird cage and also a viewing post shaped like a boat here!", price: 50,
+", price: 50,
   start_date: Time.new(2019, 04, 17, 11, 30), end_date:
   Time.new(2019, 04, 17, 13, 30), activation_date: Time.new(2019, 04, 9, 13, 30),
   min_limit: 8, max_limit: 20)
