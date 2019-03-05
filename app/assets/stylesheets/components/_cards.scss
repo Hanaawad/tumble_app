@@ -1,25 +1,25 @@
-.index-filter-buttons{
-background-size: cover;
-height:186px;
+.index-filter-buttons {
+  background-size: cover;
+  height:186px;
  display: flex;
   justify-content: center;
   padding-top:50px;
   margin-top:-126px;
-
 }
-.adjust-card{
+
+.adjust-card {
   margin-top:-158px;
 }
 
 .card-wrapper {
-width: 100%;
-background-size: cover;
-margin-top: -10px;
-padding-top:20px;
-
+  width: 100%;
+  background-size: cover;
+  margin-top: -10px;
+  padding-top:20px;
 }
 
 .activity-card {
+  text-align:center;
   width: 300px;
   height: 300px;
   margin-top:50px;
@@ -28,11 +28,15 @@ padding-top:20px;
   background: white;
   position: relative;
   display: flex;
-  align-items: flex-end;
+  justify-content: center;
+  flex-direction: column;
   transition: 0.4s ease-out;
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.1);
 }
 
+a .activity-card {
+  text-decoration:none;
+}
 
 .activity-card-wrapper {
   display: flex;
@@ -72,22 +76,31 @@ padding-top:20px;
   color: white;
   opacity: 1;
   transition: 0.5s;
-
-
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  p{
+    margin: 0 0 72.5px;
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
-.adjust-icon{
-      margin-bottom: 80px;
-    margin-left: 120px;
-    font-size:26px;
-}
-.activity-card .info h2{
-position:absolute;
-top:10px;
-left:10px;
-font-size:32px;
 
-
+.adjust-icon {
+  margin-bottom: 80px;
+  margin-left: 120px;
+  font-size:26px;
+  position: absolute;
+  right: 20px;
+  bottom: -65px;
 }
+.activity-card .info h2 {
+  position:absolute;
+  top:10px;
+  font-size:32px;
+}
+
 .activity-card .info  h2 a {
 
    text-decoration:none;
@@ -96,10 +109,14 @@ font-size:32px;
     margin-bottom: 35.5px;
 
 }
-.activity-card .info p a{
+a .activity-card .info p {
   letter-spacing: 1px;
   font-size: 15px;
   color:white;
+  text-decoration:none;
+}
+.styling a{
+  text-decoration:none;
 }
 
 .activity-card .info button {
@@ -139,20 +156,10 @@ margin-bottom: 0;
     margin-left: -15px;
 
 }
-// path {
-//   fill: transparent;
-// }
-
-// text {
-//   fill: #FF9800;
-// }
-
-
-
-
 
 .flex-buttons{
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
+
