@@ -161,19 +161,23 @@ social.save!
 p "Creating 15 activities"
 p "act 1"
 
-url = "https://23srl238m4633xpusz2dk3vb-wpengine.netdna-ssl.com/wp-content/uploads/2016/11/67f706_993b4ce24eea4f8ba0aefabe263e207c.png"
-act1 = Activity.new(name: "Empire City Watersports", location: "New york city",
-  description: "At Empire City Watersports we have taken the idea of renting a Jet ski and have
-  brought it to the beautiful Empire City known as more popularly New York City. The excitement of
-  riding a Jet ski in itself is something worth coming down for, but taking one of our tours and
-  viewing New York City from the water is truly an amazing sight to see that most locals don’t
-  really ever get to experience! Come join us on one of our tours and we will give you that
-  opportunity, while riding comfortably and freely at your own pace.", price: 250,
+photos =["https://images.unsplash.com/photo-1508166466920-f65aa51f727c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80",
+  "https://images.unsplash.com/photo-1512675628397-28288d1220ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60",
+"https://images.unsplash.com/photo-1512972103000-66ab71f7a228?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60",
+"https://images.unsplash.com/photo-1543727363-77916b8189e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+"https://images.unsplash.com/photo-1543163300-3566d6a3fab0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60"]
+act1 = Activity.new(name: "White Water Rafting", location: "Bali",
+  description: "Get the experience of a lifetime during your trip to Bali by trying out white water rafting at the stunning Ayung River, the longest river on the island. Marvel at the river's gorgeous surroundings, including lush rainforests, gorgeous waterfalls, and beautiful gorges! Enjoy a convenient pick up at your hotel, then travel comfortably to the rafting starting point inside an air-conditioned vehicle. Once you arrive, you'll change into your rafting clothes and equipment and be briefed by the professional guides about the proper rafting techniques and safety rules.
+  Set off on your exhilarating rafting adventure, which lasts for a bit over an hour, and feel the cool water splashing on your skin as you make your way to the finish line. Rest and recharge with a delicious buffet meal that features a variety of fresh, local dishes, before you shower and start to head back to your hotel. This is a fun, family-friendly activity that all thrillseekers should try at least once during their visit to Bali!", price: 250,
   start_date: Time.new(2019, 03, 20, 10, 15), end_date:
   Time.new(2019, 03, 20, 12, 15), activation_date: Time.new(2019, 03, 12, 11, 15),
   min_limit: 6, max_limit: 10)
 act1.category = water
-act1.remote_photo_url = url
+photos.each do |photo|
+  p = Photo.new
+  p.remote_photo_url = photo
+  p.activity = act1
+end
 act1.save!
 p "Creating 5 bookings for act 1"
 five_users.each do |user|

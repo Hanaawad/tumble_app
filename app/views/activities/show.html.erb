@@ -27,8 +27,11 @@
           <p class="indent-right focus">  <strong class="color-dash">-</strong> maximum limit: <%= @activity.max_limit %> members</p>
           <p class="indent-right">  <strong class="color-dash">-</strong> current number of members: <span id="member-count"><%= "#{@activity.users.count} member".pluralize(@activity.users.count) %></span></p>
 
+
           <%= link_to "Join group", activity_bookings_path(@activity), remote:true, id:"join-button", method:"post" , class:'black-button-tumble', data: { title: @activity.name, url: activities_path } %>
-       <!--    <p>current members</p>
+
+          <a type="button" class="black-button-tumble" data-toggle="modal" data-target="#myModalSlider">More pictures</a>
+        <!--    <p>current members</p>
  -->
       </div>
     </div>
@@ -40,7 +43,7 @@
         <div class="page6">
           <div class="scroll">
             <% @activity.reviews.each do |review| %>
-              <h6><%= review.description %></h6>
+              <h6 class="review"><%= review.description %></h6>
             <% end %>
           </div>
 
@@ -61,3 +64,22 @@
 </div>
 
 </div>
+</div>
+
+
+<div id="myModalSlider" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="container">
+      <div id="slider">
+        <div class="testbox"></div>
+        <div class="testbox"></div>
+        <div class="testbox"></div>
+      </div>
+    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+

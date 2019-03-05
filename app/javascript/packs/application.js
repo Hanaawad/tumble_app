@@ -1,7 +1,12 @@
+import $ from 'jquery';
 import "bootstrap";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import "../plugins/flatpickr";
+
+import "../plugins/slider";
+
 import swal from 'sweetalert';
+
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { initUpdateShowOnJoin } from '../components/show';
