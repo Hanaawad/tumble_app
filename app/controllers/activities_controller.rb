@@ -6,7 +6,7 @@ class ActivitiesController < ApplicationController
 
     if params[:location].present? && params[:start_date].present? && params[:end_date].present?
       sql_query = "start_date BETWEEN :start AND :end"
-      @activities = Activity.all.near(params[:location], 100).where(sql_query, start: "#{params[:start_date]}", end: "#{params[:end_date]}")
+      @activities = Activity.all.near(params[:location], 10000).where(sql_query, start: "#{params[:start_date]}", end: "#{params[:end_date]}")
       @markers = @activities.map do |activity|
         {
           lng: activity.longitude,
@@ -15,7 +15,7 @@ class ActivitiesController < ApplicationController
       end
     elsif params[:location].present?
       sql_query = "location ILIKE :location"
-      @activities = Activity.all.near(params[:location], 100)
+      @activities = Activity.all.near(params[:location], 10000)
       @markers = @activities.map do |activity|
         {
           lng: activity.longitude,
