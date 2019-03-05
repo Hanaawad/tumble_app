@@ -1,0 +1,13 @@
+function showMembers(resultsHTML) {
+  const members = document.getElementById('member-avatars');
+  members.innerHTML = resultsHTML;
+}
+
+function showCount(resultsHTML) {
+  const count = document.getElementById('member-count');
+  count.innerHTML = resultsHTML;
+}
+
+showMembers('<%= j render "activities/members_list", activity: @activity %>')
+
+showCount('<%= "#{@activity.users.count} " + "member".pluralize(@activity.users.count) %>')

@@ -1,0 +1,3 @@
+<% @activity.users.each do |user| %>
+   <%= cl_image_tag user.photo, alt: "alttext", class:"avatar", id:"member-avatar" %>
+<% end %>

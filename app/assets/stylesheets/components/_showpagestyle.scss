@@ -8,6 +8,19 @@
 
 }
 
+.members-box {
+  border: 2px solid black;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 40px;
+  padding: 8px;
+}
+
+#member-avatar {
+  margin-left: 20px;
+}
+
 .book {
   transform-style: preserve-3d;
   position: relative;
@@ -30,27 +43,25 @@
 
 }
 .front, .back {
-    background-image: url("https://img00.deviantart.net/cbb9/i/2005/258/c/4/paper_texture_v5_by_bashcorpo.jpg");
-   background-size: 100% 100%;
+  background-image: url("https://img00.deviantart.net/cbb9/i/2005/258/c/4/paper_texture_v5_by_bashcorpo.jpg");
+  background-size: 100% 100%;
 
 
 
 }
 
 .front, .page1, .page3, .page5 {
-        border-radius: 222px 53px 116px 12px/23px 235px 26px 208px;
-
-
+  border-radius: 222px 53px 116px 12px/23px 235px 26px 208px;
 }
 
 .back, .page2, .page4, .page6 {
-    border-radius: 222px 53px 116px 12px/23px 235px 26px 208px;
-   opacity: 0.7;
+  border-radius: 222px 53px 116px 12px/23px 235px 26px 208px;
+  opacity: 0.7;
 }
 
 .page1 {
   background-image: url("https://img00.deviantart.net/cbb9/i/2005/258/c/4/paper_texture_v5_by_bashcorpo.jpg");
-   background-size: 100% 100%;
+  background-size: 100% 100%;
 }
 
 .page2 {

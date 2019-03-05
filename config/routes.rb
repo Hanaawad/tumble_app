@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   end
   get 'scrapebook', to: 'pages#scrapebook', as: :scrapebook
   get 'activities/bookings_dashboard/users/:id', to: 'users#bookings_dashboard', as: :bookings_dashboard
-  get 'activities/reviews_dashboard/users/:id', to: 'users#reviews_dashboard', as: :reviews_dashboard
   get 'activities/filter_by_category/:id', to: 'activities#filter_by_category', as: :filter_by_category
   get '/:id', to: 'activities#filter_by_dropdown', as: :filter_by_dropdown
 end
