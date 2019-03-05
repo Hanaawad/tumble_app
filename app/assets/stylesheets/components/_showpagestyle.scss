@@ -8,6 +8,12 @@
 
 }
 
+.members-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .book {
   transform-style: preserve-3d;
   position: relative;

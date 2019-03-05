@@ -3,6 +3,13 @@
 <div class="container">
 
   <div class="show-description ">
+    <div class="members-box">
+      <% @activity.users.each do |user| %>
+        <div class="avatar">
+           <%= cl_image_tag user.photo, alt: "alttext" %>
+        </div>
+      <% end %>
+    </div>
     <div class="box"></div>
     <div class="body-left">
       <div class="sketchy">
@@ -44,7 +51,6 @@
           <h1>reviews</h1>
         </div>
       </div>
-
     </div>
   </div>
 </div>

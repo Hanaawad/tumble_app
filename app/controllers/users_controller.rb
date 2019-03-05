@@ -5,13 +5,9 @@ class UsersController < ApplicationController
 
   def bookings_dashboard
     @bookings = @user.bookings
-  end
-
-  def reviews_dashboard
-
+    @reviews = @user.reviews
     time = Time.new(2020, 03, 20, 10, 15)
     @activities_been_to = current_user.activities.where("end_date < ?", time)
-    @reviews = @user.reviews
   end
 
   private
