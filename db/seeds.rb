@@ -1,4 +1,5 @@
 require "date"
+require 'pry-byebug'
 p "cleaning database"
 Booking.delete_all
 Review.delete_all
@@ -166,17 +167,22 @@ photos =["https://images.unsplash.com/photo-1508166466920-f65aa51f727c?ixlib=rb-
 "https://images.unsplash.com/photo-1512972103000-66ab71f7a228?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60",
 "https://images.unsplash.com/photo-1543727363-77916b8189e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
 "https://images.unsplash.com/photo-1543163300-3566d6a3fab0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60"]
-act1 = Activity.new(name: "White Water Rafting", location: "Bali",
+act1 = Activity.new(name: "White Water Rafting", location: "Jl. Raya Kintamani",
   description: "Get the experience of a lifetime during your trip to Bali by trying out white water rafting at the stunning Ayung River, the longest river on the island. Marvel at the river's gorgeous surroundings, including lush rainforests, gorgeous waterfalls, and beautiful gorges! Enjoy a convenient pick up at your hotel, then travel comfortably to the rafting starting point inside an air-conditioned vehicle. Once you arrive, you'll change into your rafting clothes and equipment and be briefed by the professional guides about the proper rafting techniques and safety rules.
-  Set off on your exhilarating rafting adventure, which lasts for a bit over an hour, and feel the cool water splashing on your skin as you make your way to the finish line. Rest and recharge with a delicious buffet meal that features a variety of fresh, local dishes, before you shower and start to head back to your hotel. This is a fun, family-friendly activity that all thrillseekers should try at least once during their visit to Bali!", price: 250,
+  Set off on your exhilarating rafting adventure, which lasts for a bit over an hour, and feel the cool water splashing on your skin as you make your way to the finish line. Rest and recharge with a delicious buffet meal that features a variety of fresh, local dishes, before you shower and start to head back to your hotel. This is a fun, friendly activity
+   that all thrillseekers should try at least once during their visit to Bali!", price: 150,
   start_date: Time.new(2019, 03, 20, 10, 15), end_date:
   Time.new(2019, 03, 20, 12, 15), activation_date: Time.new(2019, 03, 12, 11, 15),
   min_limit: 6, max_limit: 10)
 act1.category = water
-photos.each do |photo|
-  p = Photo.new
-  p.remote_photo_url = photo
-  p.activity = act1
+
+act1.save!
+photos.each do |url|
+  photo = Photo.new
+  photo.remote_photo_url = url
+  photo.activity = act1
+  photo.save!
+
 end
 act1.save!
 p "Creating 5 bookings for act 1"
@@ -188,23 +194,40 @@ five_users.each do |user|
 end
 
 p "review 1"
-r1 = Review.new(description: "Jetskiing is super awsome! The view on NYC
+r1 = Review.new(description: "Rafting is super awsome! The view on Bali
   was simply stunning!!", rating: 4)
 r1.activity = act1
 r1.user = max
 r1.save!
 p "act 2"
-act2 = Activity.new(name: "iFLY Westchester", location: "849 Ridge Hill Boulevard, Yonkers, New York, 914-449-4359",
-  description: "iFLY is where the dream of flight becomes a reality. Become a part of something
-  bigger than yourself. You’ll fall in love with the sensation & the freedom that comes with
-  floating on air and when you do, there’s a new & exciting sport of indoor bodyflight to become
-    involved in.", price: 149,
+photos =["http://baliquadbiking.com/wp-content/uploads/2018/09/bali-quad-bike-on-the-beach.jpg",
+"https://cdn.getyourguide.com/img/tour_img-774883-145.jpg",
+"https://cdn.getyourguide.com/img/tour_img-774895-145.jpg",
+"http://baligreenlineadventure.com/wp-content/uploads/2018/02/ATV-2.jpg",
+"https://cdn.getyourguide.com/img/tour_img-478959-145.jpg"]
+act2 = Activity.new(name: "ATV Quad Bike Adventure ", location: "Central Batur, Kintamani",
+  description: "
+Explore this tropical paradise as you discover its varied landscapes, lush rice paddies,
+ overgrown jungles and rushing rivers on a two hour ATV Quad bike adventure. Experience a
+ convenient pick up at your accommodation, and whether you take a morning, afternoon or
+ early evening ride, you will be given a thorough safety briefing and all the equipment
+  needed for a safe journey. Choose to either ride in tandem with a companion or drive your
+  own buggy each - either way, you'll be treated to a spectacular sight of Bali's natural beauty as you
+  drive through and around the extensive track. If you're up for a bit more thrill, just let your guide
+  know and he'll take you to a more technical terrain where you can make your way up steep hills on full
+   speed or slide down slopes as you please. After an exciting ride,
+freshen up with a relaxing shower before feasting on a buffet meal of scrumptious food. .", price: 50,
   start_date: Time.new(2019, 03, 19, 11, 25), end_date:
   Time.new(2019, 03, 19, 13, 15), activation_date: Time.new(2019, 03, 12, 14, 15),
   min_limit: 15, max_limit: 20)
 act2.category = extreme
-act2.remote_photo_url = "https://www.gannett-cdn.com/-mm-/564eaaedc71f9c21ffb61b2b37eb0498dc021d5f/c=0-341-5367-3373/local/-/media/2015/12/21/Westchester/Westchester/635863102488705581-ts122115ifly01.jpg?width=3200&height=1680&fit=crop"
 act2.save!
+photos.each do |url|
+  photo = Photo.new
+  photo.remote_photo_url = url
+  photo.activity = act2
+  photo.save!
+end
 p "review 2"
 r2 = Review.new(description: "Wow, i never thought that indoor flying could
   be this cool!", rating: 5)
@@ -212,194 +235,323 @@ r2.activity = act2
 r2.user = max
 r2.save!
 p "act 3"
-act3 = Activity.new(name: "AIRE Ancient Baths", location: "88 Franklin St, New York
-NY 10013",
-  description: "In the midst of the bustle and fast-paced rhythm of downtown,
-  right at the heart of TriBeCa, there is an oasis of tranquility exclusively designed to
-  balance mind and body. Located at a restored historical building, originally an 1883 textile
-  factory, the AIRE experience consists of an unforgettable journey through sensations across
-  the various baths with water at different temperatures that will transport you to the ancient
-  times of the Roman, Greek and Ottoman traditions. Come discover a unique atmosphere of relaxation.", price: 149,
-  start_date: Time.new(2019, 04, 19, 12, 30), end_date:
+photos =["https://www.uniqueretreats.com/wp-content/uploads/2018/04/radiantly-alive.jpg",
+"https://cdn.citynomads.com/wp-content/uploads/2016/09/29004402/Bali-Yoga-and-Meditation-retreats.jpg",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAFdoPmKsTxGe2SRDPMYZplq4hYE0wRMd3El_Afh5VIC2rJBaeOw",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAr0v9KvwE6rqObf35tLfWMdRiCT49PRwg1hHpcLJrcyRJp5TE9w",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-ONgFZWXr5iUfcQSm7Qf4Vkb6Jh-noktUxi70wGIygfQk9C97"]
+act3 = Activity.new(name: "Yoga", location: " Kedewatan, Ubud",
+  description: "Are you ready to take your Yoga practice to the next level? Are you looking for
+  a meaningful way of contributing to our society? Then it may be time to now step
+   forward and start sharing your passion for Yoga with your friends and your community.With Akasha
+   Yoga we offer a space for
+    integral evolution, and invite you to journey with us towards the very roots of classical Yoga.
+    We believe that a solid self-practice, a substantial anatomical, philosophical and spiritual understanding of
+    Yoga, and the passion for what we do, are the keys to being a successful Yoga instructor. Our extensive
+     experience of coaching Yoga teachers enables us to select empowering methods that quickly turn
+     aspirants into confident instructors.
+The comprehensive curriculum of our 200-hour intensive course is approved and certified by the renowned
+international Yoga Alliance. Our Teacher Training is a heartfelt invitation to turn your passion into a meaningful profession.", price: 450,
+  start_date: Time.new(2019, 03, 10, 12, 30), end_date:
   Time.new(2019, 04, 19, 14, 30), activation_date: Time.new(2019, 03, 17, 12, 15),
   min_limit: 10, max_limit: 15)
 act3.category = indoor
-act3.remote_photo_url = "https://beaire.com/sites/all/modules/beaire/img/centros/newyork2.jpg"
 act3.save!
+photos.each do |url|
+  photo = Photo.new
+  photo.remote_photo_url = url
+  photo.activity = act3
+  photo.save!
+end
 p "review 3"
-r3 = Review.new(description: "Hmmm, nothing more relaxing
-  than a 2h long bath in ancient times", rating: 4)
+r3 = Review.new(description: "Hmmm, nothing more relaxing", rating: 4)
 r3.activity = act3
 r3.user = max
 r3.save!
 p "act 4"
-act4 = Activity.new(name: "Clue Chase - Egyptian Tomb", location: "The Grace Building, The Concourse, 1114 Avenue of the Americas, New York, New York",
-  description: "Clue Chase is a fun fast paced escape room game, consistently rated one
-  of the top experiences in NYC.  As the only Escape Room located in a class A building in
-  NYC, Clue Chase has the safest and most immersive escape rooms around! Our escape rooms are
-  perfect for friends, coworkers and family of all experience levels. Each escape room contains a
-  mystery that must be solved as a team. With four epic escape games to choose from, there’s
-  something for everyone! Work together to find clues, solve puzzles, collect hidden items, and
-  complete your mission in less than 60 minutes. ", price: 99,
+photos = [
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS12H2TI-jC_KdSVpnXmTnCvnMHjGC2VoKa9Jh_XAlqsWpfIRVLew",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDVMj8zVdYAF8_c-ghLv63Y6aW3MhNyyVEYegyzjXLIFmM9atx",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQatcV1vqupO2LkRCy_Mt0vxGxQXU7z4_VHbiAFmw51fawFRAP-Ow",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtcHesnqjcV8-Xu0881F74-w2ztWPOG29xBf15_hcDkoR9PAkp",
+"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBeoerc0xkI6I7aaOCcnhJuLJCWkGURbA0ae2X-pgsf7BN3q0ytQ"]
+act4 = Activity.new(name: "Scuba Dive", location: "Dewi Saraswati",
+  description: "Descend to one of the famous diving spots in Bali and explore the
+   underworld beauty around the sunken USS Liberty. Already visible from the surface
+    on a clear day, the World War II era shipwreck is covered with diverse and colorful
+    corals and has become a home to a number of unique underwater species like Ghost Pipe
+    Fish and Pygmy Seahorses. Swimming with the abundant marine life through the wide holes
+    and twisted metal bars will give you an underworld experience similar to Hollywood sci-fi
+    films. For macro photography lovers, the contrasting colors of rusting metal posts and corals is an underwater haven! Only 50 meters away from the shore of Tulamben, this experience will last around 10 hours from pickup till drop off. The package includes lunch after your first dive, a freshen up shower in the open air shower facilities,
+  and changing rooms before you are brought back to your accommodation before 6:00pm. ", price: 150,
   start_date: Time.new(2019, 04, 17, 11, 30), end_date:
   Time.new(2019, 04, 17, 13, 30), activation_date: Time.new(2019, 04, 9, 13, 30),
   min_limit: 11, max_limit: 13)
-act4.category = indoor
-act4.remote_photo_url = "https://vignette.wikia.nocookie.net/cause-for-concern-larp/images/d/d1/Throne_Room.jpg/revision/latest?cb=20140930082151"
+act4.category = water
 act4.save!
+photos.each do |url|
+  photo = Photo.new
+  photo.remote_photo_url = url
+  photo.activity = act4
+  photo.save!
+end
 p "review 4"
 r4 = Review.new(description: "I got a little bit confused", rating: 3)
 r4.activity = act4
 r4.user = max
 r4.save!
 p "act 5"
-act5 = Activity.new(name: "New York Midtown Scavenger Hunt Adventure", location: "The Grace Building, The Concourse, 1114 Avenue of the Americas, New York, New York",
-  description: "Make New York your game board with a 3-hour scavenger hunt adventure
-  through midtown Manhattan and Times Square, and explore the city’s history and landmarks
-  at your own pace. Trace the 2-mile route on a smart phone, take on a series of challenges with
-  your team of 2-5 people and solve New York-themed puzzles as you walk. Pause to eat and drink
-  along the way and give your day in the city a competitive edge by racking up points to compare
-  with teams that have completed the same exciting challenge.", price: 20,
+photos=[
+  "https://cdn.getyourguide.com/img/tour_img-1241350-145.jpg",
+  "https://kotheexplorer.files.wordpress.com/2018/03/photo-27-02-2018-2-08-39-pm.jpg?w=1000",
+  "https://cdn.getyourguide.com/img/tour_img-1241392-145.jpg",
+  "https://i.pinimg.com/originals/68/74/9b/68749b1d324f34ade130ce2191d86bcb.jpg",
+"https://images.unsplash.com/photo-1521601823289-ebb7d48ec7eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+"http://sowherearewe.com/wp-content/uploads/2018/01/IMG_9289-2.jpg"
+]
+act5 = Activity.new(name: "Northern Charm", location: "Jl. Kartika Plaza",
+  description: "Bali is a living postcard, an Indonesian paradise that feels like a fantasy. This tour is designed for those who wish to visit all
+  the most iconic and photogenic sites that you always see on postcards and instagram in the northern part of the islands.
+  On top of snapping some Instagram-worthy pictures, you'll learn about the Balinese culture and history behind those sites and immerse yourself in the beauty of nature.
+
+Your first stop early in the morning will be the iconic Lake Beratan where you will see the majestic temple sitting on a small island on the lake,
+ just as you always see in the postcards of Bali. This lakeside temple was constructed in honor of Dewi Danu, goddess of
+ the lake that was formed by a volcanic eruption 30,000 years ago. Your guide will also explain to you more of the history of this ancient temple as well as the Balinese people and their culture.
+
+You will then visit the iconic Handara Gate, well known as the pathway to serenity. Take a wonderful picture in front of Handara Gate with the
+ breathtaking view of green scenery and the gigantic-exotic traditional Balinese gate as your backdrop. Pamper your eyes
+  with the amazing green surrounding, beautiful scenery and the amazing background of smoky green hills between the gates that creates a perfect picture for your trip. Don't forget to take some polaroid photos as well while you are here.
+
+Prepare your walking shoes because you will next go to visit the majestic and beautiful Banyumala Twin Waterfall. It’s absolutely perfect for a
+quiet and peaceful afternoon in the arms of Mother Nature. The natural pool is inviting with its translucent turquoise
+ waters. Swim in tranquility, listen to the thunderous roar of cascading waters and take in the sights of the vibrant greenery. Although no picture will ever do this natural wonder justice, that shouldn’t stop you from that perfect Instagram shot
+
+Your journey will not be completed without a visit to the iconic Wanagiri Hidden Hills which is punctuated by a series of whimsical vantage
+ points over Lake Tambingan and Lake Buyan. Here you will fly over the hill and lakes and experience incredible views on
+  a jungle swing. Do not miss the bird cage and also a viewing post shaped like a boat here!", price: 50,
   start_date: Time.new(2019, 04, 17, 11, 30), end_date:
   Time.new(2019, 04, 17, 13, 30), activation_date: Time.new(2019, 04, 9, 13, 30),
   min_limit: 8, max_limit: 20)
 act5.category = social
-act5.remote_photo_url = "https://tourscanner.co/blog/wp-content/uploads/2018/03/scavenger_hunt.jpg"
 act5.save!
+photos.each do |url|
+  photo = Photo.new
+  photo.remote_photo_url = url
+  photo.activity = act5
+  photo.save!
+end
 p "act 6"
-act6 = Activity.new(name: "NYC Helicopter tour", location: "Helicopter Flight Services
-  Inc, Downtown Manhattan Heliport pier 6, New York",
-  description: "Experience New York in a way that most tourists never get to do with
-  this incredible, 15-minute helicopter ride that will serve as an aerial tour of the city.
-  Marvel at the stunning skyline and get up close to sights like the Brooklyn Bridge and Empire
-  State Building.", price: 200,
+photos=["https://images.unsplash.com/photo-1509883236841-6601c2c660f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1932&q=80",
+  "https://images.unsplash.com/photo-1440968872456-dec3196b9bee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+  "https://wheresmollie.com/wp-content/uploads/2016/03/2Z4A0690-2.jpg",
+  "https://d27k8xmh3cuzik.cloudfront.net/wp-content/uploads/2017/07/bali-hiking-guide.jpg",
+"https://images.unsplash.com/photo-1508184782546-39f96de554aa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"]
+act6 = Activity.new(name: "Mount Batur Sunrise Trekking", location: "Jl. Raya Penelokan",
+  description: "Hike up to the top of the picturesque Mount Batur (Kintamani Volcano) on a 10-hour sunrise trek and be rewarded with dramatic views of Bali’s mountainscapes as you munch on a delicious breakfast at the top. You probably won’t get a lot of sleep on the night of the tour — you will need to be ready in time for your 2am hotel pick up. Go through a short safety briefing before embarking on your Mount Batur Sunrise Trek. It will take you about three hours to get to the top and, once there, you will get to combine breathtaking views from the peak of Mount Batur with a delicious
+   local breakfast. After, you will trek down the mountain and visit a beautiful coffee plantation along the way.", price: 150,
   start_date: Time.new(2019, 04, 15, 11, 30), end_date:
   Time.new(2019, 04, 15, 13, 30), activation_date: Time.new(2019, 04, 9, 13, 30),
   min_limit: 8, max_limit: 10)
-act6.category = educational
-act6.remote_photo_url = "https://tourscanner.co/blog/wp-content/uploads/2018/03/new-york-helicopter-tour.jpg"
+act6.category = nature
 act6.save!
+photos.each do |url|
+  photo = Photo.new
+  photo.remote_photo_url = url
+  photo.activity = act6
+  photo.save!
+end
 p "act 7"
-act7 = Activity.new(name: "Gospel Tour in New York City", location: "Harlem",
-  description: "Enjoy a guided tour through the historic neighborhood of Harlem -
-Attend Baptist Mass with a Gospel Choir -
-See the Apollo Theater, Sugar Hill, Morningside Heights and Columbia University -
-Enjoy a unique tour off the tourist track", price: 40,
+photos = ["https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1295,h_971,f_auto/w_80,x_15,y_15,g_south_west,l_klook_water/activities/zo6xivp4a0mvh0plioja/ElephantMudFunExperienceatBaliZoo.webp",
+
+  "https://st2.depositphotos.com/6676792/12247/i/950/depositphotos_122475752-stock-photo-young-tourists-go-elephant-trekking.jpg",
+"https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1295,h_863,f_auto/w_80,x_15,y_15,g_south_west,l_klook_water/activities/qvkvbf5jnfx9su0albgk/LombokElephantParkTicket.webp",
+"https://cdn.pixabay.com/photo/2017/06/07/10/47/elephant-2380009_1280.jpg"
+]
+act7 = Activity.new(name: "Elephant Park ", location: "Jl. Catur ",
+  description: "Elephants are some of the most adorable animals on the planet despite their huge size. But instead of looking at these gentle giants from afar, isn’t it more exciting to interact with them? Visit Bali Zoo and have a one-of-a-kind experience with some elephants with their Elephant Mud Fun activity! You’ll have the chance to get down and dirty with these creatures and play with them in a pond full of mud! Once you’re done with this fun activity, you can also enjoy a couple of hours roaming around Bali Zoo and be in awe of the various animals under their care. Some of the animals you’ll get to see include an African lion, an Asian small-clawed otter,
+   and more! At the end of the day, get to feast on a sumptuous meal with your loved ones at Sanctoo Villa!", price: 40,
   start_date: Time.new(2019, 04, 15, 11, 30), end_date:
   Time.new(2019, 04, 15, 13, 30), activation_date: Time.new(2019, 04, 9, 13, 30),
   min_limit: 9, max_limit: 16)
-act7.category = educational
-act7.remote_photo_url = "https://cdn.getyourguide.com/img/tour_img-220567-145.jpg"
+act7.category = social
 act7.save!
+photos.each do |url|
+  photo = Photo.new
+  photo.remote_photo_url = url
+  photo.activity = act7
+  photo.save!
+end
 p "act 8"
-act8 = Activity.new(name: "House of Yes", location: "Bushwick",
-  description: "This wild Bushwick hotspot opened in 2016 and quickly established
-  itself as a reliable way for Brooklyn revelers to wear insane costumes and lose their
-  inhibitions just about every weekend. With exhibitionist parties like “House of Love” and
-  the immersive “Little Cinema” film tributes, along with a panoply of aerialists, magicians
-  and dancers on retainer, House of Yes is constantly inventing new ways to make a night out
-  more than just drinks at the bar. Pro tip: Snag tickets in advance and get there early — the
-  entry line often runs the block.", price: 80,
+photos = ["https://images.unsplash.com/photo-1500520198921-6d4704f98092?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1825&q=80",
+"https://images.unsplash.com/photo-1451943744133-d6335204a0a3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80",
+"https://images.unsplash.com/photo-1459745930869-b3d0d72c3cbb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+"https://images.unsplash.com/photo-1499823382510-3990e4b8a04b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"]
+act8 = Activity.new(name: "Bali Surf Lesson", location: "Pecatu, South Kuta",
+  description: "When we talk about Lombok island, its crystal clear waters, white sand beaches,
+  and rich marine life instantly come to mind. But the island paradise has a lot to offer, namely its natural wildlife.
+   See its exotic animals at Lombok Elephant Park! Home to over 45 species of 195 animals,
+    Lombok Elephant Park seeks to give visitors a chance to experience animals first-hand through their various attractions
+     and experiences. Treat your whole family to an exciting wildlife adventure at the zoo, where the kids will meet all kinds
+     of animals. For a memorable snap, have your photos taken while you interact with live parrots, elephants,
+      and reptiles. Don't forget to capture every moment of your kids' delight as they handle exotic animals.
+       A professionally trained staff will guide you throughout every experience, so don't worry and just enjoy!
+       Extend the fun with a Breakfast Set at the zoo's restaurant,
+   where elephants drop by frequently. Get tickets now for your next getaway!", price: 80,
   start_date: Time.new(2019, 04, 17, 22, 30), end_date:
   Time.new(2019, 04, 18, 5, 30), activation_date: Time.new(2019, 04, 12, 13, 30),
   min_limit: 9, max_limit: 16)
-act8.category = social
-act8.remote_photo_url = "https://media.timeout.com/images/103533836/1372/772/image.jpg"
+act8.category = educational
 act8.save!
+photos.each do |url|
+  photo = Photo.new
+  photo.remote_photo_url = url
+  photo.activity = act8
+  photo.save!
+end
 p "act 9"
-act9 = Activity.new(name: "Empire City Watersports", location: "417 Bay 41st St, Brooklyn, NY 11214, USA",
-  description: "At Empire City Watersports we have taken the idea of renting a Jet ski and have
-  brought it to the beautiful Empire City known as more popularly New York City. The excitement of
-  riding a Jet ski in itself is something worth coming down for, but taking one of our tours and
-  viewing New York City from the water is truly an amazing sight to see that most locals don’t
-  really ever get to experience! Come join us on one of our tours and we will give you that
-  opportunity, while riding comfortably and freely at your own pace.", price: 220,
+photos = [
+  "http://uluwatubalidriver.com/wp-content/uploads/2017/10/Bali-Bike-Tour-Landscape-001.jpg",
+  "https://images.unsplash.com/photo-1520694571317-eab7d41c9851?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+]
+act9 = Activity.new(name: "cycling", location: "Carangsari",
+  description: "Cycling in Bali lets you experience the beautiful countryside of the island, as well as rural Balinese village life from up close.
+   Pedalling through rugged terrain alongside volcanic rims, zooming downhill past ancient temples and plantations while greeting local farmers and
+   schoolkids as you pass by, all add to an immersive experience – far better than your hotel gym! Here we’ve compiled all of the popular cycling
+    spots around the island, covered by our great selection of exciting cycling activities available in Bali. Terrain and highlights vary: from biking
+     at a leisurely pace through jungle villages in central Bali, to riding over undulating topography of hillside neighbourhoods, all of which reward
+      you with breathtaking vistas usually inaccessible by car. Check out where to go in Bali for your next exhilarating cruise on two wheels.", price: 35,
   start_date: Time.new(2019, 04, 12, 10, 15), end_date:
   Time.new(2019, 04, 12, 12, 15), activation_date: Time.new(2019, 03, 25, 11, 15),
   min_limit: 8, max_limit: 10)
-act9.category = water
-act9.remote_photo_url = "https://i0.wp.com/www.rockawayjetski.com/wp-content/uploads/2015/06/funjetski.jpg?fit=1900%2C1069&ssl=1"
+act9.category = extreme
 act9.save!
+photos.each do |url|
+  photo = Photo.new
+  photo.remote_photo_url = url
+  photo.activity = act9
+  photo.save!
+end
 p "act 10"
-act10 = Activity.new(name: "Empire City Watersports", location: "417 Bay 41st St, Brooklyn, NY 11214, USA",
-  description: "At Empire City Watersports we have taken the idea of renting a Jet ski and have
-  brought it to the beautiful Empire City known as more popularly New York City. The excitement of
-  riding a Jet ski in itself is something worth coming down for, but taking one of our tours and
-  viewing New York City from the water is truly an amazing sight to see that most locals don’t
-  really ever get to experience! Come join us on one of our tours and we will give you that
-  opportunity, while riding comfortably and freely at your own pace.", price: 260,
+photos = ["https://cairnstours.net.au/wp-content/uploads/2018/03/Roofy-Drone.jpg","https://media.adrenaline-hunter.com/cache/activity_gallery_zoom_770x500/media/2018/03/2067cd3f577998df3555cd9876793eb4.jpeg"]
+act10 = Activity.new(name: "Bungy Jump", location: "Jl. Raya ",
+  description: "Thrill seekers and daredevils would not want to miss a chance to try out the exhilarating Human Slingshot and Bungy Jump
+  rides at Sanook Park, Pattaya! Since 1989, Sanook Park has been satisfying the needs of adrenaline junkies with their 60m tall bungy
+   jump that not only gives you the intoxicating feeling of free falling, but also amazing views of the lake right below.
+    If that’s not enough for you, you could also try out the human slingshot that catapults you over 90m high at hair-raising speeds of 150km/s!
+     If you're still on the fence about whether or not to try these death-defying rides, no need to worry! Your professional English speaking
+      instructor will be there to guide you on basic safety measures and cheer you on if you need a little extra boost of morale. Whether it's
+       the bungy jump, the human slingshot, or both, you're sure to have the time of your life. Plus,
+  you can even bring home an HD video of you to show to everyone back home and make them wish they were there to experience it!", price: 160,
   start_date: Time.new(2019, 04, 14, 10, 15), end_date:
   Time.new(2019, 04, 14, 13, 15), activation_date: Time.new(2019, 03, 29, 10, 15),
   min_limit: 17, max_limit: 22)
-act10.category = water
-act10.remote_photo_url = "https://bagatyou.com/wp-content/uploads/2017/12/Bag-at-you-Sea-the-city-New-York-jet-ski.jpg"
+act10.category = extreme
 act10.save!
+photos.each do |url|
+  photo = Photo.new
+  photo.remote_photo_url = url
+  photo.activity = act10
+  photo.save!
+end
+
 p "act 11"
-act11 = Activity.new(name: "NYC Helicopter tour", location: "Helicopter Flight Services
-  Inc, Downtown Manhattan Heliport pier 6, New York",
-  description: "Experience New York in a way that most tourists never get to do with
-  this incredible, 15-minute helicopter ride that will serve as an aerial tour of the city.
-  Marvel at the stunning skyline and get up close to sights like the Brooklyn Bridge and Empire
-  State Building.", price: 180,
+photos=["https://www.carnival.com/~/media/Images/PreSales/Excursions/Ports_G-L/LRM/428053/Pictures/la-romana-zip-line-adventure-la-romana-dominican-republic-1.jpg",
+  "https://cdn.getyourguide.com/img/tour_img-359781-148.jpg"]
+act11 = Activity.new(name: "Zip line", location: "Jl. A.A. Gede Rai ",
+  description: "Soar through Bali rainforest as you enjoy the natural wonder of a rainforest. If you're in luck,
+   you'll also be able to see the rare hornbill among other animals. The site has a 300 meter rope slide, 2 rappel descents
+   and 2 hanging sky bridges with an experienced guide who will pay close attention to your safety.
+   At the end of the the obstacle, enjoy the view from a high platform overlooking the lush greenery and scenic mountains.", price: 180,
   start_date: Time.new(2019, 03, 15, 11, 30), end_date:
   Time.new(2019, 03, 15, 13, 30), activation_date: Time.new(2019, 03, 9, 13, 30),
   min_limit: 8, max_limit: 10)
-act11.category = educational
-act11.remote_photo_url = "https://cdn-imgix.headout.com/tour/18044/TOUR-IMAGE/0ea13005-9e28-4de4-b235-815f129b1081-9874-new-york-nyc-helicopter-tour-15-minute-tour-03.jpg?auto=compress&fm=webp&w=1200&h=750&crop=faces&fit=min"
+act11.category = extreme
 act11.save!
+photos.each do |url|
+  photo = Photo.new
+  photo.remote_photo_url = url
+  photo.activity = act11
+  photo.save!
+end
 p "act 12"
-act12 = Activity.new(name: "Manhattan Holiday Yacht Cruise with Jazz, Cocoa & Carols", location: "Pier 15, 78 South St,
-  New York, NY 10038",
-  description: "Climb aboard a luxury yacht and sail around Manhattan on a holiday season cruise.
-  See the New York skyline, decked out in its Christmas clothes, and warm up with cocoa and
-  cookies as you listen to live entertainment and carols.", price: 80,
+photos=["https://cdn.getyourguide.com/img/tour_img-688055-145.jpg","https://cdn.getyourguide.com/img/tour_img-688061-145.jpg"]
+act12 = Activity.new(name: "Spiritual Cleansing and Shamanic Healing Tour", location: "Central Batu",
+  description: "Meet one of Bali's most famous healers, named Cokorda Rai from Puri Negari Ubud,
+   and take some time to cleanse spiritually at the Bali Holy Spring Temple at Tirta Empul in Tampak Siring.
+  Experience the Yagna, Yatra and Mantra healing techniques.", price: 80,
   start_date: Time.new(2019, 03, 15, 11, 30), end_date:
   Time.new(2019, 03, 15, 13, 30), activation_date: Time.new(2019, 03, 9, 13, 30),
   min_limit: 20, max_limit: 30)
 act12.category = social
-act12.remote_photo_url = "https://cdn.getyourguide.com/img/tour_img-292244-145.jpg"
 act12.save!
+photos.each do |url|
+  photo = Photo.new
+  photo.remote_photo_url = url
+  photo.activity = act12
+  photo.save!
+end
 p "act 13"
-act13 = Activity.new(name: "AIRE Ancient Baths", location: "88 Franklin St, New York
-NY 10013",
-  description: "In the midst of the bustle and fast-paced rhythm of downtown,
-  right at the heart of TriBeCa, there is an oasis of tranquility exclusively designed to
-  balance mind and body. Located at a restored historical building, originally an 1883 textile
-  factory, the AIRE experience consists of an unforgettable journey through sensations across
-  the various baths with water at different temperatures that will transport you to the ancient
-  times of the Roman, Greek and Ottoman traditions. Come discover a unique atmosphere of relaxation.", price: 149,
+photos = ["https://images.unsplash.com/photo-1533962504244-07f7de8dc3c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+"https://images.unsplash.com/photo-1501963422762-3d89bd989568?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60"]
+act13 = Activity.new(name: "Lembongan Reef Cruise", location: "l. Pantai Berawa",
+  description: "A full day of fun  – above and below the water -
+   at Bali's neighboring Lemongan Island! Run by Indonesia's leading marine tourism company,
+   their 24 years of experience is evident in the effortless care of the whole family's needs.
+   The luxury catamaran cruises daily from Bali to Nusa Lembongan, where you'll moor up for the day
+   so you can swim and snorkel the tropical waters, enjoy unlimited banana boat rides, a cultural tour
+   of the island or the 35-meter waterslide! Plus, if you're feeling really adventurous, delve beneath the
+   waves to explore the underwater world by scuba - even if you're a complete beginner! Or trial the 'aquanauts'
+    to experience walking along the sea floor. When you've worked up an appetite,
+   feast on a delicious buffet served in air conditioned comfort on board.", price: 149,
   start_date: Time.new(2019, 04, 28, 12, 30), end_date:
   Time.new(2019, 04, 28, 14, 30), activation_date: Time.new(2019, 03, 20, 12, 15),
   min_limit: 8, max_limit: 15)
-act13.category = indoor
-act13.remote_photo_url = "https://beaire.com/sites/all/modules/beaire/img/centros/newyork2.jpg"
+act13.category = social
 act13.save!
+photos.each do |url|
+  photo = Photo.new
+  photo.remote_photo_url = url
+  photo.activity = act13
+  photo.save!
+end
 p "act 14"
-act14 = Activity.new(name: "Modern Pinball NYC", location: "88 Franklin St, New York
-NY 10013",
-  description: "Featured in THE WALL STREET JOURNAL and on NBC's TODAY, FOX and CNN, Modern Pinball
-  YC has become an overnight sensation and cultural phenomenon named BEST OF NEW YORK for FUN by New
-  York Magazine. Enjoy dozens of modern and classic pinball machines and arcade games while exploring
-  their rich history, art and technology.", price: 30,
+photos =["https://images.unsplash.com/photo-1546936985-7b8df7a840d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+"https://images.unsplash.com/photo-1527733656522-3ba38b372dea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60",
+"https://images.unsplash.com/photo-1514586358658-0de730e28cd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=60"]
+act14 = Activity.new(name: "Paragliding", location: " Jl. Petitenget ",
+  description: "
+Conquer your fear of heights and enjoy an afternoon of flying when you join this paragliding activity at Timbis Beach in Bali.
+Fly over the breathtaking Indian Ocean and see hidden temples, limestone cliffs, and the gorgeous Bali skyline from above.
+No need to worry about safety as you’ll undergo basic paragliding lessons and safety procedures before flying. Once you’re
+ready, you’ll be guided and assisted by a paragliding pilot and fly together!
+There’ll also be video and photo documentation so you can brag abour this once-in-a-lifetime adventure to your friends!", price: 30,
   start_date: Time.new(2019, 04, 28, 12, 30), end_date:
   Time.new(2019, 04, 28, 14, 30), activation_date: Time.new(2019, 03, 20, 12, 15),
   min_limit: 20, max_limit: 25)
 act14.category = social
-act14.remote_photo_url = "https://i.kinja-img.com/gawker-media/image/upload/s--bFvo1fxz--/c_fill,f_auto,fl_progressive,g_center,h_675,q_80,w_1200/1322602791531132197.jpg"
 act14.save!
+photos.each do |url|
+  photo = Photo.new
+  photo.remote_photo_url = url
+  photo.activity = act14
+  photo.save!
+end
 p "act 15"
-act15 = Activity.new(name: "Clue Chase - Alien Encounter", location: "1114 Avenue of Americas, New York, NY 10036",
-  description: "Clue Chase is a fun fast paced escape room game, consistently rated one
-  of the top experiences in NYC.  As the only Escape Room located in a class A building in
-  NYC, Clue Chase has the safest and most immersive escape rooms around! Our escape rooms are
-  perfect for friends, coworkers and family of all experience levels. Each escape room contains a
-  mystery that must be solved as a team. With four epic escape games to choose from, there’s
-  something for everyone! Work together to find clues, solve puzzles, collect hidden items, and
-  complete your mission in less than 60 minutes. ", price: 99,
+photos=["https://images.unsplash.com/photo-1503856348302-6829f18073f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+"https://images.unsplash.com/photo-1505738313577-5357ff512f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"]
+act15 = Activity.new(name: "Parasailing", location: "Terunyan",
+  description: "Your parasailing session takes place on Pantai Samuh beach, Kuta Selatan,
+  and the flight lasts about 6 minutes. You will be able to gaze at Nusa Dua Peninsula and its stunning sandy beaches.  ", price: 99,
   start_date: Time.new(2019, 03, 21, 14, 30), end_date:
   Time.new(2019, 03, 21, 18, 30), activation_date: Time.new(2019, 03, 9, 13, 30),
   min_limit: 11, max_limit: 25)
-act15.category = indoor
-act15.remote_photo_url = "https://www.cluechase.com/storage/2018/09/Alien-Enounter-Banner.jpg"
+act15.category = extreme
 act15.save!
+photos.each do |url|
+  photo = Photo.new
+  photo.remote_photo_url = url
+  photo.activity = act15
+  photo.save!
+end
+
 p "done!"
