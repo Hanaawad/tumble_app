@@ -8,12 +8,18 @@ class BookingsController < ApplicationController
     @booking = Booking.new(user_id: current_user.id, activity_id: @activity.id)
     @booking.save
     send_sms
+    respond_to do |format|
+      format.html { redirect_to activity_path(@activity) }
+      format.js  # <-- will render `app/views/reviews/create.js.erb`
+    end
   end
 
   def destroy
     @booking.destroy
     redirect_to bookings_dashboard_path(current_user)
   end
+
+  private
 
   def set_booking
     @booking = Booking.find(params[:id])
@@ -22,8 +28,6 @@ class BookingsController < ApplicationController
   def set_activity
     @activity = Activity.find(params[:activity_id])
   end
-
-  private
 
   def send_sms
     if @activity.bookings.count >= @activity.min_limit

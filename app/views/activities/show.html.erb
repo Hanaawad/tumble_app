@@ -1,15 +1,20 @@
 <div class="banner-showpage background-show" style="background-image:linear-gradient(-225deg, rgba(103, 103, 103, 0.98) 0%, rgba(183, 59, 59, 0.01) 200%), url(<%= @activity.photo %>);">
 
 <div class="container">
-
-  <div class="show-description ">
+  <% if @activity.users.present? %>
     <div class="members-box">
-      <% @activity.users.each do |user| %>
-        <div class="avatar">
-           <%= cl_image_tag user.photo, alt: "alttext" %>
-        </div>
-      <% end %>
+      <div id="member-avatars">
+        <%= render "members_list" %>
+      </div>
     </div>
+  <% else %>
+    <div class="members-box">
+      <div id="member-avatars">
+        <h4>Be the first to join</h4>
+      </div>
+    </div>
+  <% end %>
+  <div class="show-description ">
     <div class="box"></div>
     <div class="body-left">
       <div class="sketchy">
@@ -20,7 +25,7 @@
           <p class="indent-right">  <strong class="color-dash">-</strong> <%= @activity.location %></p>
           <p class="indent-right">  <strong class="color-dash">-</strong> minimum limit: <%= @activity.min_limit %> members</p>
           <p class="indent-right focus">  <strong class="color-dash">-</strong> maximum limit: <%= @activity.max_limit %> members</p>
-          <p class="indent-right">  <strong class="color-dash">-</strong> current number of members: <%= @activity.users.count %> members</p>
+          <p class="indent-right">  <strong class="color-dash">-</strong> current number of members: <span id="member-count"><%= "#{@activity.users.count} member".pluralize(@activity.users.count) %></span></p>
 
           <%= link_to "Join group", activity_bookings_path(@activity), remote:true, id:"join-button", method:"post" , class:'black-button-tumble', data: { title: @activity.name, url: activities_path } %>
        <!--    <p>current members</p>
