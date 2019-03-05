@@ -24,7 +24,7 @@
 
               <%= link_to "Join group", activity_bookings_path(@activity), remote:true, id:"join-button", method:"post" , class:'black-button-tumble', data: { title: @activity.name, url: activities_path } %>
 
-              <a type="button" class="black-button-tumble" data-toggle="modal" data-target="#myModalSlider">More pictures</a>
+
             <!--    <p>current members</p>
        -->
           </div>
@@ -35,7 +35,7 @@
 
               <div id="slider">
                 <% @activity.photos.each do |photo| %>
-                  <div class="testbox"><%= cl_image_tag photo.photo, alt: "alttext" %></div>
+                  <div class="testbox"><%= cl_image_tag photo.photo, alt: "alttext", crop: :fill  ,height: 300, width:500 %></div>
                 <% end %>
               </div>
 

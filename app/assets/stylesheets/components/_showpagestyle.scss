@@ -14,16 +14,19 @@
 }
 
 #slider {
-  height: 200px;
+  height: 300px;
+  border-radius:283px 23px 122px 20px/23px 235px 28px 217px;
 }
 
 
 .members-box {
   border: 2px solid black;
-  display: flex;
+    border-radius: 222px 53px 116px 12px/23px 235px 26px 208px;
+
+
   justify-content: flex-start;
   align-items: center;
-  margin-top: 40px;
+  margin-top: 10px;
   padding: 8px;
 }
 
@@ -268,4 +271,10 @@ button.ap-input-icon.ap-icon-pin {
 
 span.algolia-places {
   display: inline !important;
+}
+
+
+.members-box  {
+  h4 {
+  text-align:center;}
 }
