@@ -2,8 +2,8 @@
   <h1>Hot and trending </h1>
   <div class="container-calender">
     <section class="calendar">
-      <%= cl_image_tag(@most_recent_activity.photo, crop: :fill,class:'calender-image') %>
-       <h1 class="location-style"  > New York</h1>
+      <%= cl_image_tag(@most_recent_activity.photos.first.photo, crop: :fill,class:'calender-image') %>
+       <h1 class="location-style"  > Bali</h1>
         <h1 class="date-style"  > <%=  @most_recent_activity.start_date.strftime("%-d %b") %> - <%=  @most_recent_activity.end_date.strftime("%-d %b") %></h1>
         <h2> <%=  @most_recent_activity.price %> $</h2>
         <a class="white-button-tumble centerd" href="#">Book Now</a>
