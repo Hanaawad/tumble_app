@@ -11,8 +11,8 @@ import swal from 'sweetalert';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { initUpdateShowOnJoin } from '../components/show';
 import { initMapbox } from '../plugins/init_mapbox';
+// import { initAutocomplete } from '../plugins/init_autocomplete';
  // <-- you need to uncomment the stylesheet_pack_tag in the layout!
-
 
 
 initMapbox();
@@ -20,6 +20,8 @@ initMapbox();
 initUpdateNavbarOnScroll();
 
 initUpdateShowOnJoin();
+
+// initAutocomplete();
 
 // swal("Hello world!");
 

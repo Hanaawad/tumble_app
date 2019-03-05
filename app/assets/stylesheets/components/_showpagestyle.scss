@@ -257,3 +257,15 @@ color: #da552f;
  color:black;
 text-align:center;
 }
+
+button.ap-nostyle-input-icon.ap-nostyle-icon-pin {
+  display: none;
+}
+
+button.ap-input-icon.ap-icon-pin {
+  display: none;
+}
+
+span.algolia-places {
+  display: inline !important;
+}
