@@ -10,6 +10,7 @@
               class: "form-control", id:"search-input",
               placeholder: "Find activities at your next destination"
             %>
+
             <%= date_field_tag :start_date,
               params[:start_date],
               class: "form-control datepicker", id:"search-input",
@@ -57,3 +58,6 @@
 <%= render 'shared/scrapebookhomepage' %>
 
 
+<%= content_for(:after_js) do %>
+  <%= javascript_pack_tag "places_autocomplete" %>
+<% end %>

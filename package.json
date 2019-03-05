@@ -8,11 +8,9 @@
     "hash": "^0.2.1",
     "jquery": "^3.3.1",
     "mapbox-gl": "^0.53.0",
-
+    "places.js": "^1.16.1",
     "slick-carousel": "^1.8.1",
-
     "sweetalert": "^2.1.2"
-
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"
