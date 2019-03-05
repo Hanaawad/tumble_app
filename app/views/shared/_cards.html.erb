@@ -8,7 +8,7 @@
               <div class="activity-card" style="background-image: linear-gradient(-225deg, rgba(44, 29, 29, 1) 0%, rgba(79, 9, 9, 0.46) 30%), url(<%= cl_image_path(activity.photos.first.photo, crop: :fill) %> ); background-size: cover; background-repeat: no-repeat; background-position: 50% 50%;">
                    <div class="info">
                     <h2 ><%= activity.name %></h2>
-                  <!--   <p class="styling"><%= activity.price %> $</p> -->
+                  <p class="styling"><%= activity.price %> $</p>
                    <div class="adjust-icon text-center">
                       <i class="<%= activity.icon %>"></i>
                    </div>
