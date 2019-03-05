@@ -5,15 +5,25 @@
   justify-content: center;
   align-items: center;
   perspective: 1200px;
-
 }
+
+.shows-flex-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#slider {
+  height: 200px;
+}
+
 
 .members-box {
   border: 2px solid black;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: 40px;
+  margin-top: 40px;
   padding: 8px;
 }
 
@@ -146,23 +156,47 @@ body-left{
 .sketchy {
 
 }
+
+.shows-flex-box {
+  width: 100%;
+}
+
+.caroursel-box, .info-box {
+  width: 500px;
+}
+
 .show-description{
   display:flex;
 justify-content: space-between;
   align-items: center;
-  width:50%;
+
    padding: 4px 34px;
     border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
     border: 3px solid black;
         padding-bottom: 27px;
             // background-color: white;
   h1{
-    font-size:20px;
+    font-size:32px;
     text-align: center;
+    color: #1f1e1d;
+  }
+  h2 {
+    font-size:24px;
+    text-align: center;
+    color: #1f1e1d;
+  }
+  h5 {
+    font-size:16px;
+    text-align: center;
+    color: #1f1e1d;
+    &#deadline {
+      color: #d32f27;
+      font-size: 20px;
+    }
   }
   p{
     font-size:14px;
-  color:black;
+  color:#1f1e1d;
   font-family:$text-font;
 
   }
@@ -174,6 +208,11 @@ justify-content: space-between;
 
 .indent{
   color: #da552f;
+}
+
+.dates-info {
+  display: flex;
+  justify-content: space-around;
 }
 
 .indent-right{
@@ -202,7 +241,6 @@ color: #da552f;
 
 
 .show-description{
-
   background: inherit;
   box-shadow: inset 0 0 0 300px rgba(255, 255, 255, 0.4);
   border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;

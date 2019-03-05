@@ -10,4 +10,4 @@ function showCount(resultsHTML) {
 
 showMembers('<%= j render "activities/members_list", activity: @activity %>')
 
-showCount('<%= "#{@activity.users.count} " + "member".pluralize(@activity.users.count) %>')
+showCount('<%= "#{@activity.min_limit - @activity.users.count} more member".pluralize(@activity.min_limit - @activity.users.count) %>')

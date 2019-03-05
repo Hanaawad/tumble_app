@@ -1,6 +1,46 @@
 <div class="banner-showpage background-show" style="background-image:linear-gradient(-225deg, rgba(103, 103, 103, 0.98) 0%, rgba(183, 59, 59, 0.01) 200%), url(<%= @activity.photo %>);">
 
 <div class="container">
+  <div class="shows-flex-box">
+    <div class="show-description info-box">
+      <div class="box"></div>
+        <div class="body-left">
+          <div class="sketchy">
+             <h1><%= @activity.name %></h1>
+              <h2>
+                We need
+                <span id="member-count">
+                  <%= "#{@activity.min_limit - @activity.users.count} more member".pluralize(@activity.min_limit - @activity.users.count)%>
+                </span>
+                !
+              </h2>
+              <div class="dates-info">
+                <h5 class="indent-right"> <%= @activity.start_date.strftime("%b %d %Y, %H:%M")%> - <%= @activity.end_date.strftime("%H:%M") %></h5>
+                <h5 class="indent-right" id="deadline"> Application deadline: <%= @activity.activation_date.strftime("%b %d %Y, %H:%M") %></h5>
+              </div>
+              <h5> Meetup point: <%= @activity.location %></h5>
+              <p> <i class="fas fa-caret-right indent"></i><%= @activity.description%></p>
+
+
+              <%= link_to "Join group", activity_bookings_path(@activity), remote:true, id:"join-button", method:"post" , class:'black-button-tumble', data: { title: @activity.name, url: activities_path } %>
+
+              <a type="button" class="black-button-tumble" data-toggle="modal" data-target="#myModalSlider">More pictures</a>
+            <!--    <p>current members</p>
+       -->
+          </div>
+        </div>
+      </div>
+      <div class="caroursel-box">
+
+
+              <div id="slider">
+                <% @activity.photos.each do |photo| %>
+                  <div class="testbox"><%= cl_image_tag photo.photo, alt: "alttext" %></div>
+                <% end %>
+              </div>
+
+      </div>
+  </div>
   <% if @activity.users.present? %>
     <div class="members-box">
       <div id="member-avatars">
@@ -13,73 +53,14 @@
         <h4>Be the first to join</h4>
       </div>
     </div>
-  <% end %>
-  <div class="show-description ">
-    <div class="box"></div>
-    <div class="body-left">
-      <div class="sketchy">
-         <h1><%= @activity.name %></h1>
-          <p> <i class="fas fa-caret-right indent"></i><%= @activity.description%></p>
-          <p class="indent-right">  <strong class="color-dash">-</strong> <%= @activity.start_date %> - <%= @activity.end_date %></p>
-          <p class="indent-right"> <strong class="color-dash">-</strong> Activation date: <%= @activity.activation_date %></p>
-          <p class="indent-right">  <strong class="color-dash">-</strong> <%= @activity.location %></p>
-          <p class="indent-right">  <strong class="color-dash">-</strong> minimum limit: <%= @activity.min_limit %> members</p>
-          <p class="indent-right focus">  <strong class="color-dash">-</strong> maximum limit: <%= @activity.max_limit %> members</p>
-          <p class="indent-right">  <strong class="color-dash">-</strong> current number of members: <span id="member-count"><%= "#{@activity.users.count} member".pluralize(@activity.users.count) %></span></p>
-
-
-          <%= link_to "Join group", activity_bookings_path(@activity), remote:true, id:"join-button", method:"post" , class:'black-button-tumble', data: { title: @activity.name, url: activities_path } %>
-
-          <a type="button" class="black-button-tumble" data-toggle="modal" data-target="#myModalSlider">More pictures</a>
-        <!--    <p>current members</p>
- -->
-      </div>
-    </div>
-
-    <div class="body-book">
-      <div class="book">
-        <div class="back">
-        </div>
-        <div class="page6">
-          <div class="scroll">
-            <% @activity.reviews.each do |review| %>
-              <h6 class="review"><%= review.description %></h6>
-            <% end %>
-          </div>
-
-        </div>
-        <div class="page5">
-        </div>
-
-        <div class="page4"></div>
-        <div class="page3"></div>
-        <div class="page2"></div>
-        <div class="page1"></div>
-        <div class="front"style="background-image: linear-gradient(-225deg, rgba(225,225,225,0) 0%, rgba(225,225,225,0) 100%), url(<%= image_path 'worldmap.svg' %>);" class ="adjustsize">
-          <h1>reviews</h1>
-        </div>
-      </div>
-    </div>
-  </div>
+<% end %>
+</div>
 </div>
 
 </div>
 </div>
 
 
-<div id="myModalSlider" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div class="container">
-      <div id="slider">
-        <div class="testbox"></div>
-        <div class="testbox"></div>
-        <div class="testbox"></div>
-      </div>
-    </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
+
 
 
