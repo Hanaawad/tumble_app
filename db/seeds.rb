@@ -1,5 +1,5 @@
 require "date"
-require 'pry-byebug'
+
 p "cleaning database"
 Booking.delete_all
 Review.delete_all
