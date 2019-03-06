@@ -429,10 +429,7 @@ act10 = Activity.new(name: "Bungy Jump", location: "Jl. Raya ",
   rides at Sanook Park, Pattaya! Since 1989, Sanook Park has been satisfying the needs of adrenaline junkies with their 60m tall bungy
    jump that not only gives you the intoxicating feeling of free falling, but also amazing views of the lake right below.
     If that’s not enough for you, you could also try out the human slingshot that catapults you over 90m high at hair-raising speeds of 150km/s!
-     If you're still on the fence about whether or not to try these death-defying rides, no need to worry! Your professional English speaking
-      instructor will be there to guide you on basic safety measures and cheer you on if you need a little extra boost of morale. Whether it's
-       the bungy jump, the human slingshot, or both, you're sure to have the time of your life. Plus,
-  you can even bring home an HD video of you to show to everyone back home and make them wish they were there to experience it!", price: 160,
+     If you're still on the fence about whether or not to try these death-defying rides, no need to worry!", price: 160,
   start_date: Time.new(2019, 04, 14, 10, 15), end_date:
   Time.new(2019, 04, 14, 13, 15), activation_date: Time.new(2019, 03, 29, 10, 15),
   min_limit: 17, max_limit: 22)
