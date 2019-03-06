@@ -5,6 +5,14 @@
   grid-template-rows: 60% 40%;
 }
 
+.dash-wrapper {
+  background-color: rgba(230,230,230,0.8);
+  margin-top: -80px;
+  padding-top: 80px;
+  margin-bottom: -200px;
+  padding-bottom: 200px;
+}
+
 .pending {
   grid-row: 1 / span 1;
   grid-column: 1 / span 1;
@@ -12,7 +20,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  box-shadow: 0 0 5px rgba(220,220,220,1);
+  // box-shadow: 0 0 5px rgba(220,220,220,1);
   margin: 10px;
   padding: 10px;
 }
@@ -37,7 +45,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  box-shadow: 0 0 5px rgba(220,220,220,1);
+  // box-shadow: 0 0 5px rgba(220,220,220,1);
   margin: 10px;
   padding: 10px;
 }
@@ -59,7 +67,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  box-shadow: 0 0 5px rgba(220,220,220,1);
+  // box-shadow: 0 0 5px rgba(220,220,220,1);
   margin: 10px;
   padding: 10px;
 }
@@ -84,6 +92,7 @@
   box-shadow: 0 0 5px rgba(220,220,220,1);
   margin: 5px;
   height: 150px;
+  background-color: rgba(240,240,240,0.8);
 }
 
 /* Body design */

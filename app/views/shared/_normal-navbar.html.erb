@@ -13,7 +13,7 @@
              Trips <i class="fas fa-caret-down"></i>
            </button>
            <div class="dropdown-menu" aria-labelledby="normal-dropdownMenu2">
-            <h6><%= link_to "View all", activities_path, class: "normal-navbar-wagon-item normal-navbar-wagon-link" %>
+            <h6><%= link_to "View all", activities_path, class: "normal-navbar-wagon-item normal-navbar-wagon-link", id:"view-all" %>
             </h6>
             <% Category.all.each do |category| %>
               <%= link_to filter_by_dropdown_path(category) do %>
@@ -24,10 +24,10 @@
             <% end %>
            </div>
         </div>
-        <%= link_to "Dashboard", bookings_dashboard_path(current_user), class: "normal-navbar-wagon-item normal-navbar-wagon-link" %>
+        <%= link_to "Dashboard", bookings_dashboard_path(current_user), class: "normal-navbar-wagon-item normal-navbar-wagon-link", id:"dash" %>
         <!-- Profile picture with dropdown list -->
         <div class="normal-navbar-wagon-item">
-          <div class="dropdown">
+          <div class="dropdown" id="dash">
             <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "normal-navbar-wagon-menu", "data-toggle" => "dropdown" %>
             <ul class="dropdown-menu dropdown-menu-right normal-navbar-wagon-dropdown-menu">
               <li><a href="#">Profile</a></li>
