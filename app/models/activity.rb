@@ -13,4 +13,9 @@ class Activity < ApplicationRecord
   def icon
     category.font
   end
+
+  def average_rating
+    ratings = reviews.map(&:rating)
+    return ratings.sum.fdiv(ratings.count).round(1)
+  end
 end

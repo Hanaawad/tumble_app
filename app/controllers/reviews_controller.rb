@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @review.activity = @activity
     if @review.save
-      redirect_to reviews_dashboard_path(current_user)
+      redirect_to bookings_dashboard_path(current_user)
     else
       render :new
     end

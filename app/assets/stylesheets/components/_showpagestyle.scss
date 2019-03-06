@@ -15,6 +15,24 @@
 
 }
 
+#scroll-description {
+  overflow-y: scroll;
+  max-height: 200px;
+  p {
+  font-size: 16px;
+  }
+}
+
+.display-review{
+   display :flex;
+   align-items: center;
+}
+
+#scroll-reviews {
+  max-height: 100px;
+  overflow-y: scroll;
+}
+
 #slider {
       margin-top: -45px;
   height: 300px;
@@ -293,7 +311,7 @@ span.algolia-places {
     border-radius:283px 23px 122px 20px/23px 235px 28px 217px;
     border: 2px solid black;
     width: 511px;
-    height: 122px;
+      height: 170px;
 
 
 
@@ -311,11 +329,7 @@ span.algolia-places {
     }
 }
 
-.display-review{
-   display :flex;
-   align-items: center;
 
-}
 .fa-star{
 font-size:8px;
       color: white;
