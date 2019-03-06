@@ -4,9 +4,9 @@
         <% photo_url = activity.photos.empty? ? "http://static.asiawebdirect.com/m/.imaging/1356x904/website/bangkok/portals/bali-indonesia-com/homepage/top10-activities/allParagraphs/00/top10Set/06/image.jpg" : activity.photos.first.photo%>
           <%= link_to activity_path(activity) do %>
             <div class="activity-card" style="background-image: linear-gradient(-225deg, rgba(44, 29, 29, 1) 0%, rgba(79, 9, 9, 0.46) 30%), url(<%= cl_image_path( photo_url, crop: :fill) %> ); background-size: cover; background-repeat: no-repeat; background-position: 50% 50%;">
-              <div class="info ">
+              <div class="info">
                 <h2 class="type"><%= activity.name %></h2>
-               <p ><%= activity.price %> $</p>
+               <p ><%= activity.price %> $</p  style="text-decoration: none;">
                 <div class="adjust-icon text-center">
                   <i class="<%= activity.icon %>"></i>
                 </div>

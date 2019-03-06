@@ -24,6 +24,7 @@
 
 .activity-card {
   text-align:center;
+   text-decoration:none !important;
   width: 300px;
   height: 300px;
   margin-top:50px;
@@ -38,8 +39,9 @@
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.1);
 }
 
-a .activity-card {
-  text-decoration:none;
+ .activity-card {
+a  {text-decoration:none;
+}
 }
 
 .activity-card-wrapper {
@@ -52,7 +54,7 @@ a .activity-card {
           transform: translateY(10px);
 }
 .activity-card:hover:before {
-
+text-decoration: none;
   opacity: 1;
 }
 .activity-card:hover .info {
@@ -118,9 +120,11 @@ a .activity-card .info p {
   font-size: 15px;
   color:white;
   text-decoration:none;
+
 }
 .styling a{
   text-decoration:none;
+
 }
 
 .activity-card .info button {
