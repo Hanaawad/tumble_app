@@ -11,6 +11,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-top:-95px;
+
 }
 
 #slider {
@@ -22,6 +24,8 @@
 .members-box {
   border: 2px solid black;
     border-radius: 222px 53px 116px 12px/23px 235px 26px 208px;
+    width: 1061px;
+    margin-left: 56px;
 
 
   justify-content: flex-start;
@@ -166,6 +170,8 @@ body-left{
 
 .caroursel-box, .info-box {
   width: 500px;
+  display:flex;
+  flex-direction: column;
 }
 
 .show-description{
@@ -277,4 +283,38 @@ span.algolia-places {
 .members-box  {
   h4 {
   text-align:center;}
+}
+
+
+.reviews{
+    border-radius:283px 23px 122px 20px/23px 235px 28px 217px;
+    border: 2px solid black;
+    width: 511px;
+    height: 122px;
+
+
+
+    h1{
+      font-size:32px;
+      color:white;
+      text-align: center;
+    }
+    p{
+      font-family:bell;
+      color: white;
+      margin: 0 ;
+      line-height: 0;
+      margin-left:20px;
+    }
+}
+
+.display-review{
+   display :flex;
+   align-items: center;
+
+}
+.fa-star{
+font-size:12px;
+      color: white;
+          margin-bottom: 10px;
 }
