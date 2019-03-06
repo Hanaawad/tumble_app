@@ -216,7 +216,7 @@ photos =["http://baliquadbiking.com/wp-content/uploads/2018/09/bali-quad-bike-on
 "https://cdn.getyourguide.com/img/tour_img-774895-145.jpg",
 "http://baligreenlineadventure.com/wp-content/uploads/2018/02/ATV-2.jpg",
 "https://cdn.getyourguide.com/img/tour_img-478959-145.jpg"]
-act2 = Activity.new(name: "ATV Quad Bike Adventure ", location: "Central Batur, Kintamani",
+act2 = Activity.new(name: "Bike Adventure ", location: "Central Batur, Kintamani",
   description: "
 Explore this tropical paradise as you discover its varied landscapes, lush rice paddies,
  overgrown jungles and rushing rivers on a two hour ATV Quad bike adventure. Experience a
@@ -244,6 +244,13 @@ r2 = Review.new(description: "A great way to see some of Bali's treasures!", rat
 r2.activity = act2
 r2.user = max
 r2.save!
+p "Creating 6 bookings for act 2"
+six_users.each do |user|
+  b = Booking.new
+  b.user = user
+  b.activity = act2
+  b.save!
+end
 p "act 3"
 photos =["https://www.uniqueretreats.com/wp-content/uploads/2018/04/radiantly-alive.jpg",
 "https://cdn.citynomads.com/wp-content/uploads/2016/09/29004402/Bali-Yoga-and-Meditation-retreats.jpg",
@@ -369,7 +376,7 @@ photos=["https://images.unsplash.com/photo-1509883236841-6601c2c660f7?ixlib=rb-1
   "https://wheresmollie.com/wp-content/uploads/2016/03/2Z4A0690-2.jpg",
   "https://d27k8xmh3cuzik.cloudfront.net/wp-content/uploads/2017/07/bali-hiking-guide.jpg",
 "https://images.unsplash.com/photo-1508184782546-39f96de554aa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"]
-act6 = Activity.new(name: "Mount Batur Sunrise Trekking", location: "Jl. Raya Penelokan",
+act6 = Activity.new(name: "Sunrise Trekking", location: "Jl. Raya Penelokan",
   description: "Hike up to the top of the picturesque Mount Batur (Kintamani Volcano) on a 10-hour sunrise trek and be rewarded with dramatic views of Bali’s mountainscapes as you munch on a delicious breakfast at the top. You probably won’t get a lot of sleep on the night of the tour — you will need to be ready in time for your 2am hotel pick up. Go through a short safety briefing before embarking on your Mount Batur Sunrise Trek. It will take you about three hours to get to the top and, once there, you will get to combine breathtaking views from the peak of Mount Batur with a delicious
    local breakfast. After, you will trek down the mountain and visit a beautiful coffee plantation along the way.", price: 150,
   start_date: Time.new(2019, 04, 15, 11, 30), end_date:
@@ -445,6 +452,13 @@ photos.each do |url|
   photo.activity = act8
   photo.save!
 end
+p "Creating 6 bookings for act 8"
+six_users.each do |user|
+  b = Booking.new
+  b.user = user
+  b.activity = act8
+  b.save!
+end
 p "act 9"
 photos = [
   "http://uluwatubalidriver.com/wp-content/uploads/2017/10/Bali-Bike-Tour-Landscape-001.jpg",
@@ -468,6 +482,13 @@ photos.each do |url|
   photo.activity = act9
   photo.save!
 end
+p "Creating 6 bookings for act 9"
+six_users.each do |user|
+  b = Booking.new
+  b.user = user
+  b.activity = act9
+  b.save!
+end
 p "act 10"
 photos = ["https://cairnstours.net.au/wp-content/uploads/2018/03/Roofy-Drone.jpg","https://media.adrenaline-hunter.com/cache/activity_gallery_zoom_770x500/media/2018/03/2067cd3f577998df3555cd9876793eb4.jpeg"]
 act10 = Activity.new(name: "Bungy Jump", location: "Jl. Raya ",
@@ -489,6 +510,13 @@ photos.each do |url|
   photo.remote_photo_url = url
   photo.activity = act10
   photo.save!
+end
+p "Creating 6 bookings for act 10"
+six_users.each do |user|
+  b = Booking.new
+  b.user = user
+  b.activity = act10
+  b.save!
 end
 
 p "act 11"
@@ -537,7 +565,7 @@ end
 p "act 13"
 photos = ["https://images.unsplash.com/photo-1533962504244-07f7de8dc3c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
 "https://images.unsplash.com/photo-1501963422762-3d89bd989568?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60"]
-act13 = Activity.new(name: "Lembongan Reef Cruise", location: "l. Pantai Berawa",
+act13 = Activity.new(name: "Reef Cruise", location: "l. Pantai Berawa",
   description: "A full day of fun  – above and below the water -
    at Bali's neighboring Lemongan Island! Run by Indonesia's leading marine tourism company,
    their 24 years of experience is evident in the effortless care of the whole family's needs.

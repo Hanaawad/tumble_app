@@ -46,11 +46,11 @@
 <div id="scroll-reviews">
   <% @activity.reviews.each do |review| %>
           <div class="display-review">
-            <p>&nbsp;- <%= "#{review.description.capitalize}" %>  &nbsp;</p>
+            <p>&nbsp;- <%= "#{review.description.capitalize}" %> &nbsp;</p>
                <%  review.rating.times do  %>
                  <span ><i class="fas fa-star" ></i></span>
             <% end %>
-          <p><%= "( #{review.user.email} )" %></p>
+            <p><%= "( #{review.user.email} )" %></p>
 
           </div>
     <% end %>

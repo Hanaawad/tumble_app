@@ -1,0 +1,26 @@
+ <% @pending.each do |booking| %>
+              <div class="product">
+                <% photo_url = booking.activity.photos.empty? ? "http://static.asiawebdirect.com/m/.imaging/1356x904/website/bangkok/portals/bali-indonesia-com/homepage/top10-activities/allParagraphs/00/top10Set/06/image.jpg" : booking.activity.photos.first.photo%>
+                <%= link_to activity_path(booking.activity) do %>
+                  <%= cl_image_tag( photo_url, crop: :fill, :class => "product-image hidden-xs") %>
+                <% end %>
+                <div class='product-body'>
+                  <h3><%= booking.activity.min_limit - booking.activity.users.count %> more members needed</h3>
+                  <p><%= booking.activity.start_date.strftime("%b %d %Y, %H:%M")%> - <%= booking.activity.end_date.strftime("%H:%M") %></p>
+                  <p><%= booking.activity.location %></p>
+                  <p><%= booking.activity.price %>$</p>
+                </div>
+                <div class="info ">
+                  <h4 class="type"><%= booking.activity.name %></h4>
+                </div>
+                <ul class="list-inline product-controls hidden-sm hidden-xs">
+                  <li><a href=""><i class="fas fa-share"></i></a></li>
+                  <li>
+                    <%= link_to activity_booking_path(booking.activity, booking), method:"delete" do %>
+                    <i class="far fa-trash-alt"></i>
+                    <% end %>
+                  </li>
+                  <li><a href=""><i class="fas fa-circle" id="pending"></i></a></li>
+                </ul>
+              </div>
+          <% end %>
