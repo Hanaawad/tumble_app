@@ -319,9 +319,7 @@ Your first stop early in the morning will be the iconic Lake Beratan where you w
  the lake that was formed by a volcanic eruption 30,000 years ago. Your guide will also explain to you more of the history of this ancient temple as well as the Balinese people and their culture.
 
 You will then visit the iconic Handara Gate, well known as the pathway to serenity. Take a wonderful picture in front of Handara Gate with the
- breathtaking view of green scenery and the gigantic-exotic traditional Balinese gate as your backdrop. Pamper your eyes
-  with the amazing green surrounding, beautiful scenery and the amazing background of smoky green hills between the gates that creates a perfect picture for your trip. Don't forget to take some polaroid photos as well while you are here.
-", price: 50,
+ breathtaking view of green scenery and the gigantic-exotic traditional Balinese gate as your backdrop.", price: 50,
   start_date: Time.new(2019, 04, 17, 11, 30), end_date:
   Time.new(2019, 04, 17, 13, 30), activation_date: Time.new(2019, 04, 9, 13, 30),
   min_limit: 8, max_limit: 20)
