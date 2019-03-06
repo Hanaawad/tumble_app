@@ -261,7 +261,7 @@ act3 = Activity.new(name: "Yoga", location: " Kedewatan, Ubud",
      experience of coaching Yoga teachers enables us to select empowering methods that quickly turn
      aspirants into confident instructors.
 The comprehensive curriculum of our 200-hour intensive course is approved and certified by the renowned
-international Yoga Alliance. Our Teacher Training is a heartfelt invitation to turn your passion into a meaningful profession.", price: 450,
+international Yoga Alliance. Our Teacher Training is a heartfelt invitation to turn your passion into a meaningful profession.", price: 50,
   start_date: Time.new(2019, 03, 10, 12, 30), end_date:
   Time.new(2019, 04, 19, 14, 30), activation_date: Time.new(2019, 03, 17, 12, 15),
   min_limit: 10, max_limit: 15)

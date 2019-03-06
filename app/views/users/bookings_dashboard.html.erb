@@ -1,103 +1,113 @@
-<div class="box-wrapper">
-  <div class="grid">
-    <div class="pending">
-      <h1>Pending bookings</h1>
-      <div class="scroll-pending">
-        <% @pending.each do |booking| %>
-          <div class="product">
-            <% photo_url = booking.activity.photos.empty? ? "http://static.asiawebdirect.com/m/.imaging/1356x904/website/bangkok/portals/bali-indonesia-com/homepage/top10-activities/allParagraphs/00/top10Set/06/image.jpg" : booking.activity.photos.first.photo%>
-            <%= cl_image_tag( photo_url, crop: :fill, :class => "product-image hidden-xs") %>
-            <div class='product-body'>
-              <h3><%= booking.activity.min_limit - booking.activity.users.count %> more members needed</h3>
-              <p><%= booking.activity.start_date.strftime("%b %d %Y, %H:%M")%> - <%= booking.activity.end_date.strftime("%H:%M") %></p>
-              <p><%= booking.activity.location %></p>
-              <p><%= booking.activity.price %>$</p>
-            </div>
-            <div class="info ">
-              <h4 class="type"><%= booking.activity.name %></h4>
-            </div>
-            <ul class="list-inline product-controls hidden-sm hidden-xs">
-              <li><a href=""><i class="fas fa-share"></i></a></li>
-              <li>
-                <%= link_to activity_booking_path(booking.activity, booking), method:"delete" do %>
-                <i class="far fa-trash-alt"></i>
+<div class="dash-wrapper">
+  <div class="box-wrapper">
+    <div class="grid">
+      <div class="pending">
+        <h1>Pending bookings</h1>
+        <div class="scroll-pending">
+
+          <% @pending.each do |booking| %>
+              <div class="product">
+                <% photo_url = booking.activity.photos.empty? ? "http://static.asiawebdirect.com/m/.imaging/1356x904/website/bangkok/portals/bali-indonesia-com/homepage/top10-activities/allParagraphs/00/top10Set/06/image.jpg" : booking.activity.photos.first.photo%>
+                <%= link_to activity_path(booking.activity) do %>
+                  <%= cl_image_tag( photo_url, crop: :fill, :class => "product-image hidden-xs") %>
                 <% end %>
-              </li>
-              <li><a href=""><i class="fas fa-circle" id="pending"></i></a></li>
-            </ul>
-          </div>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="ready-to-book">
-      <h1>Ready to checkout</h1>
-       <div class="scroll-ready">
-        <% @ready.each do |booking| %>
-           <div class="product">
-             <% photo_url = booking.activity.photos.empty? ? "http://static.asiawebdirect.com/m/.imaging/1356x904/website/bangkok/portals/bali-indonesia-com/homepage/top10-activities/allParagraphs/00/top10Set/06/image.jpg" : booking.activity.photos.first.photo%>
-             <%= cl_image_tag( photo_url, crop: :fill, :class => "product-image hidden-xs") %>
-             <div class='product-body'>
-               <h3 id="show-deadline">Deadline: <%= booking.activity.activation_date.strftime("%b %d %Y, %H:%M") %></h3>
-               <p><%= booking.activity.start_date.strftime("%b %d %Y, %H:%M")%> - <%= booking.activity.end_date.strftime("%H:%M") %></p>
-               <p><%= booking.activity.location %></p>
-               <p><%= booking.activity.price %>$</p>
-             </div>
-             <div class="info ">
-               <h4 class="type"><%= booking.activity.name %></h4>
-             </div>
-             <ul class="list-inline product-controls hidden-sm hidden-xs">
-               <li><a href=""><i class="fas fa-shopping-cart"></i></a></li>
-               <li><a href=""><i class="fas fa-share"></i></a></li>
-               <li>
-                 <%= link_to activity_booking_path(booking.activity, booking), method:"delete" do %>
-                 <i class="far fa-trash-alt"></i>
-                 <% end %>
-               </li>
-               <li><a href=""><i class="fas fa-circle" id="ready"></i></a></li>
-             </ul>
-           </div>
-         <% end %>
-       </div>
-    </div>
-
-    <div class="already-booked">
-      <h1>Browse through your past experiences !</h1>
-
-<div class="scroll-booked">
-  <div class="scrapebook-cards">
-
-    <% @done.each do |booking| %>
-     <div class="product">
-       <% photo_url = booking.activity.photos.empty? ? "http://static.asiawebdirect.com/m/.imaging/1356x904/website/bangkok/portals/bali-indonesia-com/homepage/top10-activities/allParagraphs/00/top10Set/06/image.jpg" : booking.activity.photos.first.photo%>
-       <%= cl_image_tag( photo_url, crop: :fill, :class => "product-image hidden-xs") %>
-       <div class='product-body'>
-         <p><%= booking.activity.start_date.strftime("%b %d %Y, %H:%M")%> - <%= booking.activity.end_date.strftime("%H:%M") %></p>
-         <p><%= booking.activity.location %></p>
-         <p><%= booking.activity.price %>$</p>
-       </div>
-       <div class="info ">
-         <h4 class="type"><%= booking.activity.name %></h4>
-       </div>
-       <ul class="list-inline product-controls hidden-sm hidden-xs">
-         <li>
-           <%= link_to new_activity_review_path(booking.activity) do %>
-             <i class="far fa-comment"></i>
-           <% end %>
-         </li>
-         <li><a href=""><i class="fas fa-share"></i></a></li>
-         <li>
-           <%= link_to activity_booking_path(booking.activity, booking), method:"delete" do %>
-             <i class="far fa-trash-alt"></i>
-           <% end %>
-         </li>
-       </ul>
-     </div>
-    <% end %>
+                <div class='product-body'>
+                  <h3><%= booking.activity.min_limit - booking.activity.users.count %> more members needed</h3>
+                  <p><%= booking.activity.start_date.strftime("%b %d %Y, %H:%M")%> - <%= booking.activity.end_date.strftime("%H:%M") %></p>
+                  <p><%= booking.activity.location %></p>
+                  <p><%= booking.activity.price %>$</p>
+                </div>
+                <div class="info ">
+                  <h4 class="type"><%= booking.activity.name %></h4>
+                </div>
+                <ul class="list-inline product-controls hidden-sm hidden-xs">
+                  <li><a href=""><i class="fas fa-share"></i></a></li>
+                  <li>
+                    <%= link_to activity_booking_path(booking.activity, booking), method:"delete" do %>
+                    <i class="far fa-trash-alt"></i>
+                    <% end %>
+                  </li>
+                  <li><a href=""><i class="fas fa-circle" id="pending"></i></a></li>
+                </ul>
+              </div>
+          <% end %>
 
         </div>
-</div>
+      </div>
 
+      <div class="ready-to-book">
+        <h1>Ready to checkout</h1>
+         <div class="scroll-ready">
+          <% @ready.each do |booking| %>
+             <div class="product">
+               <% photo_url = booking.activity.photos.empty? ? "http://static.asiawebdirect.com/m/.imaging/1356x904/website/bangkok/portals/bali-indonesia-com/homepage/top10-activities/allParagraphs/00/top10Set/06/image.jpg" : booking.activity.photos.first.photo%>
+               <%= link_to activity_path(booking.activity) do %>
+                <%= cl_image_tag( photo_url, crop: :fill, :class => "product-image hidden-xs") %>
+               <% end %>
+               <div class='product-body'>
+                 <h3 id="show-deadline">Deadline: <%= booking.activity.activation_date.strftime("%b %d %Y, %H:%M") %></h3>
+                 <p><%= booking.activity.start_date.strftime("%b %d %Y, %H:%M")%> - <%= booking.activity.end_date.strftime("%H:%M") %></p>
+                 <p><%= booking.activity.location %></p>
+                 <p><%= booking.activity.price %>$</p>
+               </div>
+               <div class="info ">
+                 <h4 class="type"><%= booking.activity.name %></h4>
+               </div>
+               <ul class="list-inline product-controls hidden-sm hidden-xs">
+                 <li><a href=""><i class="fas fa-shopping-cart"></i></a></li>
+                 <li><a href=""><i class="fas fa-share"></i></a></li>
+                 <li>
+                   <%= link_to activity_booking_path(booking.activity, booking), method:"delete" do %>
+                   <i class="far fa-trash-alt"></i>
+                   <% end %>
+                 </li>
+                 <li><a href=""><i class="fas fa-circle" id="ready"></i></a></li>
+               </ul>
+             </div>
+           <% end %>
+         </div>
+      </div>
+
+      <div class="already-booked">
+        <h1>Browse through your past experiences !</h1>
+
+  <div class="scroll-booked">
+    <div class="scrapebook-cards">
+
+      <% @done.each do |booking| %>
+       <div class="product">
+         <% photo_url = booking.activity.photos.empty? ? "http://static.asiawebdirect.com/m/.imaging/1356x904/website/bangkok/portals/bali-indonesia-com/homepage/top10-activities/allParagraphs/00/top10Set/06/image.jpg" : booking.activity.photos.first.photo%>
+         <%= link_to activity_path(booking.activity) do %>
+          <%= cl_image_tag( photo_url, crop: :fill, :class => "product-image hidden-xs") %>
+         <% end %>
+         <div class='product-body'>
+           <p><%= booking.activity.start_date.strftime("%b %d %Y, %H:%M")%> - <%= booking.activity.end_date.strftime("%H:%M") %></p>
+           <p><%= booking.activity.location %></p>
+           <p><%= booking.activity.price %>$</p>
+         </div>
+         <div class="info ">
+           <h4 class="type"><%= booking.activity.name %></h4>
+         </div>
+         <ul class="list-inline product-controls hidden-sm hidden-xs">
+           <li>
+             <%= link_to new_activity_review_path(booking.activity) do %>
+               <i class="far fa-comment"></i>
+             <% end %>
+           </li>
+           <li><a href=""><i class="fas fa-share"></i></a></li>
+           <li>
+             <%= link_to activity_booking_path(booking.activity, booking), method:"delete" do %>
+               <i class="far fa-trash-alt"></i>
+             <% end %>
+           </li>
+         </ul>
+       </div>
+      <% end %>
+
+          </div>
+  </div>
+
+      </div>
     </div>
   </div>
 </div>

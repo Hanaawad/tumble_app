@@ -6,7 +6,7 @@
        <h1 class="location-style"  > Bali</h1>
         <h1 class="date-style"  > <%=  @most_recent_activity.start_date.strftime("%-d %b") %> - <%=  @most_recent_activity.end_date.strftime("%-d %b") %></h1>
         <h2> <%=  @most_recent_activity.price %> $</h2>
-        <a class="white-button-tumble centerd" href="#">Book Now</a>
+        <%= link_to "Book now", activity_path(@most_recent_activity), class:"white-button-tumble centerd" %>
     </section>
     <section class ="calender-description">
      <p> <%=  truncate( @most_recent_activity.description, :length => 262, :omission => ' .... more') %></p>
