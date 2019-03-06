@@ -320,7 +320,6 @@ Your first stop early in the morning will be the iconic Lake Beratan where you w
 
 
 You will then visit the iconic Handara Gate, well known as the pathway to serenity.", price: 50,
-=======
 
   start_date: Time.new(2019, 04, 17, 11, 30), end_date:
   Time.new(2019, 04, 17, 13, 30), activation_date: Time.new(2019, 04, 9, 13, 30),
