@@ -1,39 +1,112 @@
-<h1>Upcoming adventures</h1>
-<% @bookings.each do |booking| %>
-  <h2><%= booking.activity.name %></h2>
-  <h3>Min limit is <%= booking.activity.min_limit %></h3>
-  <h3>Max limit is <%= booking.activity.max_limit %></h3>
-  <h4>Current amount of members is <%= booking.activity.users.count %></h3>
-  <%= booking.activity.description %>
-  <%= booking.activity.start_date %>
-  <%= booking.activity.end_date %>
-  <%= booking.activity.activation_date %>
-  <%= booking.activity.location %>
-  <%= booking.activity.photo %>
-  <%= link_to "Leave group", activity_booking_path(booking.activity, booking), method:"delete" %>
-<% end %>
+<div class="box-wrapper">
+  <div class="grid">
+    <div class="pending">
+      <h1>Pending bookings</h1>
+      <div class="scroll-pending">
+        <% @pending.each do |booking| %>
+          <div class="product">
+            <% photo_url = booking.activity.photos.empty? ? "http://static.asiawebdirect.com/m/.imaging/1356x904/website/bangkok/portals/bali-indonesia-com/homepage/top10-activities/allParagraphs/00/top10Set/06/image.jpg" : booking.activity.photos.first.photo%>
+            <%= cl_image_tag( photo_url, crop: :fill, :class => "product-image hidden-xs") %>
+            <div class='product-body'>
+              <h3><%= booking.activity.min_limit - booking.activity.users.count %> more members needed</h3>
+              <p><%= booking.activity.start_date.strftime("%b %d %Y, %H:%M")%> - <%= booking.activity.end_date.strftime("%H:%M") %></p>
+              <p><%= booking.activity.location %></p>
+              <p><%= booking.activity.price %>$</p>
+            </div>
+            <div class="info ">
+              <h4 class="type"><%= booking.activity.name %></h4>
+            </div>
+            <ul class="list-inline product-controls hidden-sm hidden-xs">
+              <li><a href=""><i class="fas fa-share"></i></a></li>
+              <li>
+                <%= link_to activity_booking_path(booking.activity, booking), method:"delete" do %>
+                <i class="far fa-trash-alt"></i>
+                <% end %>
+              </li>
+              <li><a href=""><i class="fas fa-circle" id="pending"></i></a></li>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="ready-to-book">
+      <h1>Ready to checkout</h1>
+       <div class="scroll-ready">
+        <% @ready.each do |booking| %>
+           <div class="product">
+             <% photo_url = booking.activity.photos.empty? ? "http://static.asiawebdirect.com/m/.imaging/1356x904/website/bangkok/portals/bali-indonesia-com/homepage/top10-activities/allParagraphs/00/top10Set/06/image.jpg" : booking.activity.photos.first.photo%>
+             <%= cl_image_tag( photo_url, crop: :fill, :class => "product-image hidden-xs") %>
+             <div class='product-body'>
+               <h3 id="show-deadline">Deadline: <%= booking.activity.activation_date.strftime("%b %d %Y, %H:%M") %></h3>
+               <p><%= booking.activity.start_date.strftime("%b %d %Y, %H:%M")%> - <%= booking.activity.end_date.strftime("%H:%M") %></p>
+               <p><%= booking.activity.location %></p>
+               <p><%= booking.activity.price %>$</p>
+             </div>
+             <div class="info ">
+               <h4 class="type"><%= booking.activity.name %></h4>
+             </div>
+             <ul class="list-inline product-controls hidden-sm hidden-xs">
+               <li><a href=""><i class="fas fa-shopping-cart"></i></a></li>
+               <li><a href=""><i class="fas fa-share"></i></a></li>
+               <li>
+                 <%= link_to activity_booking_path(booking.activity, booking), method:"delete" do %>
+                 <i class="far fa-trash-alt"></i>
+                 <% end %>
+               </li>
+               <li><a href=""><i class="fas fa-circle" id="ready"></i></a></li>
+             </ul>
+           </div>
+         <% end %>
+       </div>
+    </div>
+    <div class="already-booked">
+      <h1>Browse through your past experiences !</h1>
 
-<h1>Welcome to your scrapebook <%= current_user.name %> !</h1>
-<% if @reviews.present? %>
-  <% @reviews.each do |review| %>
-    <h4>
-      <%= review.user.name %>
-      <%= review.activity.name %>
-      <%= review.description %>
-      <%= "*" * review.rating %>
-    </h4>
-  <% end %>
-<% else %>
-  <h3>Sorry, you have not shared any of your experiences yet</h3>
-<% end %>
+<div class="scroll-booked">
+  <div class="scrapebook-cards">
 
-<% if @activities_been_to.present? %>
-  <h1>Here's a list of activities you have already been to:</h1>
-  <% @activities_been_to.each do |activity| %>
-    <%= activity.name %>
-    <%= link_to "Add a review to your scrapebook !", new_activity_review_path(activity) %>
-  <% end %>
-<% end %>
+    <% @done.each do |booking| %>
+     <div class="product">
+       <% photo_url = booking.activity.photos.empty? ? "http://static.asiawebdirect.com/m/.imaging/1356x904/website/bangkok/portals/bali-indonesia-com/homepage/top10-activities/allParagraphs/00/top10Set/06/image.jpg" : booking.activity.photos.first.photo%>
+       <%= cl_image_tag( photo_url, crop: :fill, :class => "product-image hidden-xs") %>
+       <div class='product-body'>
+         <p><%= booking.activity.start_date.strftime("%b %d %Y, %H:%M")%> - <%= booking.activity.end_date.strftime("%H:%M") %></p>
+         <p><%= booking.activity.location %></p>
+         <p><%= booking.activity.price %>$</p>
+       </div>
+       <div class="info ">
+         <h4 class="type"><%= booking.activity.name %></h4>
+       </div>
+       <ul class="list-inline product-controls hidden-sm hidden-xs">
+         <li>
+           <%= link_to new_activity_review_path(booking.activity) do %>
+             <i class="far fa-comment"></i>
+           <% end %>
+         </li>
+         <li><a href=""><i class="fas fa-share"></i></a></li>
+         <li>
+           <%= link_to activity_booking_path(booking.activity, booking), method:"delete" do %>
+             <i class="far fa-trash-alt"></i>
+           <% end %>
+         </li>
+       </ul>
+     </div>
+    <% end %>
+
+        </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
 
 
 
