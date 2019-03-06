@@ -229,8 +229,7 @@ photos.each do |url|
   photo.save!
 end
 p "review 2"
-r2 = Review.new(description: "Wow, i never thought that indoor flying could
-  be this cool!", rating: 5)
+r2 = Review.new(description: "The ATV ride was outstanding . A great way to see some of Bali's treasures!", rating: 5)
 r2.activity = act2
 r2.user = max
 r2.save!
@@ -296,7 +295,7 @@ photos.each do |url|
   photo.save!
 end
 p "review 4"
-r4 = Review.new(description: "I got a little bit confused", rating: 3)
+r4 = Review.new(description: "Great dive crew, safe, and very well priced.", rating: 4)
 r4.activity = act4
 r4.user = max
 r4.save!
