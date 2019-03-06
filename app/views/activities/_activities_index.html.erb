@@ -21,7 +21,7 @@
 
   <div class= "for-explore ">
 <!--     <a id="show-map" class="black-button-tumble "  href="#">map</a>
- --><a type="a" class="black-button-tumble " data-toggle="modal" data-target="#myModal">map</a>
+ --><a type="a" class="black-button-tumble map-button" data-toggle="modal" data-target="#mapModal">map</a>
   </div>
 </div>
 
@@ -32,7 +32,7 @@
 
 
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="mapModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -40,10 +40,10 @@
         <h4 class="modal-title">location</h4>
       </div>
 
-      <div
-        id="map"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+        <div
+          id="map"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
       ></div>
   </div>
 </div>

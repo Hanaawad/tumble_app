@@ -2,6 +2,8 @@ import mapboxgl from 'mapbox-gl';
 
 const mapElement = document.getElementById('map');
 
+
+
 const buildMap = () => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
@@ -28,9 +30,10 @@ const fitMapToMarkers = (map, markers) => {
 const initMapbox = () => {
   if (mapElement) {
     const map = buildMap();
+    const canvas = document.querySelector("canvas.mapboxgl-canvas");
+    canvas.style.width = "598px";
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
-
     fitMapToMarkers(map, markers);
   }
 };
