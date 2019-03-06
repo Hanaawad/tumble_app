@@ -1,5 +1,5 @@
 require "date"
-require 'pry-byebug'
+
 p "cleaning database"
 Booking.delete_all
 Review.delete_all
@@ -240,8 +240,7 @@ photos.each do |url|
   photo.save!
 end
 p "review 2"
-r2 = Review.new(description: "Wow, i never thought that indoor flying could
-  be this cool!", rating: 5)
+r2 = Review.new(description: "The ATV ride was outstanding . A great way to see some of Bali's treasures!", rating: 5)
 r2.activity = act2
 r2.user = max
 r2.save!
@@ -314,7 +313,7 @@ photos.each do |url|
   photo.save!
 end
 p "review 4"
-r4 = Review.new(description: "I got a little bit confused", rating: 3)
+r4 = Review.new(description: "Great dive crew, safe, and very well priced.", rating: 4)
 r4.activity = act4
 r4.user = max
 r4.save!
@@ -343,10 +342,9 @@ Your first stop early in the morning will be the iconic Lake Beratan where you w
  just as you always see in the postcards of Bali. This lakeside temple was constructed in honor of Dewi Danu, goddess of
  the lake that was formed by a volcanic eruption 30,000 years ago. Your guide will also explain to you more of the history of this ancient temple as well as the Balinese people and their culture.
 
-You will then visit the iconic Handara Gate, well known as the pathway to serenity. Take a wonderful picture in front of Handara Gate with the
- breathtaking view of green scenery and the gigantic-exotic traditional Balinese gate as your backdrop. Pamper your eyes
-  with the amazing green surrounding, beautiful scenery and the amazing background of smoky green hills between the gates that creates a perfect picture for your trip. Don't forget to take some polaroid photos as well while you are here.
-", price: 50,
+
+You will then visit the iconic Handara Gate, well known as the pathway to serenity.", price: 50,
+
   start_date: Time.new(2019, 04, 17, 11, 30), end_date:
   Time.new(2019, 04, 17, 13, 30), activation_date: Time.new(2019, 04, 9, 13, 30),
   min_limit: 8, max_limit: 20)
@@ -577,9 +575,16 @@ Conquer your fear of heights and enjoy an afternoon of flying when you join this
 Fly over the breathtaking Indian Ocean and see hidden temples, limestone cliffs, and the gorgeous Bali skyline from above.
 No need to worry about safety as you’ll undergo basic paragliding lessons and safety procedures before flying. Once you’re
 ready, you’ll be guided and assisted by a paragliding pilot and fly together!
-There’ll also be video and photo documentation so you can brag abour this once-in-a-lifetime adventure to your friends!", price: 30,
-  start_date: Time.new(2019, 02, 28, 12, 30), end_date:
-  Time.new(2019, 02, 28, 14, 30), activation_date: Time.new(2019, 02, 20, 12, 15),
+There’ll also be video and photo documentation so you can brag abour this once-in-a-lifetime adventure to your friends!
+Soar over the magnificent Indian Ocean on a thrilling parasailing adventure, glide through the air and feel the wind on your
+ skin as you take in the breathtaking views. Parasailing is a fun recreational activity where a person is towed behind a boat while
+ attached to a parachute with a special design. As the boat speeds off you will be lifted in the air and soar high above the sea with an
+  amazing view of the scenery below. Take in the beautiful landscape of the tropical island from high up and even take pictures and videos from the air.
+   The experience includes a 6-minute parasailing activity and convenient pick-up and drop-off from your hotel. If you're looking for the thrill of a lifetime,
+   book the Parasailing Adventure + Donut Boat + Jet Ski + Banana Boat package,
+which combines four exciting activities that are sure to give you an adrenaline rush!", price: 30,
+  start_date: Time.new(2019, 04, 28, 12, 30), end_date:
+  Time.new(2019, 04, 28, 14, 30), activation_date: Time.new(2019, 03, 20, 12, 15),
   min_limit: 10, max_limit: 15)
 act14.category = social
 act14.save!
@@ -600,10 +605,18 @@ p "act 15"
 photos=["https://images.unsplash.com/photo-1503856348302-6829f18073f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
 "https://images.unsplash.com/photo-1505738313577-5357ff512f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"]
 act15 = Activity.new(name: "Parasailing", location: "Terunyan",
-  description: "Your parasailing session takes place on Pantai Samuh beach, Kuta Selatan,
-  and the flight lasts about 6 minutes. You will be able to gaze at Nusa Dua Peninsula and its stunning sandy beaches.  ", price: 99,
+  description: "Bali, and in particular the island of Gili, is one of the most famous vacation paradises
+  in the world, full of incredible watersports and adventure.
+  This three-hour parasailing experience gives you the breathless thrill of soaring
+  above the shining blue waters around Gili. You can gaze out at the island itsel
+  f along with its pure white coastlines. Select between 600 feet and 800 feet
+  and believe us – that extra 100 feet of height makes a world of difference when
+   it comes to the views. Brace yourself to the roaring winds and soar as though you
+    were on wings over the beautiful sea around Gili!
+  ", price: 99,
   start_date: Time.new(2019, 02, 21, 14, 30), end_date:
   Time.new(2019, 02, 21, 18, 30), activation_date: Time.new(2019, 02, 9, 13, 30),
+
   min_limit: 11, max_limit: 25)
 act15.category = extreme
 act15.save!

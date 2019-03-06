@@ -23,21 +23,33 @@
 
 
               <%= link_to "Join group", activity_bookings_path(@activity), remote:true, id:"join-button", method:"post" , class:'black-button-tumble', data: { title: @activity.name, url: activities_path } %>
-
-              <a type="button" class="black-button-tumble" data-toggle="modal" data-target="#myModalSlider">More pictures</a>
-            <!--    <p>current members</p>
-       -->
           </div>
         </div>
       </div>
-      <div class="caroursel-box">
+      <div class="caroursel-box ">
 
 
               <div id="slider">
                 <% @activity.photos.each do |photo| %>
-                  <div class="testbox"><%= cl_image_tag photo.photo, alt: "alttext" %></div>
+                  <div class="testbox"><%= cl_image_tag photo.photo, alt: "alttext", crop: :fill  ,height: 300, width:500 %></div>
                 <% end %>
               </div>
+              <div  class="reviews">
+<h1>Reviews</h1>
+<% if @activity.reviews.present? %>
+  <% @activity.reviews.each do |review| %>
+
+     <div class="display-review">
+        <p>&nbsp;- <%= review.description  %>  &nbsp; </p>
+           <%  review.rating.times do  %>
+             <span ><i class="fas fa-star" ></i></span>
+        <% end %>
+        <% end %>
+     </div>
+  <% else %>
+    <p> &nbsp;No reviews yet</p>
+<% end %>
+</div>
 
       </div>
   </div>
@@ -54,12 +66,13 @@
       </div>
     </div>
 <% end %>
-</div>
-</div>
+
 
 </div>
 </div>
 
+</div>
+</div>
 
 
 
