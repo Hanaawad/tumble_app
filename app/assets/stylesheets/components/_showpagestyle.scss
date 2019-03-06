@@ -16,6 +16,7 @@
 }
 
 #slider {
+      margin-top: -45px;
   height: 300px;
   border-radius:283px 23px 122px 20px/23px 235px 28px 217px;
 }
@@ -172,6 +173,7 @@ body-left{
   width: 500px;
   display:flex;
   flex-direction: column;
+      top: -14px;
 }
 
 .show-description{
@@ -296,7 +298,7 @@ span.algolia-places {
 
 
     h1{
-      font-size:32px;
+      font-size:24px;
       color:white;
       text-align: center;
     }
