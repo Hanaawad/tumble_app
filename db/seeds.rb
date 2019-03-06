@@ -245,7 +245,7 @@ r2.activity = act2
 r2.user = max
 r2.save!
 p "Creating 6 bookings for act 2"
-six_users.each do |user|
+five_users.each do |user|
   b = Booking.new
   b.user = user
   b.activity = act2
