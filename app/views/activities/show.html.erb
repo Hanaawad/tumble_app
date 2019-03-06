@@ -18,12 +18,13 @@
                 <h5 class="indent-right"> <%= @activity.start_date.strftime("%b %d %Y, %H:%M")%> - <%= @activity.end_date.strftime("%H:%M") %></h5>
                 <h5 class="indent-right" id="deadline"> Application deadline: <%= @activity.activation_date.strftime("%b %d %Y, %H:%M") %></h5>
               </div>
+              <p class="center-text"><%= @activity.price %> $</p>
               <h5> Meetup point: <%= @activity.location %></h5>
+
 
                 <div id="scroll-description">
                   <p> <i class="fas fa-caret-right indent"></i><%= @activity.description%></p>
                 </div>
-
 
 
               <%= link_to "Join group", activity_bookings_path(@activity), remote:true, id:"join-button", method:"post" , class:'black-button-tumble', data: { title: @activity.name, url: activities_path } %>
