@@ -58,6 +58,10 @@ irene = User.new(name: "Irene", surname: "Jona Smith", email: "irene@gmail.com",
 Bronx, NY 10473", description: "Hii! Really into coding, climbing and rugby!")
 irene.remote_photo_url = "https://i.imgur.com/op2Ajpas.png"
 irene.save!
+twelve_users = five_users.clone
+six_users = five_users.clone
+six_users << max
+twelve_users << irene
 p "user 8"
 mohamed = User.new(name: "Mohamed", surname: "Zaki", email: "mohamed@gmail.com", password: "mohamed12345",
   age: 21, location: "85 Carriage Avenue
@@ -65,6 +69,8 @@ Brooklyn, NY 11214", description: "Yoyo whatsup! Im a Microsoft intern traveling
   I love cooking, catan and going on crazy adventures!")
 mohamed.remote_photo_url = "https://i.imgur.com/smiuaRgs.png"
 mohamed.save!
+twelve_users << mohamed
+twelve_users << max
 p "user 9"
 ana = User.new(name: "Ana", surname: "Ivan", email: "ana@gmail.com", password: "ana12345",
   age: 19, location: "585 E. Marconi Dr.
@@ -72,12 +78,14 @@ Flushing, NY 11355", description: "Hihi! Currently travlin the world before beco
   next year! I loove food and new cultures!")
 ana.remote_photo_url = "https://i.imgur.com/RBAjoQrs.png"
 ana.save!
+twelve_users << ana
 p "user 10"
 andre = User.new(name: "Andre", surname: "Orvalho", email: "andre@gmail.com", password: "andre12345",
   age: 19, location: "248 Fairfield Street
 New York, NY 10040", description: "Hihi! gyming, skating and surfing are liiiit!!")
 andre.remote_photo_url = "https://i.imgur.com/buNKsUzs.png"
 andre.save!
+twelve_users << andre
 p "creating 10 remaining users"
 p "user 11"
 konsti = User.new(name: "Konstantin", surname: "Pörschke", email: "konsti@gmail.com", password: "konsti12345",
@@ -91,12 +99,14 @@ victor = User.new(name: "Victor", surname: "Castell", email: "victor@gmail.com",
 Fairport, NY 14450")
 victor.remote_photo_url = "https://i.imgur.com/YJMfJhns.png"
 victor.save!
+twelve_users << konsti
 p "user 13"
 carl = User.new(name: "Carl", surname: "Berger", email: "carl@gmail.com", password: "carl12345",
   age: 19, location: "874 Whitemarsh Drive
 Bronx, NY 10460")
 carl.remote_photo_url = "https://i.imgur.com/3tP4jE9s.png"
 carl.save!
+twelve_users << carl
 p "user 14"
 nelly = User.new(name: "Nelly", surname: "Glasmacher", email: "nelly@gmail.com", password: "nelly12345",
   age: 20, location: "8996 Purple Finch Rd.
@@ -139,6 +149,7 @@ eva = User.new(name: "Eva", surname: "Bourson", email: "eva@gmail.com", password
 Elmont, NY 11003")
 eva.remote_photo_url = "https://i.imgur.com/ESaXlDos.png"
 eva.save!
+p twelve_users
 p "done with users!"
 p "creating 6 categories"
 indoor = Category.new(name: "indoor")
@@ -268,6 +279,13 @@ r3 = Review.new(description: "Hmmm, nothing more relaxing", rating: 4)
 r3.activity = act3
 r3.user = max
 r3.save!
+p "Creating 6 bookings for act 3"
+six_users.each do |user|
+  b = Booking.new
+  b.user = user
+  b.activity = act3
+  b.save!
+end
 p "act 4"
 photos = [
 "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS12H2TI-jC_KdSVpnXmTnCvnMHjGC2VoKa9Jh_XAlqsWpfIRVLew",
@@ -300,6 +318,13 @@ r4 = Review.new(description: "I got a little bit confused", rating: 3)
 r4.activity = act4
 r4.user = max
 r4.save!
+p "Creating 12 bookings for act 4"
+twelve_users.each do |user|
+  b = Booking.new
+  b.user = user
+  b.activity = act4
+  b.save!
+end
 p "act 5"
 photos=[
   "https://cdn.getyourguide.com/img/tour_img-1241350-145.jpg",
@@ -333,6 +358,13 @@ photos.each do |url|
   photo.activity = act5
   photo.save!
 end
+p "Creating 6 bookings for act 5"
+six_users.each do |user|
+  b = Booking.new
+  b.user = user
+  b.activity = act5
+  b.save!
+end
 p "act 6"
 photos=["https://images.unsplash.com/photo-1509883236841-6601c2c660f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1932&q=80",
   "https://images.unsplash.com/photo-1440968872456-dec3196b9bee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
@@ -352,6 +384,13 @@ photos.each do |url|
   photo.remote_photo_url = url
   photo.activity = act6
   photo.save!
+end
+p "Creating 6 bookings for act 6"
+six_users.each do |user|
+  b = Booking.new
+  b.user = user
+  b.activity = act6
+  b.save!
 end
 p "act 7"
 photos = ["https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1295,h_971,f_auto/w_80,x_15,y_15,g_south_west,l_klook_water/activities/zo6xivp4a0mvh0plioja/ElephantMudFunExperienceatBaliZoo.webp",
@@ -373,6 +412,13 @@ photos.each do |url|
   photo.remote_photo_url = url
   photo.activity = act7
   photo.save!
+end
+p "Creating 12 bookings for act 7"
+twelve_users.each do |user|
+  b = Booking.new
+  b.user = user
+  b.activity = act7
+  b.save!
 end
 p "act 8"
 photos = ["https://images.unsplash.com/photo-1500520198921-6d4704f98092?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1825&q=80",
@@ -466,6 +512,13 @@ photos.each do |url|
   photo.activity = act11
   photo.save!
 end
+p "Creating 12 bookings for act 11"
+twelve_users.each do |user|
+  b = Booking.new
+  b.user = user
+  b.activity = act11
+  b.save!
+end
 p "act 12"
 photos=["https://cdn.getyourguide.com/img/tour_img-688055-145.jpg","https://cdn.getyourguide.com/img/tour_img-688061-145.jpg"]
 act12 = Activity.new(name: "Spiritual Cleansing and Shamanic Healing Tour", location: "Central Batu",
@@ -496,8 +549,8 @@ act13 = Activity.new(name: "Lembongan Reef Cruise", location: "l. Pantai Berawa"
    waves to explore the underwater world by scuba - even if you're a complete beginner! Or trial the 'aquanauts'
     to experience walking along the sea floor. When you've worked up an appetite,
    feast on a delicious buffet served in air conditioned comfort on board.", price: 149,
-  start_date: Time.new(2019, 04, 28, 12, 30), end_date:
-  Time.new(2019, 04, 28, 14, 30), activation_date: Time.new(2019, 03, 20, 12, 15),
+  start_date: Time.new(2019, 02, 28, 12, 30), end_date:
+  Time.new(2019, 02, 28, 14, 30), activation_date: Time.new(2019, 02, 20, 12, 15),
   min_limit: 8, max_limit: 15)
 act13.category = social
 act13.save!
@@ -506,6 +559,13 @@ photos.each do |url|
   photo.remote_photo_url = url
   photo.activity = act13
   photo.save!
+end
+p "Creating 12 bookings for act 13"
+twelve_users.each do |user|
+  b = Booking.new
+  b.user = user
+  b.activity = act13
+  b.save!
 end
 p "act 14"
 photos =["https://images.unsplash.com/photo-1546936985-7b8df7a840d4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
@@ -518,9 +578,9 @@ Fly over the breathtaking Indian Ocean and see hidden temples, limestone cliffs,
 No need to worry about safety as you’ll undergo basic paragliding lessons and safety procedures before flying. Once you’re
 ready, you’ll be guided and assisted by a paragliding pilot and fly together!
 There’ll also be video and photo documentation so you can brag abour this once-in-a-lifetime adventure to your friends!", price: 30,
-  start_date: Time.new(2019, 04, 28, 12, 30), end_date:
-  Time.new(2019, 04, 28, 14, 30), activation_date: Time.new(2019, 03, 20, 12, 15),
-  min_limit: 20, max_limit: 25)
+  start_date: Time.new(2019, 02, 28, 12, 30), end_date:
+  Time.new(2019, 02, 28, 14, 30), activation_date: Time.new(2019, 02, 20, 12, 15),
+  min_limit: 10, max_limit: 15)
 act14.category = social
 act14.save!
 photos.each do |url|
@@ -529,14 +589,21 @@ photos.each do |url|
   photo.activity = act14
   photo.save!
 end
+p "Creating 12 bookings for act 14"
+twelve_users.each do |user|
+  b = Booking.new
+  b.user = user
+  b.activity = act14
+  b.save!
+end
 p "act 15"
 photos=["https://images.unsplash.com/photo-1503856348302-6829f18073f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
 "https://images.unsplash.com/photo-1505738313577-5357ff512f16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"]
 act15 = Activity.new(name: "Parasailing", location: "Terunyan",
   description: "Your parasailing session takes place on Pantai Samuh beach, Kuta Selatan,
   and the flight lasts about 6 minutes. You will be able to gaze at Nusa Dua Peninsula and its stunning sandy beaches.  ", price: 99,
-  start_date: Time.new(2019, 03, 21, 14, 30), end_date:
-  Time.new(2019, 03, 21, 18, 30), activation_date: Time.new(2019, 03, 9, 13, 30),
+  start_date: Time.new(2019, 02, 21, 14, 30), end_date:
+  Time.new(2019, 02, 21, 18, 30), activation_date: Time.new(2019, 02, 9, 13, 30),
   min_limit: 11, max_limit: 25)
 act15.category = extreme
 act15.save!
@@ -545,6 +612,13 @@ photos.each do |url|
   photo.remote_photo_url = url
   photo.activity = act15
   photo.save!
+end
+p "Creating 12 bookings for act 15"
+twelve_users.each do |user|
+  b = Booking.new
+  b.user = user
+  b.activity = act15
+  b.save!
 end
 
 p "done!"

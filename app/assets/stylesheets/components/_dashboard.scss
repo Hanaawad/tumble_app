@@ -8,17 +8,184 @@
 .pending {
   grid-row: 1 / span 1;
   grid-column: 1 / span 1;
-  background: yellow;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 0 5px rgba(220,220,220,1);
+  margin: 10px;
+  padding: 10px;
 }
+
+.scroll-pending {
+  overflow-y: scroll;
+}
+
+.scroll-ready {
+  overflow-y: scroll;
+}
+
+#show-deadline {
+  color: $red;
+}
+
 
 .ready-to-book {
   grid-row: 1 / span 1;
   grid-column: 2 / span 1;
-  background: blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 0 5px rgba(220,220,220,1);
+  margin: 10px;
+  padding: 10px;
+}
+
+#pending {
+  color: $yellow;
+  font-size: 10px;
+}
+
+#ready {
+  color: $green;
+  font-size: 10px;
 }
 
 .already-booked {
   grid-row: 2 / span 1;
   grid-column: 1 / span 2;
-  background: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 0 5px rgba(220,220,220,1);
+  margin: 10px;
+  padding: 10px;
+}
+
+.scrapebook-cards {
+  display: flex;
+  width: 1400px;
+  align-items: center;
+}
+
+.scroll-booked {
+  overflow-x: auto;
+}
+
+.product {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+  min-width: 720px;
+  box-shadow: 0 0 5px rgba(220,220,220,1);
+  margin: 5px;
+  height: 150px;
+}
+
+/* Body design */
+.product-body {
+  flex: 1 1 auto;
+}
+.product-body h3 {
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 0;
+}
+.product-body p {
+  font-weight: lighter;
+  color: #999999;
+  margin-bottom: 0;
+  font-size: 18px;
+}
+
+/* Product image */
+.product-image {
+  border-radius: 10px;
+  margin-right: 20px;
+  width: 150px;
+  height: 100px;
+}
+
+/* Upvote design */
+.product-upvote {
+  padding-right: 20px;
+  text-align: center;
+  transition: all 0.15s ease;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 20px;
+}
+.product-count {
+  margin: 2px 0 0;
+}
+.product-arrow {
+  transition: all 0.15s ease;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid transparent;
+  border-bottom: 9px solid black;
+  border-radius: 2px;
+  margin: auto;
+}
+
+.box-wrapper {
+  width: 1500px;
+  margin: 0px auto;
+}
+
+/* Controls design */
+.product-controls {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 0px;
+}
+.product-controls a {
+  padding: 0 20px;
+  font-size: 17px;
+  color: #E6E6E6;
+}
+.product-controls a:hover {
+  color: #D3473C !important
+}
+.product-controls-hidden a {
+  color: transparent;
+  font-size: 15px;
+  transition: all 0.15s ease;
+  border-color: transparent;
+}
+
+li i {
+  color: #1f1e1d;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+/* Hover effects */
+.product:hover {
+  background: #f7f7fa;
+  cursor: pointer;
+}
+.product-upvote:hover, .product-upvote.product-upvote-upvoted {
+  color: #5898f1;
+  cursor: pointer;
+}
+.product-upvote-upvoted .product-arrow {
+  border-bottom-color: #5898f1;
+}
+// .product:hover .product-upvote {
+//   transform: scale(1.2)
+// }
+.product:hover .product-controls-hidden a {
+  color: #E6E6E6;
+}
+.product-upvote:hover .product-arrow {
+  border-bottom: 9px solid #5898f1;
 }
