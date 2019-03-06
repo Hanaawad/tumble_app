@@ -1,7 +1,12 @@
+ <div class="container add-review formform">
+ <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
 <%= simple_form_for ([@activity, @review]) do |f| %>
-  <%= f.input :description %>
-  <%= f.input :rating %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
-  <%= f.button :submit, "Share", :class => "btn-yours button-center" %>
-<% end %>
+    <%= f.input :description %>
+    <%= f.input :rating %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.button :submit, "Share", :class => "black-button-tumble" %>
+  <% end %></div>
+</div>
+</div>
