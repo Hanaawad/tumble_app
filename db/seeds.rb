@@ -229,7 +229,7 @@ photos.each do |url|
   photo.save!
 end
 p "review 2"
-r2 = Review.new(description: "The ATV ride was outstanding . A great way to see some of Bali's treasures!", rating: 5)
+r2 = Review.new(description: "A great way to see some of Bali's treasures!", rating: 5)
 r2.activity = act2
 r2.user = max
 r2.save!
