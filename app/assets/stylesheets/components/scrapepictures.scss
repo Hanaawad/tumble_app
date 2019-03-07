@@ -7,7 +7,7 @@
   display: grid;
   grid-template: repeat(6, [row] 1fr) / repeat(6, [col] 1fr);
   grid-gap: 1em;
-
+  position: relative;
   padding: 3em;
 }
 

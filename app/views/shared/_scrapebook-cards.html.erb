@@ -1,0 +1,10 @@
+<% @eight_good_reviews.each do |review| %>
+  <div class='scrapebook-card-container'>
+  <div class='pin'></div>
+  <div class='scrapebook-card'>
+    <div class='scrapebook-card-heading'><%= cl_image_tag review.user.photo, alt: "alttext", class:"avatar sm" %><%= review.user.name %></div>
+    <div class='scrapebook-card-data'><%= review.description %></div>
+  </div>
+</div>
+<% end %>
+

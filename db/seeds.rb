@@ -204,19 +204,13 @@ five_users.each do |user|
   b.save!
 end
 
-p "review 1"
-r1 = Review.new(description: "Rafting is super awsome! The view on Bali
-  was simply stunning!!", rating: 4)
-r1.activity = act1
-r1.user = max
-r1.save!
 p "act 2"
 photos =["http://baliquadbiking.com/wp-content/uploads/2018/09/bali-quad-bike-on-the-beach.jpg",
 "https://cdn.getyourguide.com/img/tour_img-774883-145.jpg",
 "https://cdn.getyourguide.com/img/tour_img-774895-145.jpg",
 "http://baligreenlineadventure.com/wp-content/uploads/2018/02/ATV-2.jpg",
 "https://cdn.getyourguide.com/img/tour_img-478959-145.jpg"]
-act2 = Activity.new(name: "ATV Quad Bike Adventure ", location: "Central Batur, Kintamani",
+act2 = Activity.new(name: "Bike Adventure ", location: "Central Batur, Kintamani",
   description: "
 Explore this tropical paradise as you discover its varied landscapes, lush rice paddies,
  overgrown jungles and rushing rivers on a two hour ATV Quad bike adventure. Experience a
@@ -244,6 +238,13 @@ r2 = Review.new(description: "A great way to see some of Bali's treasures!", rat
 r2.activity = act2
 r2.user = max
 r2.save!
+p "Creating 6 bookings for act 2"
+five_users.each do |user|
+  b = Booking.new
+  b.user = user
+  b.activity = act2
+  b.save!
+end
 p "act 3"
 photos =["https://www.uniqueretreats.com/wp-content/uploads/2018/04/radiantly-alive.jpg",
 "https://cdn.citynomads.com/wp-content/uploads/2016/09/29004402/Bali-Yoga-and-Meditation-retreats.jpg",
@@ -303,7 +304,7 @@ act4 = Activity.new(name: "Scuba Dive", location: "Dewi Saraswati",
   and changing rooms before you are brought back to your accommodation before 6:00pm. ", price: 150,
   start_date: Time.new(2019, 04, 17, 11, 30), end_date:
   Time.new(2019, 04, 17, 13, 30), activation_date: Time.new(2019, 04, 9, 13, 30),
-  min_limit: 11, max_limit: 13)
+  min_limit: 13, max_limit: 15)
 act4.category = water
 act4.save!
 photos.each do |url|
@@ -357,7 +358,7 @@ photos.each do |url|
   photo.save!
 end
 p "Creating 6 bookings for act 5"
-six_users.each do |user|
+five_users.each do |user|
   b = Booking.new
   b.user = user
   b.activity = act5
@@ -369,7 +370,7 @@ photos=["https://images.unsplash.com/photo-1509883236841-6601c2c660f7?ixlib=rb-1
   "https://wheresmollie.com/wp-content/uploads/2016/03/2Z4A0690-2.jpg",
   "https://d27k8xmh3cuzik.cloudfront.net/wp-content/uploads/2017/07/bali-hiking-guide.jpg",
 "https://images.unsplash.com/photo-1508184782546-39f96de554aa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"]
-act6 = Activity.new(name: "Mount Batur Sunrise Trekking", location: "Jl. Raya Penelokan",
+act6 = Activity.new(name: "Sunrise Trekking", location: "Jl. Raya Penelokan",
   description: "Hike up to the top of the picturesque Mount Batur (Kintamani Volcano) on a 10-hour sunrise trek and be rewarded with dramatic views of Bali’s mountainscapes as you munch on a delicious breakfast at the top. You probably won’t get a lot of sleep on the night of the tour — you will need to be ready in time for your 2am hotel pick up. Go through a short safety briefing before embarking on your Mount Batur Sunrise Trek. It will take you about three hours to get to the top and, once there, you will get to combine breathtaking views from the peak of Mount Batur with a delicious
    local breakfast. After, you will trek down the mountain and visit a beautiful coffee plantation along the way.", price: 150,
   start_date: Time.new(2019, 04, 15, 11, 30), end_date:
@@ -384,7 +385,7 @@ photos.each do |url|
   photo.save!
 end
 p "Creating 6 bookings for act 6"
-six_users.each do |user|
+five_users.each do |user|
   b = Booking.new
   b.user = user
   b.activity = act6
@@ -402,7 +403,7 @@ act7 = Activity.new(name: "Elephant Park ", location: "Jl. Catur ",
    and more! At the end of the day, get to feast on a sumptuous meal with your loved ones at Sanctoo Villa!", price: 40,
   start_date: Time.new(2019, 04, 15, 11, 30), end_date:
   Time.new(2019, 04, 15, 13, 30), activation_date: Time.new(2019, 04, 9, 13, 30),
-  min_limit: 9, max_limit: 16)
+  min_limit: 13, max_limit: 16)
 act7.category = social
 act7.save!
 photos.each do |url|
@@ -445,6 +446,13 @@ photos.each do |url|
   photo.activity = act8
   photo.save!
 end
+p "Creating 6 bookings for act 8"
+five_users.each do |user|
+  b = Booking.new
+  b.user = user
+  b.activity = act8
+  b.save!
+end
 p "act 9"
 photos = [
   "http://uluwatubalidriver.com/wp-content/uploads/2017/10/Bali-Bike-Tour-Landscape-001.jpg",
@@ -468,6 +476,13 @@ photos.each do |url|
   photo.activity = act9
   photo.save!
 end
+p "Creating 6 bookings for act 9"
+five_users.each do |user|
+  b = Booking.new
+  b.user = user
+  b.activity = act9
+  b.save!
+end
 p "act 10"
 photos = ["https://cairnstours.net.au/wp-content/uploads/2018/03/Roofy-Drone.jpg","https://media.adrenaline-hunter.com/cache/activity_gallery_zoom_770x500/media/2018/03/2067cd3f577998df3555cd9876793eb4.jpeg"]
 act10 = Activity.new(name: "Bungy Jump", location: "Jl. Raya ",
@@ -490,6 +505,13 @@ photos.each do |url|
   photo.activity = act10
   photo.save!
 end
+p "Creating 6 bookings for act 10"
+six_users.each do |user|
+  b = Booking.new
+  b.user = user
+  b.activity = act10
+  b.save!
+end
 
 p "act 11"
 photos=["https://www.carnival.com/~/media/Images/PreSales/Excursions/Ports_G-L/LRM/428053/Pictures/la-romana-zip-line-adventure-la-romana-dominican-republic-1.jpg",
@@ -501,7 +523,7 @@ act11 = Activity.new(name: "Zip line", location: "Jl. A.A. Gede Rai ",
    At the end of the the obstacle, enjoy the view from a high platform overlooking the lush greenery and scenic mountains.", price: 180,
   start_date: Time.new(2019, 03, 15, 11, 30), end_date:
   Time.new(2019, 03, 15, 13, 30), activation_date: Time.new(2019, 03, 9, 13, 30),
-  min_limit: 8, max_limit: 10)
+  min_limit: 13, max_limit: 18)
 act11.category = extreme
 act11.save!
 photos.each do |url|
@@ -537,7 +559,7 @@ end
 p "act 13"
 photos = ["https://images.unsplash.com/photo-1533962504244-07f7de8dc3c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
 "https://images.unsplash.com/photo-1501963422762-3d89bd989568?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60"]
-act13 = Activity.new(name: "Lembongan Reef Cruise", location: "l. Pantai Berawa",
+act13 = Activity.new(name: "Reef Cruise", location: "l. Pantai Berawa",
   description: "A full day of fun  – above and below the water -
    at Bali's neighboring Lemongan Island! Run by Indonesia's leading marine tourism company,
    their 24 years of experience is evident in the effortless care of the whole family's needs.
@@ -549,7 +571,7 @@ act13 = Activity.new(name: "Lembongan Reef Cruise", location: "l. Pantai Berawa"
    feast on a delicious buffet served in air conditioned comfort on board.", price: 149,
   start_date: Time.new(2019, 02, 28, 12, 30), end_date:
   Time.new(2019, 02, 28, 14, 30), activation_date: Time.new(2019, 02, 20, 12, 15),
-  min_limit: 8, max_limit: 15)
+  min_limit: 14, max_limit: 15)
 act13.category = social
 act13.save!
 photos.each do |url|
@@ -585,7 +607,7 @@ Soar over the magnificent Indian Ocean on a thrilling parasailing adventure, gli
 which combines four exciting activities that are sure to give you an adrenaline rush!", price: 30,
   start_date: Time.new(2019, 04, 28, 12, 30), end_date:
   Time.new(2019, 04, 28, 14, 30), activation_date: Time.new(2019, 03, 20, 12, 15),
-  min_limit: 10, max_limit: 15)
+  min_limit: 11, max_limit: 15)
 act14.category = social
 act14.save!
 photos.each do |url|
@@ -617,7 +639,7 @@ act15 = Activity.new(name: "Parasailing", location: "Terunyan",
   start_date: Time.new(2019, 02, 21, 14, 30), end_date:
   Time.new(2019, 02, 21, 18, 30), activation_date: Time.new(2019, 02, 9, 13, 30),
 
-  min_limit: 11, max_limit: 25)
+  min_limit: 13, max_limit: 25)
 act15.category = extreme
 act15.save!
 photos.each do |url|
@@ -633,5 +655,71 @@ twelve_users.each do |user|
   b.activity = act15
   b.save!
 end
+
+p "creating 12 reviews"
+
+twelve_activities = [act1, act2, act3, act4, act5, act6, act7, act8, act9, act10, act11, act12]
+twelve_activities.each_with_index do |activity, idx_activity|
+  twelve_reviews = []
+    r1 = Review.new(description: "Wow, I had a great time!!", rating: 4)
+    r2 = Review.new(description: "Simply stunning!", rating: 5)
+    r3 = Review.new(description: "Weather marvelous..", rating: 3)
+    r4 = Review.new(description: "I love Bali", rating: 4)
+    r5 = Review.new(description: "Next time something else...", rating: 2)
+    r6 = Review.new(description: "pretty awsome!!", rating: 4)
+    r7 = Review.new(description: "Super good organization", rating: 5)
+    r8 = Review.new(description: "expensive for gappies..", rating: 3)
+    r9 = Review.new(description: "Activity too short", rating: 4)
+    r10 = Review.new(description: "great first week in Bali!", rating: 3)
+    r11 = Review.new(description: "Very immersive program", rating: 4)
+    r12 = Review.new(description: "tourguide needs a better plan", rating: 2)
+    twelve_reviews.push(r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12)
+  twelve_reviews.each_with_index do |review, idx_review|
+    review.activity = activity
+    review.user = twelve_users[idx_review]
+    review.save!
+  end
+end
+
+p "creating 8 reviews for scrapebook home"
+  r1 = Review.new(description: "So far I have only had great experiences with tumble.
+    The people are always helpful and fun to be with!", rating: 4)
+  r1.user = victor
+  r1.activity = act15
+  r1.save!
+  r2 = Review.new(description: "Great service! I probably had the best time of my life when
+    I went water rafting in Bali. I recommend this to any gappie.", rating: 5)
+  r2.user = konsti
+  r2.activity = act15
+  r2.save!
+  r3 = Review.new(description: "I wish I could do a second gap year now.. Unfortunately I found
+    out about tumble too late.", rating: 5)
+  r3.user = nelly
+  r3.activity = act15
+  r3.save!
+  r4 = Review.new(description: "I loved Bali, and had an extremely immersive
+    experience with tumble. Bungeejumping was awsome!", rating: 4)
+  r4.user = leesa
+  r4.activity = act15
+  r4.save!
+  r5 = Review.new(description: "Great team of people, great platform, great prices.", rating: 4)
+  r5.user = mohamed
+  r5.activity = act15
+  r5.save!
+  r6 = Review.new(description: "I had a wonderful time with the tumble team in Asian!
+    The sumo wrestling fights in Japan were my favorite.", rating: 4)
+  r6.user = lucas
+  r6.activity = act15
+  r6.save!
+  r7 = Review.new(description: "I was very happy I found out about tumble before
+    coming to Bali. I just wish there were more activities on offer.", rating: 3)
+  r7.user = eva
+  r7.activity = act15
+  r7.save!
+  r8 = Review.new(description: "Only had stunning and fun experiences so far.
+    Nice people, great program, and very good prices for tumble has on offer.", rating: 5)
+  r8.user = carl
+  r8.activity = act15
+  r8.save!
 
 p "done!"
