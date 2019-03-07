@@ -1,9 +1,11 @@
 <div class="hot_and_ternding">
   <h1>Hot and trending </h1>
   <div class="container-calender">
-    <section class="calendar">
-      <%= cl_image_tag(@most_recent_activity.photos.first.photo, crop: :fill,class:'calender-image') %>
-       <h1 class="location-style"  > Bali</h1>
+    <section class="calendar calender-image" style="background-image: linear-gradient(-225deg, rgba(103, 99, 99, 0.9) 0%, rgba(232, 226, 179, 0.1) 90%), url('https://images.unsplash.com/photo-1497534446932-c925b458314e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60') %>);
+};">
+  <div class="imageadjust" >
+  </div>
+  <h1 class="location-style"  > Bali</h1>
         <h1 class="date-style"  > <%=  @most_recent_activity.start_date.strftime("%-d %b") %> - <%=  @most_recent_activity.end_date.strftime("%-d %b") %></h1>
         <h2> <%=  @most_recent_activity.price %> $</h2>
         <%= link_to "Book now", activity_path(@most_recent_activity), class:"white-button-tumble centerd" %>
@@ -13,3 +15,6 @@
     </section>
   </div>
 </div>
+
+
+
