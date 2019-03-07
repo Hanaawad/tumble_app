@@ -26,13 +26,43 @@
   font-size: 20px;
 }
 
-.reviews-container {
+
+.scrape-card1 {
+  position: absolute;
+  top: 150px;
+  left: 100px;
+  z-index: 1000;
+}
+
+.scrape-card2 {
+  top: 120px;
+  right: 170px;
   position: absolute;
   z-index: 1000;
-  width: 1400px;
-  top: 110px;
-  left: 190px;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
 }
+.scrape-card3 {
+  bottom: 110px;
+  left: 210px;
+  position: absolute;
+  z-index: 1000;
+}
+.scrape-card4 {
+  bottom: 110px;
+  right: 210px;
+  position: absolute;
+  z-index: 1000;
+}
+.scrape-card5 {
+  bottom: 530px;
+  right: 900px;
+  position: absolute;
+  z-index: 1000;
+}
+
+.scrape-card6 {
+  bottom: 230px;
+  right: 700px;
+  position: absolute;
+  z-index: 1000;
+}
+

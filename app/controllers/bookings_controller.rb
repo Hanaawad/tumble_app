@@ -31,28 +31,16 @@ class BookingsController < ApplicationController
 
   def send_sms
     if @activity.bookings.count >= @activity.min_limit && @activity.name == "White Water Rafting"
-      # raise
       account_sid = ENV["TWILIO_ACCOUNT_SID"]
       auth_token = ENV["TWILIO_AUTH_TOKEN"]
-      @activity.users.each do |user|
+      @activity.users.uniq.each do |user|
         client = Twilio::REST::Client.new(account_sid, auth_token)
         client.api.account.messages.create(
-          from: '+13238252984',
+          from: '+17753776160',
           to: user.phone,
-          body: "#{@activity.name}: You are ready to tumble! Make sure to meet your group
-            on the #{@activity.start_date} at #{@activity.location}"
+          body: "#{@activity.name}: You are ready to tumble! Make sure to meet your group on #{@activity.start_date.strftime("%b %d %Y")} at #{@activity.start_date.strftime("%H:%M")}. Your meetup point is at #{@activity.location}."
         )
       end
     end
   end
 end
-
-      # account_sid = ENV["TWILIO_ACCOUNT_SID"]
-      # auth_token = ENV["TWILIO_AUTH_TOKEN"]
-      # client = Twilio::REST::Client.new(account_sid, auth_token)
-
-      #   client.api.account.messages.create(
-      #     from: '+14058352931',
-      #     to: '+4523451026',
-      #     body: "monkey: You are ready to tumble! Make sure to meet your group on the bla at blu"
-      #   )
