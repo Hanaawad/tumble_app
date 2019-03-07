@@ -17,7 +17,7 @@
   padding: 20px;
   font-family: "roboto", sans-serif;
   height: 100%;
-  background-color: rgba($grey, 0.9);
+  background-color: rgba($grey, 0.8);
   color: white;
   border-radius: 5px;
 }
@@ -29,8 +29,8 @@
 
 .scrape-card1 {
   position: absolute;
-  top: 150px;
-  left: 100px;
+  top: 127px;
+  left: 50px;;
   z-index: 1000;
 }
 
@@ -42,26 +42,26 @@
 }
 .scrape-card3 {
   bottom: 110px;
-  left: 210px;
+  left: 118px;
   position: absolute;
   z-index: 1000;
 }
 .scrape-card4 {
-  bottom: 110px;
-  right: 210px;
-  position: absolute;
-  z-index: 1000;
+     bottom: 61px;
+    right: 78px;
+    position: absolute;
+    z-index: 1000;
 }
 .scrape-card5 {
-  bottom: 530px;
-  right: 900px;
-  position: absolute;
-  z-index: 1000;
+     bottom: 546px;
+    right: 650px;
+    position: absolute;
+    z-index: 1000;
 }
 
 .scrape-card6 {
   bottom: 230px;
-  right: 700px;
+  right: 580px;
   position: absolute;
   z-index: 1000;
 }
