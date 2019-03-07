@@ -8,7 +8,7 @@
      border-right: 2px solid #222220  !important;
       border-left: 2px solid #222220 !important;
     border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
-    &:focus {
+  &:focus {
     box-shadow: 0px 0.1px 0rem rgba(203, 160, 106, 0.8);
     border-bottom: 1px solid  #222220;
     border-top: 1px solid #222220;
@@ -18,43 +18,47 @@
     opacity: 0.7
     }
   }
-   // input[type="checkbox"] {
-   //      border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
 
-
-   // }
 }
-
 
 .form-search-bar
 {.form-control {
-    border: 0px solid transparent;
-    background-color: transparent;
-    box-shadow: 0px 0.1px 0rem rgba(203, 160, 106, 0.8);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.7);
-    border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
-     padding: 6px 20px;
-    font-size: 18px;
-    &:focus {
-    box-shadow: 0px 0.1px 0rem rgba(203, 160, 106, 0.8);
-    box-shadow: 0px 0.1px 0rem rgba(203, 160, 106, 0.8);
-    border-bottom: 2px solid rgba(125, 125, 125, 0.7);
-    border-radius: 0px;
-    background-color: #f2f2f2;
-    opacity: 0.7;
-    margin-right:10px;
-        padding: 6px 26px;
-            font-size: 20px;
-    }
+  border: 0px solid transparent;
+  background-color: transparent;
+  box-shadow: 0px 0.1px 0rem rgba(203, 160, 106, 0.8);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.7);
+  border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+   padding: 6px 20px;
+  font-size: 18px;
+&:focus {
+  box-shadow: 0px 0.1px 0rem rgba(203, 160, 106, 0.8);
+  box-shadow: 0px 0.1px 0rem rgba(203, 160, 106, 0.8);
+  border-bottom: 2px solid rgba(125, 125, 125, 0.7);
+  border-radius: 0px;
+  background-color: #f2f2f2;
+  opacity: 0.7;
+  margin-right:10px;
+  padding: 6px 26px;
+  font-size: 20px;
+  }
   }
 
 }
-.search-bar{
-background-color: transparent;
-border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
-    border: 1px solid rgba(0, 0, 0, 1);
-    color:#d08e8d;
+button.btn.search-bar{
+  background-color: #D13636;
+  border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+  color:#d08e8d;
+   box-shadow: 0px 0px 0.5rem;
+  align-items:center;
+  font-size:18px;
+p{
+  margin : 0 0;
+  display:inline-block;
+    }
+.fas.fa-search{
+  display:inline-block;
+  color:white;
+  font-size:24px;
 
-
-    font-size:18px;
+}
 }
