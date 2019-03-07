@@ -7,6 +7,10 @@
   perspective: 1200px;
 }
 
+.show-card-footer {
+  display: flex;
+}
+
 .shows-flex-box {
   display: flex;
   justify-content: space-around;
@@ -15,8 +19,12 @@
 }
 
 #scroll-description {
+  margin-top: 20px;
   overflow-y: scroll;
   max-height: 200px;
+  border: 1px solid rgba($grey, 0.8);
+  padding: 10px;
+  border-radius: 1px;
   p {
   font-size: 20px;
   }
@@ -209,32 +217,39 @@ height:528px;
   h1{
     font-size:32px;
     text-align: center;
-    color: #1f1e1d;
+    color: white;
   }
   h2 {
-    font-size:24px;
+    margin-top: -5px;
+    font-size:20px;
     text-align: center;
     color: #1f1e1d;
+    font-weight: 100px;
   }
   h5 {
-    font-size:16px;
-    text-align: center;
-    color: #1f1e1d;
+      font-size:22px;
+      text-align: center;
+      color: #1f1e1d;
     &#deadline {
-      color: #d32f27;
+      color: $red;
       font-size: 20px;
     }
   }
   p{
     font-size:14px;
-  color:#1f1e1d;
-  font-family:$text-font;
-
+    color:#1f1e1d;
+    font-family:$text-font;
   }
 }
 
 .container {
   padding-top: 29px;
+}
+
+#members-needed {
+  position: absolute;
+  bottom: 56px;
+  left: 38px;
 }
 
 .indent{
@@ -337,11 +352,16 @@ font-size:8px;
           margin-bottom: 12px;
 }
 
+#price {
+  font-size: 25px;
+}
+
 .center-text{
+  bottom: 0px;
+  right: 43px;
+  position: absolute;
   text-align: center;
   font-weight:bold;
-  margin: 0 auto;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.7);
   width:100px;
   border-radius: 233px 30px 225px 0/89px 225px 25px 255px;
   }
