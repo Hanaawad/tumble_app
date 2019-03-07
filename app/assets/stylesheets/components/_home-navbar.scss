@@ -76,7 +76,7 @@
       border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
   h6:hover  {
     text-decoration:none;
-    color:#ff2621;
+    color: $red;
   }
   a{
     padding: 0;
@@ -85,7 +85,7 @@
   }
   a:hover  {
     text-decoration:none;
-    color:#ff2621;
+    color: $red;
   }
 
 }
@@ -112,7 +112,7 @@ a.monkeypants{
   margin-left: 60px;
   font-size:20px;
   &:hover {
-    color: #ff2621;
+    color: $red;
   }
 }
 
@@ -132,7 +132,7 @@ a.monkeypants{
     color: white;
     :hover{
       text-decoration:none;
-      color:#ff2621;
+      color: $red;
     }
   }
 
@@ -192,7 +192,7 @@ a.monkeypants{
 font-size:20px;
 background-color:transparent;
  &:hover {
-  color:#ff2621;
+  color: $red;
   font-size:20px;
   text-decoration: none;
  }
@@ -208,7 +208,7 @@ a.monkeypants{
 
     text-decoration:none;
     &:hover{
-      color:#ff2621;
+      color: $red;
        font-size: 24px;
       text-decoration:none;
     }
