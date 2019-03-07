@@ -24,7 +24,7 @@
 
 .activity-card {
   text-align:center;
-   text-decoration:none !important;
+  text-decoration:none !important;
   width: 300px;
   height: 300px;
   margin-top:50px;
@@ -40,6 +40,8 @@
 }
 
  .activity-card {
+   box-shadow: 0 0 2px rgba(224,224,224,0.9);
+
 a  {text-decoration:none;
 }
 }
@@ -66,7 +68,8 @@ text-decoration: none;
   position: absolute;
   top: 0;
   left: 0;
-  display: block;
+  display: flex;
+   align-items: center;
   width: 300px;;
   height: 300px;
   border-radius: 9px;
@@ -81,12 +84,16 @@ text-decoration: none;
   z-index: 3;
   color: white;
   opacity: 1;
+   align-items: center;
   transition: 0.5s;
   text-align: center;
   display: flex;
+ display: flex;
   justify-content: center;
+  flex-direction: column;
   p{
     margin: 0 0 72.5px;
+
     &:hover {
       text-decoration: none;
     }
@@ -102,9 +109,9 @@ text-decoration: none;
   bottom: -65px;
 }
 .activity-card .info h2 {
-  position:absolute;
   top:10px;
-  font-size:32px;
+  font-size:30px;
+
 }
 
 .activity-card .info  h2 a {
@@ -116,14 +123,26 @@ text-decoration: none;
 
 }
 a .activity-card .info p {
-  letter-spacing: 1px;
+  letter-spacing: 3px;
   font-size: 15px;
-  color:white;
-  text-decoration:none;
 
-}
-.styling a{
   text-decoration:none;
+    font-size: 20px;
+}
+p.styling  {
+
+  text-decoration:none;
+   background-color: white;
+  text-align: center;
+    color: black;
+    font-weight: 400;
+    text-align:center;
+    border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+    text-decoration: none;
+ width:60px;
+     mix-blend-mode: luminosity;
+    text-align:center;
+text-align: center;
 
 }
 
@@ -143,7 +162,6 @@ a .activity-card .info p {
 .activity-card .info button a {
   background: transparent;
   color: white;
-
   text-decoration:none;
 
 }
@@ -170,4 +188,12 @@ margin-bottom: 0;
   justify-content: space-around;
   align-items: center;
 }
+
+a.delete-decoration{
+    text-decoration: none;
+    &:hover{
+          text-decoration: none;
+
+    }
+  }
 
