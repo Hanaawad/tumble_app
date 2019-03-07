@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
   end
 
   def send_sms
-    if @activity.bookings.count >= @activity.min_limit
+    if @activity.bookings.count >= @activity.min_limit && @activity.name == "White Water Rafting"
       # raise
       account_sid = ENV["TWILIO_ACCOUNT_SID"]
       auth_token = ENV["TWILIO_AUTH_TOKEN"]

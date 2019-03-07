@@ -1,0 +1,38 @@
+.pin {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: $red;
+  /* The margin on right and left will need to be altered as you alter the width of the card to ensure that the pin is in center*/
+  margin: 0px 135px;
+  transform: translate(0px, 10px);
+}
+.scrapebook-card-container {
+  width: 300px;
+  padding: 0px;
+  margin: 15px;
+  float: left;
+}
+.scrapebook-card {
+  padding: 20px;
+  font-family: "roboto", sans-serif;
+  height: 100%;
+  background-color: rgba($grey, 0.9);
+  color: white;
+  border-radius: 5px;
+}
+.scrapebook-card-heading {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.reviews-container {
+  position: absolute;
+  z-index: 1000;
+  width: 1400px;
+  top: 110px;
+  left: 190px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
