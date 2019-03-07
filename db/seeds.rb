@@ -178,7 +178,7 @@ photos =["https://images.unsplash.com/photo-1508166466920-f65aa51f727c?ixlib=rb-
 "https://images.unsplash.com/photo-1512972103000-66ab71f7a228?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60",
 "https://images.unsplash.com/photo-1543727363-77916b8189e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
 "https://images.unsplash.com/photo-1543163300-3566d6a3fab0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60"]
-act1 = Activity.new(name: "White Water Rafting", location: "Jl. Raya Kintamani",
+act1 = Activity.new(name: "Water Rafting", location: "Jl. Raya Kintamani",
   description: "Get the experience of a lifetime during your trip to Bali by trying out white water rafting at the stunning Ayung River, the longest river on the island. Marvel at the river's gorgeous surroundings, including lush rainforests, gorgeous waterfalls, and beautiful gorges! Enjoy a convenient pick up at your hotel, then travel comfortably to the rafting starting point inside an air-conditioned vehicle. Once you arrive, you'll change into your rafting clothes and equipment and be briefed by the professional guides about the proper rafting techniques and safety rules.
   Set off on your exhilarating rafting adventure, which lasts for a bit over an hour, and feel the cool water splashing on your skin as you make your way to the finish line. Rest and recharge with a delicious buffet meal that features a variety of fresh, local dishes, before you shower and start to head back to your hotel. This is a fun, friendly activity
    that all thrillseekers should try at least once during their visit to Bali!", price: 150,
