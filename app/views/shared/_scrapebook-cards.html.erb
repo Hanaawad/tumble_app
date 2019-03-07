@@ -1,10 +1,49 @@
-<% @eight_good_reviews.each do |review| %>
-  <div class='scrapebook-card-container'>
+<div class='scrapebook-card-container scrape-card1'>
   <div class='pin'></div>
   <div class='scrapebook-card'>
-    <div class='scrapebook-card-heading'><%= cl_image_tag review.user.photo, alt: "alttext", class:"avatar sm" %><%= review.user.name %></div>
-    <div class='scrapebook-card-data'><%= review.description %></div>
+    <div class='scrapebook-card-heading'><%= cl_image_tag @eight_good_reviews[0].user.photo, alt: "alttext", class:"avatar sm" %><%= @eight_good_reviews[0].user.name %></div>
+    <div class='scrapebook-card-data'><%= @eight_good_reviews[0].description %></div>
   </div>
 </div>
-<% end %>
+
+<div class='scrapebook-card-container scrape-card2'>
+  <div class='pin'></div>
+  <div class='scrapebook-card'>
+    <div class='scrapebook-card-heading'><%= cl_image_tag @eight_good_reviews[1].user.photo, alt: "alttext", class:"avatar sm" %><%= @eight_good_reviews[1].user.name %></div>
+    <div class='scrapebook-card-data'><%= @eight_good_reviews[1].description %></div>
+  </div>
+</div>
+
+<div class='scrapebook-card-container scrape-card3'>
+  <div class='pin'></div>
+  <div class='scrapebook-card'>
+    <div class='scrapebook-card-heading'><%= cl_image_tag @eight_good_reviews[2].user.photo, alt: "alttext", class:"avatar sm" %><%= @eight_good_reviews[2].user.name %></div>
+    <div class='scrapebook-card-data'><%= @eight_good_reviews[2].description %></div>
+  </div>
+</div>
+
+<div class='scrapebook-card-container scrape-card4'>
+  <div class='pin'></div>
+  <div class='scrapebook-card'>
+    <div class='scrapebook-card-heading'><%= cl_image_tag @eight_good_reviews[3].user.photo, alt: "alttext", class:"avatar sm" %><%= @eight_good_reviews[3].user.name %></div>
+    <div class='scrapebook-card-data'><%= @eight_good_reviews[3].description %></div>
+  </div>
+</div>
+
+<div class='scrapebook-card-container scrape-card5'>
+  <div class='pin'></div>
+  <div class='scrapebook-card'>
+    <div class='scrapebook-card-heading'><%= cl_image_tag @eight_good_reviews[4].user.photo, alt: "alttext", class:"avatar sm" %><%= @eight_good_reviews[4].user.name %></div>
+    <div class='scrapebook-card-data'><%= @eight_good_reviews[4].description %></div>
+  </div>
+</div>
+
+<div class='scrapebook-card-container scrape-card6'>
+  <div class='pin'></div>
+  <div class='scrapebook-card'>
+    <div class='scrapebook-card-heading'><%= cl_image_tag @eight_good_reviews[5].user.photo, alt: "alttext", class:"avatar sm" %><%= @eight_good_reviews[5].user.name %></div>
+    <div class='scrapebook-card-data'><%= @eight_good_reviews[5].description %></div>
+  </div>
+</div>
+
 

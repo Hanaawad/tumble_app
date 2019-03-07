@@ -185,7 +185,7 @@ act1 = Activity.new(name: "White Water Rafting", location: "Jl. Raya Kintamani",
   start_date: Time.new(2019, 03, 20, 10, 15), end_date:
   Time.new(2019, 03, 20, 12, 15), activation_date: Time.new(2019, 03, 12, 11, 15),
   min_limit: 6, max_limit: 10)
-act1.category = water
+act1.category = extreme
 
 act1.save!
 photos.each do |url|
@@ -523,7 +523,7 @@ act11 = Activity.new(name: "Zip line", location: "Jl. A.A. Gede Rai ",
    At the end of the the obstacle, enjoy the view from a high platform overlooking the lush greenery and scenic mountains.", price: 180,
   start_date: Time.new(2019, 03, 15, 11, 30), end_date:
   Time.new(2019, 03, 15, 13, 30), activation_date: Time.new(2019, 03, 9, 13, 30),
-  min_limit: 13, max_limit: 18)
+  min_limit: 11, max_limit: 18)
 act11.category = extreme
 act11.save!
 photos.each do |url|
@@ -571,7 +571,7 @@ act13 = Activity.new(name: "Reef Cruise", location: "l. Pantai Berawa",
    feast on a delicious buffet served in air conditioned comfort on board.", price: 149,
   start_date: Time.new(2019, 02, 28, 12, 30), end_date:
   Time.new(2019, 02, 28, 14, 30), activation_date: Time.new(2019, 02, 20, 12, 15),
-  min_limit: 14, max_limit: 15)
+  min_limit: 11, max_limit: 15)
 act13.category = social
 act13.save!
 photos.each do |url|
