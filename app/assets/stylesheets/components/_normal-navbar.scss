@@ -54,7 +54,7 @@
   font-size: 20px;
 }
 .normal-navbar-wagon-link:hover {
-  color: #ff2621;
+  color: $red;
   text-decoration: none;
 }
 
@@ -93,7 +93,7 @@
   font-size:20px;
   background-color:transparent;
  &:hover {
-  color:#ff2621;
+  color:$red;
   font-size:20px;
  }
 
