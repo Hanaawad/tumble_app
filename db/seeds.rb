@@ -233,11 +233,7 @@ photos.each do |url|
   photo.activity = act2
   photo.save!
 end
-p "review 2"
-r2 = Review.new(description: "A great way to see some of Bali's treasures!", rating: 5)
-r2.activity = act2
-r2.user = max
-r2.save!
+
 p "Creating 6 bookings for act 2"
 five_users.each do |user|
   b = Booking.new
@@ -274,11 +270,7 @@ photos.each do |url|
   photo.activity = act3
   photo.save!
 end
-p "review 3"
-r3 = Review.new(description: "Hmmm, nothing more relaxing", rating: 4)
-r3.activity = act3
-r3.user = max
-r3.save!
+
 p "Creating 6 bookings for act 3"
 six_users.each do |user|
   b = Booking.new
@@ -313,11 +305,7 @@ photos.each do |url|
   photo.activity = act4
   photo.save!
 end
-p "review 4"
-r4 = Review.new(description: "Great dive crew, safe, and very well priced.", rating: 4)
-r4.activity = act4
-r4.user = max
-r4.save!
+
 p "Creating 12 bookings for act 4"
 twelve_users.each do |user|
   b = Booking.new
