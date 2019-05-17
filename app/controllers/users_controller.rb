@@ -8,15 +8,15 @@ class UsersController < ApplicationController
     @bookings = @user.bookings
     @pending = []
     @user.bookings.each do |booking|
-      @pending << booking if booking.activity.min_limit > booking.activity.users.count && booking.activity.start_date > now
+      @pending << booking if booking.activity.min_limit > booking.activity.users.count
     end
     @ready = []
     @user.bookings.each do |booking|
-      @ready << booking if booking.activity.min_limit <= booking.activity.users.count && booking.activity.start_date > now
+      @ready << booking if booking.activity.min_limit <= booking.activity.users.count
     end
     @done = []
     @user.bookings.each do |booking|
-      @done << booking if booking.activity.start_date < now
+      @done << booking
     end
     @reviews = @user.reviews
     time = Time.new(2020, 03, 20, 10, 15)
